@@ -1,7 +1,7 @@
 class Specialty < ApplicationRecord
-  SPECIALTY = ["Urban", "Fashion", "Action", "Nature", "Landscape", "Food"]
+  SPECIALTIES = ["Urban", "Fashion", "Action", "Nature", "Landscape", "Food"]
   has_many :photographerspecialties
 
-  validates :name, inclusion: { in: SPECIALTY }, presence: true
+  validates :name, inclusion: { in: SPECIALTIES }, presence: true
 
 end

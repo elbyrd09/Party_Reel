@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
-  TYPE = ["Multi-day Festival", "Single-day Festival", "Concert"]
-  GENRE = ["Hip Hop", "Rock", "Metal", "EDM", "Mixed", "Folk", "Bluegrass", "Jazz", "Reggae", "Punk", "Alternative", "K-Pop", "Country"]
-  PARTNERS = ["Yes, food truck: allocate 1 photographer", "Yes, Radiate: allocate 2 photographers", "No, Party Reel only"]
+  TYPES = ["Multi-day Festival", "Single-day Festival", "Concert"]
+  GENRES = ["Hip Hop", "Rock", "Metal", "EDM", "Mixed", "Folk", "Bluegrass", "Jazz", "Reggae", "Punk", "Alternative", "K-Pop", "Country"]
+  PARTNERSHIPS = ["Yes, food truck: allocate 1 photographer", "Yes, Radiate: allocate 2 photographers", "No, Party Reel only"]
 
   has_many :availablephotographers
   has_many :bookings
@@ -14,9 +14,9 @@ class Event < ApplicationRecord
 
   validates :event_description, presence: true
   validates :location, presence: true
-  validates :type_event, inclusion: { in: TYPE }, presence: true
-  validates :genre, inclusion: { in: GENRE }, presence: true
-  validates :partnership, inclusion: { in: PARTNERS }
+  validates :type_event, inclusion: { in: TYPES }, presence: true
+  validates :genre, inclusion: { in: GENRES }, presence: true
+  validates :partnership, inclusion: { in: PARTNERSHIPS }
 
   private
 
