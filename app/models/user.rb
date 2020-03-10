@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :photographer
+  has_one :attendee
+
+  validates :first_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z]+\z/ }, presence: true
+  validates :last_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z|\s]+\z/ }, presence:  true
+  validates :location, presence: true
+
 end
