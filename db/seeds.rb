@@ -18,6 +18,7 @@ PRICES = [750, 400, 250]
 DESCRIPTIONS = ["SICKO Mode ~ Dedicated attention for the entire event by one our our professional photographers!", "How do you want it? ~ Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Timezones ~ Periodic attention where our team will capture moments throughout your event experience"]
 SESSIONS = ["Dedicated session", "Periodic session"]
 
+puts 'Packages loading up...'
 # # # Preferences
 PREFERENCES = ["Candid", "Portrait", "Group", "Creative Shots", "Art Installations", "Venue/Artists" ]
 
@@ -26,6 +27,8 @@ TYPES = ["Multi-day Festival", "Single-day Festival", "Concert"]
 PARTNERSHIPS = ["Yes, food truck: allocate 1 photographer", "Yes, Radiate: allocate 2 photographers", "No, Party Reel only"]
 GENRES = ["Hip Hop", "Rock", "Metal", "EDM", "Mixed", "Folk", "Bluegrass", "Jazz", "Reggae", "Punk", "Alternative", "K-Pop", "Country"]
 
+puts 'Oh, you want events? Here they come!'
+
 # # # AvailablePhotographers
 FULLYBOOK = ["Free", "Full", "Partially"]
 
@@ -33,8 +36,11 @@ FULLYBOOK = ["Free", "Full", "Partially"]
 SPECIALTIES = ["Urban", "Fashion", "Action", "Nature", "Landscape", "Food"]
 PROFESSIONS = ["Photographer", "Videographer", "Both"]
 
+puts 'Linking to our photographers...'
 # # # Attendee
 INTERACTIONS = ["Behind the Scenes", "With our Group", "A Mix of Both"]
+
+puts 'Last, but not least, our attendees'
 
 # # UserAttendee
 user_login = User.new(password: 'password', email: 'user1@gmail.com')
@@ -98,10 +104,21 @@ EVENTURLS.each do |festival|
   # html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
   # ^ works but need to install ActiveStorage first to then attach this image to the event
   event.save!
-endX
+end
+
+# 3 times do
+
+#   end
 
 3.times do
-  booking = Booking.new(photographer: photographer, attendee: attendee, event: event, package: package)
+  randomevent = Event.all.sample
+
+  availability = AvailablePhotographer.new(photographer: photographer, event: randomevent, fully_booked: "Partially")
+  availability.save!
+  # default value is 'FREE' when the photographer's row is created in this table
+
+  booking = Booking.new(photographer: photographer, attendee: attendee, event: randomevent, package: package)
+  # if there is 1 value of SICKO Mode in the package: key then we change the value of fully_booked to 'FULL'
   booking.start_time = Time.new(2020, 4, 12).strftime('%b %d, %Y')
   booking.end_time = Time.new(2020, 4, 15).strftime('%b %d, %Y')
   booking.save!
