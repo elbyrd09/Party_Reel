@@ -10,10 +10,101 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_060330) do
+ActiveRecord::Schema.define(version: 2020_03_10_044618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.string "interaction"
+    t.string "influencer"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_attendees_on_user_id"
+  end
+
+  create_table "attendeeshotpreferences", force: :cascade do |t|
+    t.bigint "attendee_id"
+    t.bigint "shotpreference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendee_id"], name: "index_attendeeshotpreferences_on_attendee_id"
+    t.index ["shotpreference_id"], name: "index_attendeeshotpreferences_on_shotpreference_id"
+  end
+
+  create_table "availablephotographers", force: :cascade do |t|
+    t.string "fully_booked"
+    t.bigint "event_id"
+    t.bigint "photographer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_availablephotographers_on_event_id"
+    t.index ["photographer_id"], name: "index_availablephotographers_on_photographer_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "attendee_id"
+    t.bigint "photographer_id"
+    t.bigint "event_id"
+    t.bigint "package_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendee_id"], name: "index_bookings_on_attendee_id"
+    t.index ["event_id"], name: "index_bookings_on_event_id"
+    t.index ["package_id"], name: "index_bookings_on_package_id"
+    t.index ["photographer_id"], name: "index_bookings_on_photographer_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "event_description"
+    t.string "location"
+    t.string "type_event"
+    t.string "genre"
+    t.string "partnership"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string "category"
+    t.integer "price"
+    t.text "description"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photographers", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "camera"
+    t.string "lenses"
+    t.string "specialty"
+    t.string "profession"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photographers_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
+  create_table "shotpreferences", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,4 +122,15 @@ ActiveRecord::Schema.define(version: 2020_03_10_060330) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendees", "users"
+  add_foreign_key "attendeeshotpreferences", "attendees"
+  add_foreign_key "attendeeshotpreferences", "shotpreferences"
+  add_foreign_key "availablephotographers", "events"
+  add_foreign_key "availablephotographers", "photographers"
+  add_foreign_key "bookings", "attendees"
+  add_foreign_key "bookings", "events"
+  add_foreign_key "bookings", "packages"
+  add_foreign_key "bookings", "photographers"
+  add_foreign_key "photographers", "users"
+  add_foreign_key "reviews", "bookings"
 end
