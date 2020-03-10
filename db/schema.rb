@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_060330) do
+ActiveRecord::Schema.define(version: 2020_03_10_063739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,12 +84,20 @@ ActiveRecord::Schema.define(version: 2020_03_10_060330) do
     t.string "phone_number"
     t.string "camera"
     t.string "lenses"
-    t.string "specialty"
     t.string "profession"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_photographers_on_user_id"
+  end
+
+  create_table "photographerspecialties", force: :cascade do |t|
+    t.bigint "specialty_id"
+    t.bigint "photographer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photographer_id"], name: "index_photographerspecialties_on_photographer_id"
+    t.index ["specialty_id"], name: "index_photographerspecialties_on_specialty_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -101,6 +109,12 @@ ActiveRecord::Schema.define(version: 2020_03_10_060330) do
   end
 
   create_table "shotpreferences", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "specialties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,5 +146,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_060330) do
   add_foreign_key "bookings", "packages"
   add_foreign_key "bookings", "photographers"
   add_foreign_key "photographers", "users"
+  add_foreign_key "photographerspecialties", "photographers"
+  add_foreign_key "photographerspecialties", "specialties"
   add_foreign_key "reviews", "bookings"
 end
