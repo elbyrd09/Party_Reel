@@ -9,7 +9,7 @@ class Booking < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :end_time_after_start_time
+  validate :end_time_after_start_time
 
   private
 
@@ -21,4 +21,4 @@ class Booking < ApplicationRecord
     end
   end
 end
-end
+

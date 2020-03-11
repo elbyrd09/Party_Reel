@@ -8,7 +8,7 @@ class Photographer < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
 
-  validates :phone_number, format: { with: /^[2-9]\d{2}-\d{3}-\d{4}$/ }, presence: true
+  validates :phone_number, format: { with: /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/ }, presence: true
   # no validations for camera and lenses
   validates :profession, inclusion: { in: PROFESSIONS }
 
