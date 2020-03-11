@@ -1,5 +1,5 @@
 class Attendee < ApplicationRecord
-  INTERACTIONS = ["Behind the Scenes", "With our Group", "A Mix of Both"]
+  INTERACTIONS = ["Behind the scenes", "With our group", "A mix of both"]
   belongs_to :user
 
   has_many :attendeeshotpreferences

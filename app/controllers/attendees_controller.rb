@@ -9,14 +9,18 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.new(attendee_params)
     @attendee.user = current_user
     if @attendee.save
-      redirect_to dashboard_path
+      params[:attendee][:attendeeshotpreference_ids].reject(&:blank?).each do |preference|
+        Attendeeshotpreference.create(attendee: @attendee, shotpreference_id: preference)
+      end
+      redirect_to dashboard_path(@attendee)
     else
       render 'new'
     end
   end
 
   def edit
-    @attendee = Attendee.find(current_user.attendee)
+    @attendee = Attendee.find(current_user.attendee.id)
+    redirect_to edit_user_registration_path
   end
 
   def update

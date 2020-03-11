@@ -12,8 +12,8 @@
           </div>
           <div class="attendee-add-infos col-md-6">
             <%= simple_form_for(@attendee) do |f| %>
-              <p><%= f.input :influencer, as: :radio_buttons %></p>
-              <p><%= f.input :interaction, as: :radio_buttons %></p>
+              <p><%= f.input :influencer, as: :radio_buttons, collection: [['I plan to make a profit off of the photographs', 'Profit'], ['I will only use the photos personally', 'Personal']]  %></p>
+              <p><%= f.input :interaction, as: :radio_buttons, collection: Attendee::INTERACTIONS %></p>
               <p><%= f.association :attendeeshotpreferences, as: :check_boxes, collection: Shotpreference.all, input_html: { checked: true } %></p>
               <%= f.submit class: "btn btn-primary" %>
             <% end %>
