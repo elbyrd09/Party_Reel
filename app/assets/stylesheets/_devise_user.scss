@@ -1,0 +1,49 @@
+.wrapper{
+  background-image: linear-gradient(to bottom right, #fa163f, #12cad6);
+  height: 874px;
+}
+
+.background-card{
+  margin: auto, 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fullform-container{
+  margin-top: 112px;
+  box-shadow: 10px 10px 8px black;
+}
+.form {
+    background: #050262;
+    padding: 30px 50px;
+    color: white;
+
+}
+
+.side_img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to right, #fa163f 0%, #be6779 12%, #ae5e77 23%, #42236b 78%, #321a69 88%, #251368 100%);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.btn-gradient:hover {
+  background-image: linear-gradient(to right, #12cad6 0%, #be6779 12%, #ae5e77 73%, #42236b 88%, #321a69 95%, #251368 100%);
+  color: white;
+  border: none;
+}
+
+.btns_signup_forgetpass_login{
+  border: white solid 2px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  color: white;
+}
