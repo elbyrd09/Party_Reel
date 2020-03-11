@@ -1,6 +1,3 @@
-import "bootstrap";
-import "jquery"
-
 function moveToSelected(element) {
   if (element == "next") {
     var selected = $(".selected").next();
