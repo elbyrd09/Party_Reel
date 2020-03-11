@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   end
 
   def show
-
+    # nothing needed here for now....
   end
 
   private
