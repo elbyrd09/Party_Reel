@@ -1,2 +1,6 @@
 <h1>Packages#show</h1>
 <p>Find me in app/views/packages/show.html.erb</p>
+
+<% @photographers_present.each do |pgr| %>
+  <h1><%= pgr.user.first_name %></h1>
+<% end %>

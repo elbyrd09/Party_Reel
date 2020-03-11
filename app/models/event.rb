@@ -10,7 +10,7 @@ class Event < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :end_date_after_start_date
+  validate :end_date_after_start_date
 
   validates :event_description, presence: true
   validates :location, presence: true
