@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :photographer
   has_one :attendee
+  has_many :attendeeshotpreferences
+  has_many :shotpreferences, through: :attendeeshotpreferences
 
   validates :first_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z]+\z/ }, presence: true
   validates :last_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z|\s]+\z/ }, presence:  true

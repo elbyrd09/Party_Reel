@@ -1,2 +1,12 @@
-<h1>Attendees#new</h1>
-<p>Find me in app/views/attendees/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5" style="text-align: center">
+      <h1>Thanks for signing up, <%= current_user.first_name %>!</h1>
+      <br>
+      <p> Can you provide a little more information? </p>
+      <p>We do not want our team to interrupt a good time - our photographers will be able to capture you without you instructing them</p>
+    </div>
+  </div>
+<%= render 'shared/formATTN', attendee: @attendee %>
+</div>
+

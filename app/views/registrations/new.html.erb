@@ -1,0 +1,45 @@
+<div class="wrapper container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 mx-auto fullform-container">
+      <div class="row">
+      <div class="form col-lg-4 col-md-12">
+
+        <h2>Sign up</h2>
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+           <%= f.error_notification %>
+
+
+              <%= f.input :first_name, required: true, autofocus: true %>
+               <%= f.input :last_name, required: true, autofocus: true %>
+              <%= f.input :location, required: true, autofocus: true %>
+              <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+              <%= f.input :user_ig_handle, :label => "Instagram Handle",required: true, autofocus: true %>
+              <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+                <div class="form-actions">
+                  <%= f.button :submit, "Sign up", class: "btn-gradient w-100"  %>
+
+                </div>
+                 <div class="btns_signup_forgetpass_login">
+                 <%= render "devise/shared/links" %>
+                </div>
+          <% end %>
+      </div>
+        <div class="side_img col-lg-8 col-md-12 px-0">
+        <%= image_tag "st.jpg", alt: "alttext", class: "img-fluid" %>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%= stylesheet_link_tag '_devise_user' %>

@@ -40,7 +40,7 @@ PROFESSIONS = ["Photographer", "Videographer", "Both"]
 
 puts 'Linking to our photographers...'
 # # # Attendee
-INTERACTIONS = ["Behind the Scenes", "With our Group", "A Mix of Both"]
+INTERACTIONS = ["Behind the scenes", "With our group", "A mix of both"]
 
 # Reviews
 REVIEWS = ["So awesome, our photographer captured our event really well!", "Such a cool experience.  We didn't have to lift a finger :)", "We'll be booking Party Reel again, no doubt!"]
