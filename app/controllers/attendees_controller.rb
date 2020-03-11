@@ -30,7 +30,6 @@ class AttendeesController < ApplicationController
 
   def destroy
     @attendee.destroy
-    @attendee.save!
     redirect_to root_path
   end
 
