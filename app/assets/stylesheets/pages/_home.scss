@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+.homepage-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-top: 2pc;
+  margin-bottom: 2pc;
+  font-size: 30px;
+
+.card-category{
+  height: 200px;
+}
+
+}
+.card-category:hover{
+transform: scale(1.1);
+}
+
+
+.wrapper{
+  background-image: linear-gradient(to bottom right, #fa163f, #12cad6);
+  height: 874px;
+}
