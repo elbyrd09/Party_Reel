@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'registrations/after_sign_up_path_for'
+  # get 'registrations/after_sign_up_path_for'
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
