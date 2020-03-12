@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
     <title>Party Reel</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -11,7 +12,7 @@
   </head>
   <body>
     <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') %>
-    <%= render 'shared/navbar' %>params
+    <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
