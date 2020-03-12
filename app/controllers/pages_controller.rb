@@ -11,4 +11,9 @@ class PagesController < ApplicationController
     # else
       # @bookings = Booking.all.where(attendee: current_user.attendee)
   end
+
+  def edit_profile
+    @attendee = current_user.attendee
+    @photographer = current_user.photographer
+  end
 end

@@ -42,7 +42,7 @@ PROFESSIONS = ["Photographer", "Videographer", "Both"]
 puts 'Linking to our photographers...'
 # # # Attendee
 INTERACTIONS = ["Behind the scenes", "With our group", "A mix of both"]
-INFLUENCERS = ["I will only use for personal use", "I plan to make a profit from these photos"]
+INFLUENCERS = ["I will only use the photos personally", "I plan to make a profit from these photos"]
 
 # Reviews
 REVIEWS = ["So awesome, our photographer captured our event really well!", "Such a cool experience.  We didn't have to lift a finger :)", "We'll be booking Party Reel again, no doubt!"]
@@ -107,8 +107,8 @@ EVENTURLS.each do |festival|
   # headerblock.search("p").first.text #headerblock name 2
   # not in a parsable format ^
   event.event_description = html_doc.search('.hubscene').text
-  # file = html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
-  # event.photo.attach(io: file, filename: 'file', content_type: 'image/png')
+  file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
+  event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
   # ^ works but need to install ActiveStorage first to then attach this image to the event
   event.save!
 end

@@ -1,0 +1,14 @@
+<% if current_user.photographer %>
+  <%= simple_form_for @photographer do |f| %>
+    <%= f.input :camera %>
+    <%= f.input :lenses %>
+    <%= f.input :phone_number %>
+    <%= f.input :profession %>
+  <% end %>
+<% else %>
+  <%= simple_form_for @attendee do |f| %>
+    <%= f.input :influencer %>
+    <%= f.input :interaction %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
