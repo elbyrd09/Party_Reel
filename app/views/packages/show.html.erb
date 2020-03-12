@@ -19,7 +19,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= pgr.user.first_name %> <%= pgr.user.last_name %> </h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            <% case @package.name %>
+              <% when "Timezones" %>
+                <p><%= pgr.user.first_name %> <%= pgr.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+              <% when "How do you want it?" %>
+                <p><strong>How do you want it?:</strong> booking with <%= pgr.user.first_name %> <%= pgr.user.last_name %> from <strong id="quote-start-time"></strong> to <strong id="quote-end-time"></strong>.</p>
+              <% when "SICKO Mode" %>
+                <p> SICKO Mode with <%= pgr.user.first_name %> <%= pgr.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
+             <% end %>
+          </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
