@@ -1,4 +1,4 @@
-function moveToSelected(element) {
+export function moveToSelected(element) {
   if (element == "next") {
     var selected = $(".selected").next();
   } else if (element == "prev") {
@@ -40,7 +40,7 @@ function moveToSelected(element) {
     .addClass("hideLeft");
 }
 
-// Eventos teclado
+// Keyboard events
 $(document).keydown(function(e) {
   switch (e.which) {
     case 37: // left
