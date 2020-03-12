@@ -9,6 +9,6 @@ class Attendee < ApplicationRecord
   has_many :reviews, through: :bookings
 
   validates :interaction, inclusion: { in: INTERACTIONS }, presence: true
-  validates :influencer, inclusion: { in: INFLUENCERS}, presence: true
+  validates :influencer, presence: true
 
 end

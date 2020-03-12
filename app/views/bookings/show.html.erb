@@ -1,2 +1,6 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h2>My Photographer:</h2>
+<p><%= @booking.photographer.user.first_name %></p>
+<h2>My Package:</h2>
+<p><%= @booking.package.name %></p>
+<h2>Total price:</h2>
+<p><%= @booking.package.price %></p>

@@ -1,6 +1,13 @@
 <h2>These Photographers are available for <%= @package.name %>:</h2>
 
-
+<% if @package.name == "How do you want it?" %>
+  <form action="/action_page.php">
+    <label for="starttime">Start time:</label>
+    <input type="time" id="starttime" name="starttime">
+    <label for="endtime">End time:</label>
+    <input type="time" id="endtime" name="endtime"><br><br>
+  </form>
+<% end %>
 
 
 <% @photographers_present.each do |pgr| %>
@@ -33,11 +40,19 @@
           <% end %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Book <%= pgr.user.first_name %>!</button>
+          <%= simple_form_for [@event, @booking] do |f| %>
+            <%= f.hidden_field :photographer_id, value: pgr.id %>
+            <%= f.hidden_field :package_id, value: @package.id %>
+            <!-- starttime and endtime filled with JS function -->
+            <%= f.hidden_field :start_time  %>
+            <%= f.hidden_field :end_time %>
+            <%= f.button :submit, "Book #{pgr.user.first_name}!" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+
 
 
