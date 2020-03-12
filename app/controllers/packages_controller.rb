@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
   before_action :set_package, only: [:show]
 
   def index
-    @packages = Package.all?
+    @packages = Package.all
   end
 
   def show

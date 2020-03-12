@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   belongs_to :event
   belongs_to :package
 
-  has_one :review
+  has_many :reviews
   # has_many :payments
 
   validates :start_time, presence: true
