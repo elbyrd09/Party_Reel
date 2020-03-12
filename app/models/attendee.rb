@@ -11,4 +11,6 @@ class Attendee < ApplicationRecord
 
   validates :interaction, inclusion: { in: INTERACTIONS }, presence: true
 
+  validates :influencer, presence: true
+
 end

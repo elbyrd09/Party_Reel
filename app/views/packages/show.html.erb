@@ -1,6 +1,13 @@
 <h2>These Photographers are available for <%= @package.name %>:</h2>
 
-
+<% if @package.name == "How do you want it?" %>
+  <form action="/action_page.php">
+    <label for="starttime">Start time:</label>
+    <input type="time" id="starttime" name="starttime">
+    <label for="endtime">End time:</label>
+    <input type="time" id="endtime" name="endtime"><br><br>
+  </form>
+<% end %>
 
 
 <% @photographers_present.each do |pgr| %>
@@ -12,7 +19,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= pgr.user.first_name %> <%= pgr.user.last_name %> </h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            <% case @package.name %>
+              <% when "Timezones" %>
+                <p><%= pgr.user.first_name %> <%= pgr.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+              <% when "How do you want it?" %>
+                <p><strong>How do you want it?:</strong> booking with <%= pgr.user.first_name %> <%= pgr.user.last_name %> from <strong id="quote-start-time"></strong> to <strong id="quote-end-time"></strong>.</p>
+              <% when "SICKO Mode" %>
+                <p> SICKO Mode with <%= pgr.user.first_name %> <%= pgr.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
+             <% end %>
+          </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -33,11 +49,19 @@
           <% end %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Book <%= pgr.user.first_name %>!</button>
+          <%= simple_form_for [@event, @booking] do |f| %>
+            <%= f.hidden_field :photographer_id, value: pgr.id %>
+            <%= f.hidden_field :package_id, value: @package.id %>
+            <!-- starttime and endtime filled with JS function -->
+            <%= f.hidden_field :start_time  %>
+            <%= f.hidden_field :end_time %>
+            <%= f.button :submit, "Book #{pgr.user.first_name}!" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+
 
 
