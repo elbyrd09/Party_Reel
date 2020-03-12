@@ -24,13 +24,11 @@
           <div class="sv-tab-panel">
             <h3>TAB 1</h3>
             <p>My Clients</p>
-
-            <% @bookings.each do |booking| %>
-              <div class="booking_info">
-                <%= render 'shared/client_booking' %>
-              </div>
-            <% end %>
-
+              <ul>
+                <% @bookings.each do |booking| %>
+                  <li><%= render 'shared/client_booking', booking: booking %></li>
+                <% end %>
+              </ul>
           </div>
         </div>
 
@@ -59,7 +57,6 @@
             <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
           </div>
         </div>
-
       </div>
     </div>
   </div>
