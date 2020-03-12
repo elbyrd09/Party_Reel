@@ -1,6 +1,13 @@
 <h2>These Photographers are available for <%= @package.name %>:</h2>
 
-
+<% if @package.name == "How do you want it?" %>
+  <form action="/action_page.php">
+    <label for="starttime">Start time:</label>
+    <input type="time" id="starttime" name="starttime">
+    <label for="endtime">End time:</label>
+    <input type="time" id="endtime" name="endtime"><br><br>
+  </form>
+<% end %>
 
 
 <% @photographers_present.each do |pgr| %>
@@ -33,7 +40,10 @@
           <% end %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Book <%= pgr.user.first_name %>!</button>
+          <%= simple_form_for @movie do |f| %>
+            <%= f.hidden :title, "some value" %>
+            <%= f.button :submit, "Book <%= pgr.user.first_name %>!" %>
+          <%= end %>
         </div>
       </div>
     </div>
