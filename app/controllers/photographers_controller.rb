@@ -1,5 +1,5 @@
 class PhotographersController < ApplicationController
-  before_action :set_attendee, only: [:edit, :update, :destroy]
+  before_action :set_photographer, only: [:edit, :update, :destroy]
 
   def new
     @photographer = Photographer.new
