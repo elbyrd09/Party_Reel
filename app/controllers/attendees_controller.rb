@@ -19,7 +19,6 @@ class AttendeesController < ApplicationController
   end
 
   def edit
-    @attendee = Attendee.find(current_user.attendee.id)
     redirect_to edit_user_registration_path
   end
 
@@ -39,7 +38,7 @@ class AttendeesController < ApplicationController
 
 private
   def set_attendee
-    @attendee = Attendee.find(params[:id])
+    @attendee = Attendee.find(current_user.attendee.id)
   end
 
   def attendee_params

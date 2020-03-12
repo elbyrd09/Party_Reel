@@ -1,2 +1,13 @@
-<h1>Photographers#new</h1>
-<p>Find me in app/views/photographers/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5" style="text-align: center">
+      <h1>You're on the way to becoming a part of a great team, <%= current_user.first_name %>!</h1>
+      <br>
+      <p> Can you please provide additional information so we understand what you bring to the table? </p>
+      <p>Our team will reach out to you directly via email to discuss the orientation process and to confirm your personal details - thanks!!</p>
+      <br>
+      <h2>#LFG#Party#Reel</h2>
+    </div>
+  </div>
+<%= render 'shared/formPGR', photographer: @photographer %>
+</div>
