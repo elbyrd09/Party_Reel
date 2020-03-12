@@ -14,6 +14,7 @@ Photographer.destroy_all
 Attendee.destroy_all
 User.destroy_all
 
+# constants only exist in the seed file and we would not have a link to them
 # # # Packages
 CATEGORIES = ["SICKO Mode", "How do you want it?", "Timezones"]
 PRICES = [750, 400, 250]
@@ -41,6 +42,7 @@ PROFESSIONS = ["Photographer", "Videographer", "Both"]
 puts 'Linking to our photographers...'
 # # # Attendee
 INTERACTIONS = ["Behind the scenes", "With our group", "A mix of both"]
+INFLUENCERS = ["I will only use for personal use", "I plan to profit of of the photos (Influencer, model, etc.)"]
 
 # Reviews
 REVIEWS = ["So awesome, our photographer captured our event really well!", "Such a cool experience.  We didn't have to lift a finger :)", "We'll be booking Party Reel again, no doubt!"]
@@ -59,8 +61,8 @@ puts "Created #{user_login}"
 user_login.save!
 
 attendee = Attendee.new(user: user_login)
-attendee.interaction = 'Behind the Scenes'
-attendee.influencer = 'Yes'
+attendee.interaction = INTERACTIONS.sample
+attendee.influencer = INFLUENCERS.sample
 attendee.save!
 puts "Created #{attendee}"
 
@@ -110,9 +112,7 @@ EVENTURLS.each do |festival|
   event.save!
 end
 
-# 3 times do
-
-#   end
+# Package Instances
 
 sickomode = Package.new
 sickomode.name = "SICKO Mode"
@@ -135,6 +135,16 @@ timezones.description = "Our team will capture moments throughout your event exp
 timezones.session = "Periodic session"
 timezones.save!
 
+# Preference Array
+PREFERENCES.each do |pref|
+  Shotpreference.create!(name: pref)
+end
+
+# Specialty Array
+
+SPECIALTIES.each do |special|
+  Specialty.create!(name: special)
+end
 
 3.times do
   randomevent = Event.all.sample
