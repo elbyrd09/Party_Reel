@@ -12,7 +12,7 @@
   <div class="homepage-cards">
     <% @events.each do |event| %>
       <a href="events/<%= event.id %>">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'lg1.jpg' %>)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
           <div class="event_info">
             <h3><%= event.name %></h3>
           </div>

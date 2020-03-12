@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="attendee-mod mt-3 col-9">
+  <div class="row" style="display: contents">
+    <div class="attendee-mod mt-3">
         <div class="attendee-mod-infos">
           <div class="row">
               <div class="col-md-6">
@@ -9,15 +9,14 @@
                 <p> <%= current_user.location %> </p>
                 <p> <%= current_user.user_ig_handle %> </p>
               </div>
-          </div>
           <div class="attendee-add-infos col-md-6">
             <%= simple_form_for(@attendee) do |f| %>
-            <!-- make collection_radio_buttons a simple form with influencer constant -->
               <p><%= f.input :influencer, as: :radio_buttons, collection: Attendee::INFLUENCERS %></p>
               <p><%= f.input :interaction, as: :radio_buttons, collection: Attendee::INTERACTIONS %></p>
               <p><%= f.association :attendeeshotpreferences, as: :check_boxes, collection: Shotpreference.all, input_html: { checked: true } %></p>
               <%= f.submit class: "btn btn-primary" %>
             <% end %>
+          </div>
         </div>
       </div>
     </div>
