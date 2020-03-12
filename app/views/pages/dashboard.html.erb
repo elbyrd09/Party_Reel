@@ -1,7 +1,7 @@
 <h2>This is the Dashboard</h2>
 
 <!-- Photographer Dashboard -->
-<!-- if current.user = photographer render this -->
+<!-- if current_user = photographer render this -->
   <div class="container">
     <div class="vertical-tabs">
       <ul class="nav nav-tabs" role="tablist">
@@ -22,8 +22,7 @@
       <div class="tab-content">
         <div class="tab-pane active" id="pag1" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>TAB 1</h3>
-            <p>My Clients</p>
+            <h3>My Clients</h3>
               <ul>
                 <% @bookings.each do |booking| %>
                   <li><%= render 'shared/client_booking', booking: booking %></li>
@@ -35,26 +34,76 @@
 
         <div class="tab-pane" id="pag2" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>TAB 2</h3>
-            <p>Event Manager</p>
-            <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+            <h3>My Events</h3>
+            <h2>Photographers Needed For:</h2>
+            <div class=“container”>
+              <div class=“homepage-cards”>
+                <% @events.each do |event| %>
+                  <ul>
+                    <li> <%= render 'shared/manage_events', event: event %> </li>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
 
 
         <div class="tab-pane" id="pag3" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>TAB 3</h3>
-            <p>My Portfolio</p>
-            <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+            <h3>My Portfolio</h3>
+
+            <div class=profilo_top_card>
+              <h2>NNN</h2>
+              <div class="profile_pic">
+                <%= image_tag("profile_img.jpg") %>
+                <div class="profile_info">
+                  <h4>Bio</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis nemo minus magni perferendis dignissimos ipsum maxime illo dolorem molestiae! Minus minima beatae vel eius illo. Iure molestias, dolore fugiat!</p>
+                </div>
+              </div>
+              <div class="Portfolio">
+                <h2 class="events">Portfolio </h2>
+                  <div id="carousel">
+
+                    <div class="hideLeft">
+                    <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+                    </div>
+
+                    <div class="prevLeftSecond">
+                    <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+                    </div>
+
+                    <div class="prev">
+                    <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+                    </div>
+
+                    <div class="selected">
+                    <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+                    </div>
+
+                    <div class="next">
+                    <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+                    </div>
+
+                    <div class="nextRightSecond">
+                    <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+                    </div>
+
+                    <div class="hideRight">
+                    <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+                    </div>
+                    </div>
+
+
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="tab-pane" id="pag4" role="tabpanel">
           <div class="sv-tab-panel">
-           <h3>TAB 4</h3>
-            <p>Messages</p>
-            <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+           <h3>Messages</h3>
           </div>
         </div>
       </div>
