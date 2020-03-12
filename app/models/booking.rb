@@ -58,6 +58,5 @@ class Booking < ApplicationRecord
       availability.fully_booked = "Partially"
     end
     availability.save
-    binding.pry
   end
 end
