@@ -6,16 +6,16 @@
     <div class="vertical-tabs">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">My Clients</a>
+          <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="My Clients">My Clients</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">Event Manager</a>
+          <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="Event Manager">Event Manager</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="messages">Portfolio</a>
+          <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="Portfolio">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="settings">Messages</a>
+          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
         </li>
       </ul>
 
@@ -64,38 +64,7 @@
               </div>
               <div class="Portfolio">
                 <h2 class="events">Portfolio </h2>
-                  <div id="carousel">
-
-                    <div class="hideLeft">
-                    <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
-                    </div>
-
-                    <div class="prevLeftSecond">
-                    <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-                    </div>
-
-                    <div class="prev">
-                    <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-                    </div>
-
-                    <div class="selected">
-                    <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-                    </div>
-
-                    <div class="next">
-                    <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-                    </div>
-
-                    <div class="nextRightSecond">
-                    <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-                    </div>
-
-                    <div class="hideRight">
-                    <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-                    </div>
-                    </div>
-
-
+                  <%= render 'shared/portfolio_carousel' %>
               </div>
             </div>
           </div>
