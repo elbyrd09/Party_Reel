@@ -1,6 +1,43 @@
-<h1>Packages#show</h1>
-<p>Find me in app/views/packages/show.html.erb</p>
+<h2>These Photographers are available for <%= @package.name %>:</h2>
+
+
+
 
 <% @photographers_present.each do |pgr| %>
-  <h1><%= pgr.user.first_name %></h1>
+  <a data-toggle="modal" data-target="#photographerModal<%= pgr.id %>" >
+      <h2><%= pgr.user.first_name%><%=pgr.user.last_name %></h2>
+  </a>
+  <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
+  <div class="modal fade" id="photographerModal<%= pgr.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= pgr.user.first_name %> <%= pgr.user.last_name %> </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3><%= pgr.user.first_name %> <%= pgr.user.last_name %></h3>
+          <p> <%= pgr.profession %></p>
+          <p> Instagram: <%= pgr.user.user_ig_handle %></p>
+          <p> Located in: <%= pgr.user.location %></p>
+          <p> Camera: <%= pgr.camera %></p>
+          <% pgr.photographerspecialties.each do |photographer_specialty| %>
+            <p> <%= photographer_specialty.specialty.name  %></p>
+          <% end  %>
+          <% pgr.bookings.each do |booking| %>
+            <% booking.reviews.each do |review| %>
+              <p> <%= review.content %></p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Book <%= pgr.user.first_name %>!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+
+

@@ -1,2 +1,6 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h2>Book your Photographer for <%= @event.name %>! </h2>
+<p>Dates for <%= @event.name %>: </p>
+<p>Start date: <%= @event.start_date %> </p>
+<p>End date: <%= @event.end_date %> </p>
+
+<a href="<%= @event.id %>/packages">Book!</a>
