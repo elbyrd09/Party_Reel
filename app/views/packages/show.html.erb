@@ -40,14 +40,19 @@
           <% end %>
         </div>
         <div class="modal-footer">
-          <%= simple_form_for @movie do |f| %>
-            <%= f.hidden :title, "some value" %>
-            <%= f.button :submit, "Book <%= pgr.user.first_name %>!" %>
-          <%= end %>
+          <%= simple_form_for [@event, @booking] do |f| %>
+            <%= f.hidden_field :photographer_id, value: pgr.id %>
+            <%= f.hidden_field :package_id, value: @package.id %>
+            <!-- starttime and endtime filled with JS function -->
+            <%= f.hidden_field :start_time  %>
+            <%= f.hidden_field :end_time %>
+            <%= f.button :submit, "Book #{pgr.user.first_name}!" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+
 
 

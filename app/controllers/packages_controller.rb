@@ -7,6 +7,7 @@ class PackagesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @photographers_present = []
     # Put each available Photographer inside the @photographers_present array,
     # so this will be an array of Photographer objects
