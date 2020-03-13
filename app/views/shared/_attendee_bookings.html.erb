@@ -1,0 +1,16 @@
+<div class="card-trip my-5">
+  <%= cl_image_tag booking.event.photos[0].key%>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= booking.event.name %></h2>
+
+            <p>Genre: Mixed bag</p>
+            <p>Dates Party Reel Onsite: 4/11-4/13</p>
+            <h5> Package Selected: <%= booking.package.name %> </h5>
+
+    </div>
+    <h5 class="card-trip-pricing">Payment Status: Paid</h5>
+
+    <img src="<%= asset_path("profile_img.jpg") %>" class="card-trip-user avatar-bordered" />
+  </div>
+</div>

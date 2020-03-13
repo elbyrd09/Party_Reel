@@ -1,0 +1,77 @@
+<h2>Hello, <%= current_user.first_name %></h2>
+  <div class="container">
+    <div class="vertical-tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="My Clients">My Clients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="Event Manager">Event Manager</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="Portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="pag1" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Clients</h3>
+              <ul>
+                <% @bookings.each do |booking| %>
+                  <li><%= render 'shared/client_booking', booking: booking %></li>
+                <% end %>
+              </ul>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="pag2" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Events</h3>
+            <h2>Photographers Needed For:</h2>
+            <div class=“container”>
+              <div class=“homepage-cards”>
+                <% @events.each do |event| %>
+                  <ul>
+                    <li> <%= render 'shared/photographer_manage_events', event: event %> </li>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="pag3" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Portfolio</h3>
+
+            <div class=profilo_top_card>
+              <h2>NNN</h2>
+              <div class="profile_pic">
+                <%= image_tag("profile_img.jpg") %>
+                <div class="profile_info">
+                  <h4>Bio</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis nemo minus magni perferendis dignissimos ipsum maxime illo dolorem molestiae! Minus minima beatae vel eius illo. Iure molestias, dolore fugiat!</p>
+                </div>
+              </div>
+              <div class="Portfolio">
+                <h2 class="events">Portfolio </h2>
+                  <%= render 'shared/portfolio_carousel' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="pag4" role="tabpanel">
+          <div class="sv-tab-panel">
+           <h3>Messages</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
