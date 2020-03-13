@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class Booking < ApplicationRecord
   belongs_to :attendee
   belongs_to :photographer

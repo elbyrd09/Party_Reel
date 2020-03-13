@@ -1,6 +1,5 @@
-  require 'nokogiri'
+require 'nokogiri'
 require 'open-uri'
-require 'pry-byebug'
 
 Review.destroy_all
 Booking.destroy_all
