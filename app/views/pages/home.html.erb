@@ -2,55 +2,54 @@
 
   <%= render 'shared/banner' %>
 
-</div>
+  <p>Booking steps place holder</p>
 
-<p>Booking steps place holder</p>
+  <h3 class="events">Events in your area</h3>
 
-<h3 class="events">Events in your area</h3>
-
-<div class="container">
-  <div class="homepage-cards">
-    <% @events.each do |event| %>
-      <a href="events/<%= event.id %>">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
-          <div class="event_info">
-            <h3><%= event.name %></h3>
+  <div class="container">
+    <div class="homepage-cards">
+      <% @events.each do |event| %>
+        <a href="events/<%= event.id %>">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
+            <div class="event_info">
+              <h3><%= event.name %></h3>
+            </div>
           </div>
-        </div>
-      </a>
-    <% end %>
+        </a>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="swipe">
-  <h2 class="events">Work we do </h2>
-  <div id="carousel">
-    <div class="hideLeft">
-      <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
-    </div>
+  <div class="swipe">
+    <h2 class="events">Work we do </h2>
+    <div id="carousel">
+      <div class="hideLeft">
+        <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+      </div>
 
-    <div class="prevLeftSecond">
-      <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-    </div>
+      <div class="prevLeftSecond">
+        <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+      </div>
 
-    <div class="prev">
-      <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-    </div>
+      <div class="prev">
+        <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+      </div>
 
-    <div class="selected">
-      <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-    </div>
+      <div class="selected">
+        <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+      </div>
 
-    <div class="next">
-      <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-    </div>
+      <div class="next">
+        <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+      </div>
 
-    <div class="nextRightSecond">
-      <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-    </div>
+      <div class="nextRightSecond">
+        <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+      </div>
 
-    <div class="hideRight">
-      <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+      <div class="hideRight">
+        <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+      </div>
     </div>
   </div>
 </div>

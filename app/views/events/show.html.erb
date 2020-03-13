@@ -1,6 +1,8 @@
-<h2>Book your Photographer for <%= @event.name %>! </h2>
-<p>Dates for <%= @event.name %>: </p>
-<p>Start date: <%= @event.start_date %> </p>
-<p>End date: <%= @event.end_date %> </p>
+<div class="wrapper">
+  <h2>Book your Photographer for <%= @event.name %>! </h2>
+  <p>Dates for <%= @event.name %>: </p>
+  <p>Start date: <%= @event.start_date %> </p>
+  <p>End date: <%= @event.end_date %> </p>
 
-<a href="<%= @event.id %>/packages">Book!</a>
+  <a href="<%= @event.id %>/packages">Book!</a>
+</div>
