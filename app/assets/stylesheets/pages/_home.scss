@@ -19,31 +19,14 @@
 
 .wrapper {
   background-image: linear-gradient(to bottom right, #0fabbc, #fa163f);
-
-
+  min-height: 110vh;
 }
-
-.row {
-  background-color: transparent;
-  height:50px;
-    max-width: 100%;
-    margin: auto;
-}
-
 
 .card-category:hover {
 transform: scale(1.1);
 }
 .events{
   text-align: center;
-}
-
-// work carousel css
-html, body, main {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 #carousel {

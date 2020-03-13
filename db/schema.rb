@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_03_13_041740) do
 
   # These are extensions that must be enabled in order to support this database
@@ -181,5 +180,4 @@ ActiveRecord::Schema.define(version: 2020_03_13_041740) do
   add_foreign_key "photographerspecialties", "photographers"
   add_foreign_key "photographerspecialties", "specialties"
   add_foreign_key "reviews", "bookings"
-end
 end

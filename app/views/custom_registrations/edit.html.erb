@@ -1,62 +1,60 @@
+<!-- Same as views/devise/registartions/edit.html.erb? -->
 <div class="wrapper container-fluid">
   <div class="row">
     <div class="col-lg-8 col-md-12 mx-auto fullform-container">
       <div class="row">
-      <div class="form col-lg-4 col-md-12">
+        <div class="form col-lg-4 col-md-12">
+          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
 
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+            <div class="form-inputs">
+              <%= f.input :first_name, required: true, autofocus: true %>
+              <%= f.input :last_name, required: true, autofocus: true %>
+              <%= f.input :location, required: true, autofocus: true %>
+              <%= f.input :email, required: true, autofocus: true %>
+              <%= f.input :user_ig_handle, required: true, autofocus: true %>
+              <% if current_user.photographer %>
+                <%#= simple_form_for @photographer do |f| %>
+                  <input type="text" name="photographer[camera]" value="<%= current_user.photographer.camera %>">
+                  <input type="text" name="photographer[lenses]" value="<%= current_user.photographer.lenses %>">
+                  <input type="text" name="photographer[profession]" value="<%= current_user.photographer.profession %>">
+                  <input type="text" name="photographer[phone_number]" value="<%= current_user.photographer.phone_number %>">
+                <%# end %>
+              <% else %>
+<!--            <%#= simple_form_for @attendee do |f| %> -->
+                  <input type="text" name="attendee[interaction]" value="<%= current_user.attendee.interaction %>">
+                  <input type="text" name="attendee[influencer]" value="<%= current_user.attendee.influencer %>">
+                <%# end %>
+              <% end %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+              <%= f.input :password,
+                          hint: "leave it blank if you don't want to change it",
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :current_password,
+                          hint: "we need your current password to confirm your changes",
+                          required: true,
+                          input_html: { autocomplete: "current-password" } %>
+            </div>
 
+            <div class="form-actions">
+              <%= f.button :submit, "Update" %>
+            </div>
+          <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true, autofocus: true %>
-    <%= f.input :location, required: true, autofocus: true %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :user_ig_handle, required: true, autofocus: true %>
-    <% if current_user.photographer %>
-      <input type="text" name="photographer[camera]" value="<%= current_user.photographer.camera %>">
-      <input type="text" name="photographer[lenses]" value="<%= current_user.photographer.lenses %>">
-      <input type="text" name="photographer[profession]" value="<%= current_user.photographer.profession %>">
-      <input type="text" name="photographer[phone_number]" value="<%= current_user.photographer.phone_number %>">
-    <% else %>
-      <input type="text" name="attendee[interaction]" value="<%= current_user.attendee.interaction %>">
-      <input type="text" name="attendee[influencer]" value="<%= current_user.attendee.influencer %>">
-    <% end %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-      </div>
+          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <%= link_to "Back", :back %>
+        </div>
         <div class="side_img col-lg-8 col-md-12 px-0">
-        <%= image_tag "st.jpg", alt: "alttext", class: "img-fluid" %>
+          <%= image_tag "st.jpg", alt: "alttext", class: "img-fluid" %>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
