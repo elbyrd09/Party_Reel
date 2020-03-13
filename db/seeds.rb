@@ -78,6 +78,16 @@ user_login.save!
 puts "Created #{user_login}"
 user_login.save!
 
+user_login2 = User.new(password: 'password', email: 'user3@gmail.com')
+user_login2.first_name = 'Kevin'
+user_login2.last_name = 'Hello'
+user_login2.location = 'Here'
+user_login2.email = 'user3@gmail.com'
+user_login2.user_ig_handle = 'party.here'
+user_login2.save!
+puts "Created #{user_login2}"
+user_login2.save!
+
 photographer = Photographer.new(user: user_login)
 photographer.phone_number = '212-555-2121'
 photographer.camera = 'Canon'
@@ -86,6 +96,15 @@ photographer.lenses = '24-105mm'
 photographer.profession = 'Photographer'
 photographer.save!
 puts "Created #{photographer}"
+
+photographer2 = Photographer.new(user: user_login2)
+photographer2.phone_number = '322-555-4214'
+photographer2.camera = 'Canon'
+photographer2.lenses = '34-106mm'
+# photographer2.specialty = 'Urban'
+photographer2.profession = 'Photographer'
+photographer2.save!
+puts "Created #{photographer2}"
 
 EVENTURLS = ['welcome-to-rockville-2019/', 'hangout-fest-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/','moonrise-festival-2019/','sonic-temple-2019/','lollapalooza-chicago-2019/', 'south-by-southwest-sxsw-2019/', 'bonnaroo-music-festival-2019/', 'sweetwater-420-festival-2019/','rolling-loud-festival-2019/', 'governors-ball-music-festival-2019/']
 

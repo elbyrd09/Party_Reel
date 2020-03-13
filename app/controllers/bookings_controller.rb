@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     end
     @booking.attendee = current_user.attendee
     @booking.event = @event
+
     @booking.amount_cents = @package.price_cents
     @booking.state = 'pending'
     if @booking.save

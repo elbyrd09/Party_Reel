@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_13_041740) do
 
   # These are extensions that must be enabled in order to support this database
@@ -52,6 +53,12 @@ ActiveRecord::Schema.define(version: 2020_03_13_041740) do
     t.datetime "updated_at", null: false
     t.index ["attendee_id"], name: "index_attendeeshotpreferences_on_attendee_id"
     t.index ["shotpreference_id"], name: "index_attendeeshotpreferences_on_shotpreference_id"
+  end
+
+  create_table "availabilityvalidators", force: :cascade do |t|
+    t.string "validate_each"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "availablephotographers", force: :cascade do |t|
@@ -174,4 +181,5 @@ ActiveRecord::Schema.define(version: 2020_03_13_041740) do
   add_foreign_key "photographerspecialties", "photographers"
   add_foreign_key "photographerspecialties", "specialties"
   add_foreign_key "reviews", "bookings"
+end
 end
