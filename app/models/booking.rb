@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
 
   has_many :reviews
   # has_many :payments
+  monetize :amount_cents
 
   validates :start_time, presence: true
   validates :end_time, presence: true

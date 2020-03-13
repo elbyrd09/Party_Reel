@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :attendees, except: [:index, :show]
   resources :bookings, only: [:show, :destroy] do
     resources :reviews, only: [:create]
+    resources :payments, only: :new
   end
 
   get "edit_profile", to: "pages#edit_profile", as: :edit_profile
