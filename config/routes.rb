@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # get 'registrations/after_sign_up_path_for'
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "custom_registrations" }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :events, only: [:index, :show] do
@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :photographers, except: [:index, :show]
   resources :attendees, except: [:index, :show]
   resources :bookings, only: [:show, :destroy] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
+
+  get "edit_profile", to: "pages#edit_profile", as: :edit_profile
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

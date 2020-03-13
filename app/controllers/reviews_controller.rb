@@ -1,19 +1,16 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-  end
 
-  # def create
-  #   @review = Review.new(review_params)
-  #   @review.user = current_user
-  #   if @review.save
-  #     redirect_to dashboard_path(@review)
-  #   else
-  #     render 'new'
-  #   end
-  #  end
-
-  end
+  def create
+    @review = Review.new(review_params)
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+    # @review.user = current_user
+    if @review.save
+      redirect_to dashboard_path
+    else
+      render 'new'
+    end
+   end
 
   private
 

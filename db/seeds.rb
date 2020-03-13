@@ -10,6 +10,7 @@ Shotpreference.destroy_all
 Availablephotographer.destroy_all
 Event.destroy_all
 Photographerspecialty.destroy_all
+Specialty.destroy_all
 Photographer.destroy_all
 Attendee.destroy_all
 User.destroy_all
@@ -42,7 +43,7 @@ PROFESSIONS = ["Photographer", "Videographer", "Both"]
 puts 'Linking to our photographers...'
 # # # Attendee
 INTERACTIONS = ["Behind the scenes", "With our group", "A mix of both"]
-INFLUENCERS = ["I will only use for personal use", "I plan to make a profit from these photos"]
+INFLUENCERS = ["I will only use the photos personally", "I plan to make a profit from these photos"]
 
 # Reviews
 REVIEWS = ["So awesome, our photographer captured our event really well!", "Such a cool experience.  We didn't have to lift a finger :)", "We'll be booking Party Reel again, no doubt!"]
@@ -107,8 +108,8 @@ EVENTURLS.each do |festival|
   # headerblock.search("p").first.text #headerblock name 2
   # not in a parsable format ^
   event.event_description = html_doc.search('.hubscene').text
-  # file = html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
-  # event.photo.attach(io: file, filename: 'file', content_type: 'image/png')
+  file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
+  event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
   # ^ works but need to install ActiveStorage first to then attach this image to the event
   event.save!
 end
@@ -147,14 +148,15 @@ SPECIALTIES.each do |special|
   Specialty.create!(name: special)
 end
 
-3.times do
-  randomevent = Event.all.sample
 
-  availability = Availablephotographer.new(photographer: photographer, event: randomevent, fully_booked: "Partially")
+randomevents = Event.all.sample(3)
+
+randomevents.each do |re|
+  availability = Availablephotographer.new(photographer: photographer, event: re, fully_booked: "Partially")
   availability.save!
   # default value is 'FREE' when the photographer's row is created in this table
 
-  booking = Booking.new(photographer: photographer, attendee: attendee, event: randomevent, package: Package.all.sample, start_time: "3:00", end_time: "5:00")
+  booking = Booking.new(photographer: photographer, attendee: attendee, event: re, package: Package.all.sample, start_time: "3:00", end_time: "5:00")
   # if there is 1 value of SICKO Mode in the package: key then we change the value of fully_booked to 'FULL'
   # booking.start_date = Time.new(2020, 4, 12).strftime('%b %d, %Y')
   # booking.end_date = Time.new(2020, 4, 15).strftime('%b %d, %Y')

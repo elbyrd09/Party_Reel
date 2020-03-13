@@ -6,6 +6,7 @@
 
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -14,6 +15,16 @@
     <%= f.input :last_name, required: true, autofocus: true %>
     <%= f.input :location, required: true, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :user_ig_handle, required: true, autofocus: true %>
+    <% if current_user.photographer %>
+      <input type="text" name="photographer[camera]" value="<%= current_user.photographer.camera %>">
+      <input type="text" name="photographer[lenses]" value="<%= current_user.photographer.lenses %>">
+      <input type="text" name="photographer[profession]" value="<%= current_user.photographer.profession %>">
+      <input type="text" name="photographer[phone_number]" value="<%= current_user.photographer.phone_number %>">
+    <% else %>
+      <input type="text" name="attendee[interaction]" value="<%= current_user.attendee.interaction %>">
+      <input type="text" name="attendee[influencer]" value="<%= current_user.attendee.influencer %>">
+    <% end %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
