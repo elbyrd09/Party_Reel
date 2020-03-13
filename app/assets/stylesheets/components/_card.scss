@@ -2,6 +2,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 1200px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.card-trip:hover {
+  transform: scale(1.1);
+
 }
 
 .card-trip > img {
