@@ -10,8 +10,8 @@ class PagesController < ApplicationController
       @bookings = Booking.all
       # add the current_user to find the unique bookings for a photographer's dashboard
     # else
-      # @bookings = Booking.all.where(attendee: current_user.attendee)
-      @events = Event.all
+      #@bookings = Booking.all.where(attendee: current_user.attendee)
+      #@events = Event.all
   end
 
   def edit_profile
