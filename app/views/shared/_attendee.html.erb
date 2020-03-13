@@ -1,0 +1,66 @@
+<h2>Hello , <%= current_user.first_name %></h2>
+<div class="container">
+    <div class="vertical-tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="Events I've Booked<">Events I've Booked</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="My Photos">My Photos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="Payment Details">Payment Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Reviews">Reviews</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="pag1" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Events</h3>
+              <ul>
+                <% @events.each do |event| %>
+                  <li> <%= render 'shared/attendee_bookings', event: event %> </li>
+
+                <% end %>
+              </ul>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="pag2" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Photos</h3>
+            <div class=“container”>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="pag3" role="tabpanel">
+          <div class="sv-tab-panel">
+            <h3>My Payment Details</h3>
+
+            <div class=payment_top_card>
+              <h2>NNN</h2>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="pag4" role="tabpanel">
+          <div class="sv-tab-panel">
+           <h3>Messages</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
