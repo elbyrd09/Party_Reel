@@ -4,3 +4,5 @@
 <p><%= @booking.package.name %></p>
 <h2>Total price:</h2>
 <p><%= humanized_money_with_symbol(@booking.package.price) %></p>
+
+<%= link_to "Pay!", new_booking_payment_path(@booking) %>
