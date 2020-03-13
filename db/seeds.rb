@@ -18,7 +18,7 @@ User.destroy_all
 # constants only exist in the seed file and we would not have a link to them
 # # # Packages
 CATEGORIES = ["SICKO Mode", "How do you want it?", "Timezones"]
-PRICES = [750, 400, 250]
+PRICES = [75000, 40000, 25000]
 DESCRIPTIONS = ["Dedicated attention for the entire event by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Periodic attention where our team will capture moments throughout your event experience"]
 SESSIONS = ["Dedicated session", "Periodic session"]
 
@@ -118,21 +118,21 @@ end
 
 sickomode = Package.new
 sickomode.name = "SICKO Mode"
-sickomode.price = 750
+sickomode.price_cents = 75000
 sickomode.description = "Dedicated attention for the entire event by one our our professional photographers!"
 sickomode.session = "Dedicated session"
 sickomode.save!
 
 howdoyouwantit = Package.new
 howdoyouwantit.name = "How do you want it?"
-howdoyouwantit.price = 400
+howdoyouwantit.price_cents = 40000
 howdoyouwantit.description = "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!"
 howdoyouwantit.session = "Dedicated session"
 howdoyouwantit.save!
 
 timezones = Package.new
 timezones.name = "Timezones"
-timezones.price = 250
+timezones.price_cents = 25000
 timezones.description = "Our team will capture moments throughout your event experience"
 timezones.session = "Periodic session"
 timezones.save!
