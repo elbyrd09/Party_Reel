@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.attendee = current_user.attendee
     @booking.event = @event
-    if @booking.save
+    if @booking.save!
       redirect_to booking_path(@booking)
     else
       # redirect to package show page? Probably with some error message

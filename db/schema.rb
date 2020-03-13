@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_073233) do
+ActiveRecord::Schema.define(version: 2020_03_13_034651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 2020_03_12_073233) do
     t.datetime "updated_at", null: false
     t.index ["attendee_id"], name: "index_attendeeshotpreferences_on_attendee_id"
     t.index ["shotpreference_id"], name: "index_attendeeshotpreferences_on_shotpreference_id"
+  end
+
+  create_table "availabilityvalidators", force: :cascade do |t|
+    t.string "validate_each"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "availablephotographers", force: :cascade do |t|
