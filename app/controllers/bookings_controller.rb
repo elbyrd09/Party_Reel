@@ -9,6 +9,11 @@ class BookingsController < ApplicationController
     @package = Package.find(params[:booking][:package_id])
     @event = Event.find(params[:event_id])
     @booking = Booking.new(booking_params)
+    if (@package.name == "SICKO Mode" || @package.name == "Timezones")
+      # Booking starts at the day of the festival (at 00;00), ends the day after (at 00:00)
+      @booking.start_time = Time.new(@event.start_date.year, @event.start_date.mon, @event.start_date.mday)
+      @booking.end_time = Time.new(@event.end_date.year, @event.end_date.mon, @event.end_date.mday + 1)
+    end
     @booking.attendee = current_user.attendee
     @booking.event = @event
     if @booking.save
