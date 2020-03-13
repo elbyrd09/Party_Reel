@@ -1,3 +1,4 @@
+
 <h2>Hello , <%= current_user.first_name %></h2>
 <div class="container">
     <div class="vertical-tabs">
@@ -24,9 +25,8 @@
           <div class="sv-tab-panel">
             <h3>My Events</h3>
               <ul>
-                <% @events.each do |event| %>
-                  <li> <%= render 'shared/attendee_bookings', event: event %> </li>
-
+                <% @bookings.each do |booking| %>
+                  <%= render 'shared/attendee_bookings', booking: booking %>
                 <% end %>
               </ul>
           </div>
@@ -64,3 +64,4 @@
       </div>
     </div>
   </div>
+ </div>
