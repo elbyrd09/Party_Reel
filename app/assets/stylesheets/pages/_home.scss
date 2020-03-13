@@ -11,13 +11,14 @@
   .card-category {
     height: 350px;
     border-radius: 5px;
+    transition: .5s;
   }
 }
 
 .card-category:hover {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.homepage-events{
+.homepage-events {
   text-align: center;
 }
