@@ -1,7 +1,6 @@
-<div class="wrapper container-fluid">
 <% if current_user.photographer %>
-<%= render 'shared/photographer' %>
+  <%= render 'shared/photographer' %>
 <% else %>
-<%= render 'shared/attendee'%>
+  <%= render 'shared/attendee'%>
 <% end %>
 </div>

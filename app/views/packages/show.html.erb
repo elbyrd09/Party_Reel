@@ -1,67 +1,101 @@
-<h2>These Photographers are available for <%= @package.name %>:</h2>
-
-<% if @package.name == "How do you want it?" %>
-  <form action="/action_page.php">
-    <label for="starttime">Start time:</label>
-    <input type="time" id="starttime" name="starttime">
-    <label for="endtime">End time:</label>
-    <input type="time" id="endtime" name="endtime"><br><br>
-  </form>
-<% end %>
-
-
-<% @photographers_present.each do |pgr| %>
-  <a data-toggle="modal" data-target="#photographerModal<%= pgr.id %>" >
-      <h2><%= pgr.user.first_name%><%=pgr.user.last_name %></h2>
-  </a>
-  <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
-  <div class="modal fade" id="photographerModal<%= pgr.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            <% case @package.name %>
-              <% when "Timezones" %>
-                <p><%= pgr.user.first_name %> <%= pgr.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
-              <% when "How do you want it?" %>
-                <p><strong>How do you want it?:</strong> booking with <%= pgr.user.first_name %> <%= pgr.user.last_name %> from <strong id="quote-start-time"></strong> to <strong id="quote-end-time"></strong>.</p>
-              <% when "SICKO Mode" %>
-                <p> SICKO Mode with <%= pgr.user.first_name %> <%= pgr.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
-             <% end %>
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h2>These Photographers are available for <%= @package.name %>:</h2>
+      <% @photographers_present.each do |photographer| %>
+        <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
+            <h2><%= photographer.user.first_name%><%=photographer.user.last_name %></h2>
+        </a>
+        <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
+        <div class="modal fade" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  <% case @package.name %>
+                    <% when "Timezones" %>
+                      <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                    <% when "How do you want it?" %>
+                      <p><strong>How do you want it?:</strong> booking with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                    <% when "SICKO Mode" %>
+                      <p> SICKO Mode with <%= photographer.user.first_name %> <%= photographer.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
+                   <% end %>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
+                <p> <%= photographer.profession %></p>
+                <p> Instagram: <%= photographer.user.user_ig_handle %></p>
+                <p> Located in: <%= photographer.user.location %></p>
+                <p> Camera: <%= photographer.camera %></p>
+                <% photographer.photographerspecialties.each do |photographer_specialty| %>
+                  <p> <%= photographer_specialty.specialty.name  %></p>
+                <% end  %>
+                <% photographer.bookings.each do |booking| %>
+                  <% booking.reviews.each do |review| %>
+                    <p> <%= review.content %></p>
+                  <% end %>
+                <% end %>
+              </div>
+              <% if @package.name == "How do you want it?" %>
+                <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
+                  <span id="time-slot">12-13</span>
+                  <br>
+                  <span id="time-slot">13-14</span>
+                  <br>
+                  <span id="time-slot">14-15</span><br>
+                  <span id="time-slot">15-16</span><br>
+                  <span id="time-slot">16-17</span><br>
+                  <span id="time-slot">17-18</span><br>
+                  <span id="time-slot">18-19</span><br>
+                  <span id="time-slot">19-20</span><br>
+                  <span id="time-slot">20-21</span><br>
+                  <span id="time-slot">21-22</span><br>
+                  <span id="time-slot">22-23</span><br>
+                  <span id="time-slot">23-24</span><br>
+                </div>
+              <% end %>
+              <div class="modal-footer">
+                <%= simple_form_for [@event, @booking] do |f| %>
+                  <%= f.hidden_field :photographer_id, value: photographer.id %>
+                  <%= f.hidden_field :package_id, value: @package.id %>
+                  <!-- starttime and endtime filled with JS function -->
+                  <%= f.hidden_field :start_time  %>
+                  <%= f.hidden_field :end_time %>
+                  <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <h3><%= pgr.user.first_name %> <%= pgr.user.last_name %></h3>
-          <p> <%= pgr.profession %></p>
-          <p> Instagram: <%= pgr.user.user_ig_handle %></p>
-          <p> Located in: <%= pgr.user.location %></p>
-          <p> Camera: <%= pgr.camera %></p>
-          <% pgr.photographerspecialties.each do |photographer_specialty| %>
-            <p> <%= photographer_specialty.specialty.name  %></p>
-          <% end  %>
-          <% pgr.bookings.each do |booking| %>
-            <% booking.reviews.each do |review| %>
-              <p> <%= review.content %></p>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <%= simple_form_for [@event, @booking] do |f| %>
-            <%= f.hidden_field :photographer_id, value: pgr.id %>
-            <%= f.hidden_field :package_id, value: @package.id %>
-            <!-- starttime and endtime filled with JS function -->
-            <%= f.hidden_field :start_time  %>
-            <%= f.hidden_field :end_time %>
-            <%= f.button :submit, "Book #{pgr.user.first_name}!" %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
+
+      <script>
+        const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
+        console.log(unavailableTimes)
+        const updateForm = (event) => {
+          const slot = event.currentTarget.innerHTML
+          const startTime = slot.split("-")[0]
+          const endTime = slot.split("-")[1]
+          document.querySelector('#booking_start_time').value = startTime
+          document.querySelector('#booking_end_time').value = endTime
+        }
+
+        const timeSlots = document.querySelectorAll("#time-slot");
+        timeSlots.forEach((slot) => {
+          if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
+            slot.classList.add("available-slot");
+          } else {
+            slot.classList.add("unavailable-slot");
+          }
+
+          slot.addEventListener('click', updateForm);
+        })
+      </script>
     </div>
   </div>
-<% end %>
-
-
+</div>
 

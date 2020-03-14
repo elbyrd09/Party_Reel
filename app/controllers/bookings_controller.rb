@@ -16,7 +16,23 @@ class BookingsController < ApplicationController
     end
     @booking.attendee = current_user.attendee
     @booking.event = @event
+
+    @booking.amount_cents = @package.price_cents
+    @booking.state = 'pending'
     if @booking.save
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: @booking.package.name,
+          amount: @booking.amount_cents,
+          currency: 'usd',
+          quantity: 1
+        }],
+          success_url: dashboard_url,
+          cancel_url: dashboard_url
+      )
+
+      @booking.update(checkout_session_id: session.id)
       redirect_to booking_path(@booking)
     else
       # redirect to package show page? Probably with some error message

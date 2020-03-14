@@ -13,4 +13,10 @@ class Photographer < ApplicationRecord
   # no validations for camera and lenses
   validates :profession, inclusion: { in: PROFESSIONS }
 
+
+  def unavailable_times
+    times = bookings.pluck(:start_time)
+    times.flatten.map {|time| time.hour }
+  end
+
 end
