@@ -12,7 +12,7 @@
   </head>
   <body>
     <!-- # No navbar on top of page during the booking proces, but on the bottom of the screen -->
-    <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') && !(params[:controller] == "events" && params[:action] == 'show') %>
+    <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') && !(params[:controller] == "events" && params[:action] == 'show') && !params[:controller] == "packages" && !(params[:controller] == "bookings") && !(params[:controller] == "payments") %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
