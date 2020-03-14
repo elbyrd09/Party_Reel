@@ -16,7 +16,7 @@
           <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Reviews">Reviews</a>
+          <a class="nav-link" data-toggle="tab" href="#pag5" role="tab" aria-controls="Reviews">Reviews</a>
         </li>
       </ul>
 
@@ -35,10 +35,21 @@
 
         <div class="tab-pane" id="pag2" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>My Photos</h3>
+            <div class="title">
+              <h3>My Photos</h3>
+
+
+              <div class="dropdown">
+                <button class="dropbtn">Filter by event</button>
+                 <div class="dropdown-content">
+                    <a href="#">Coachella</a>
+                    <a href="#">EDC Vegas</a>
+                    <a href="#">Firefly</a>
+                  </div>
+              </div>
+              </div>
             <div class=“container”>
             <%= render 'shared/attendee_photos' %>
-
             </div>
           </div>
         </div>
@@ -60,8 +71,12 @@
           <div class="sv-tab-panel">
            <h3>Messages</h3>
           </div>
-        </div>
       </div>
+        <div class="tab-pane" id="pag5" role="tabpanel">
+          <div class="sv-tab-panel">
+           <h3>Reviews</h3>
+          </div>
+        </div>
     </div>
   </div>
  </div>
