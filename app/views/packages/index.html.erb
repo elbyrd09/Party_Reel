@@ -1,18 +1,26 @@
-<h2>Select your Package</h2>
-
-<!-- No CSS Added for HTML-classes used below yet -->
 <div class="container">
-  <div class="package-cards">
-    <% @packages.each do |package| %>
-      <a href="packages/<%= package.id %>">
-        <div class="card-trip" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'lg1.jpg' %>)">
-          <div class="package_info">
-            <h3><%= package.name %></h3>
-            <p><%= humanized_money_with_symbol(package.price) %></p>
-            <p><%= package.description %></p>
-          </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h2>Select your Package</h2>
+
+      <!-- No CSS Added for HTML-classes used below yet -->
+      <div class="container">
+        <div class="package-cards">
+          <% @packages.each do |package| %>
+            <a href="packages/<%= package.id %>">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'lg1.jpg' %>)">
+                <div class="package_info">
+                  <h3><%= package.name %></h3>
+                  <p><%= humanized_money_with_symbol(package.price) %></p>
+                  <p><%= package.description %></p>
+                </div>
+              </div>
+            </a>
+          <% end %>
+
         </div>
-      </a>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
