@@ -7,16 +7,14 @@
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 30px;
-  color: white !important;
 
-  .card-category {
-    height: 350px;
-    border-radius: 5px;
-    transition: .5s;
-  }
+.homepage-card {
+  height: 350px;
+  border-radius: 5px;
+  transition: .5s;
 }
 
-.card-category:hover {
+.homepage-card:hover {
   transform: scale(1.1);
 }
 
