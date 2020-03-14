@@ -1,12 +1,15 @@
-<div class="attendee_info">
-  <p><strong><%= booking.attendee.user.first_name %> <%= booking.attendee.user.last_name %></strong></p>
-  <p><%= booking.event.start_date %></p>
-  <p><%= booking.package.name %></p>
-    <ul>
-      <li>Weather: Rain (bring lens hood)</li>
-      <li>Group size: 5-6</li>
-      <li>Lens suggestion: wide and telephoto</li>
-    </ul>
-    <h4>Paid in Full</h4>
-    <!-- update when payment is implemented -->
+<div class="event-card my-5">
+
+  <%= cl_image_tag booking.event.photos[0].key%>
+  <div class="event-infos">
+    <div>
+      <h6><strong><%= booking.attendee.user.first_name %> <%= booking.attendee.user.last_name %></strong></h6>
+      <h5> Package Selected: <%= booking.package.name %> </h5>
+      <h2><%= booking.event.name %></h2>
+      <p><%= booking.event.start_date %></p>
+    </div>
+    <h5 class="event-infos-pricing">Payment Status: Paid in full</h5>
+
+    <img src="<%= asset_path("profile_img.jpg") %>" class="pgr-avatar-user avatar-bordered" />
+  </div>
 </div>
