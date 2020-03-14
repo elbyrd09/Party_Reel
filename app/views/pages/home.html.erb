@@ -1,29 +1,10 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <div class="wrapper">
+<div class="wrapper">
 
-        <%= render 'shared/banner' %>
+  <%= render 'shared/banner' %>
 
-        <p>Booking steps place holder</p>
-
-        <h3 class="homepage-events">Events in your area</h3>
-
-        <div class="homepage-cards">
-          <% @events.each do |event| %>
-            <a href="events/<%= event.id %>">
-              <div class="homepage-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
-              <div class="event_info">
-                <h3><%= event.name %></h3>
-              </div>
-              </div>
-            </a>
-          <% end %>
-        </div>
-
-        <div class="swipe">
-          <h2 class="homepage-events">Work we do </h2>
+      <div class="container-carousel">
+        <div class="swipe" data-ride="carousel">
           <div id="carousel">
             <div class="hideLeft">
               <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
@@ -52,10 +33,22 @@
             <div class="hideRight">
               <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
             </div>
+            </div>
           </div>
         </div>
-      </div>
+  <h3 class="homepage-events">Events in your area</h3>
+
+  <div class="card-deck p-5">
+      <% @events.each do |event| %>
+        <a href="events/<%= event.id %>" class="col-4">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photos[0].key %>)">
+            <div class="event_info">
+              <h5><%= event.name %></h5>
+            </div>
+          </div>
+        </a>
+      <% end %>
     </div>
-  </div>
 </div>
+
 
