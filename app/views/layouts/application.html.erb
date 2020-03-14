@@ -11,8 +11,9 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') %>
-    <%= render 'shared/navbar' %>
+    <!-- # No navbar on top of page during the booking proces, but on the left side of the screen -->
+    <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') && !(params[:controller] == "events" && params[:action] == 'show') %>
+      <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>

@@ -1,0 +1,20 @@
+
+  .sidenav-page-container {
+      display: flex;
+  }
+
+  .sidenav-page-sidenav {
+    height: 100vh;
+    width: 66px;
+    float: left;
+    position: relative;
+    background-color: white;
+  }
+
+  .sidenav-page-content {
+    height: 100vh;
+    width: calc(100% - 66px);
+    float: right;
+    position: relative;
+    background-color: red;
+  }
