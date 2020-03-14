@@ -106,7 +106,7 @@ photographer2.profession = 'Photographer'
 photographer2.save!
 puts "Created #{photographer2}"
 
-EVENTURLS = ['welcome-to-rockville-2019/', 'hangout-fest-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/','moonrise-festival-2019/','sonic-temple-2019/','lollapalooza-chicago-2019/', 'south-by-southwest-sxsw-2019/', 'bonnaroo-music-festival-2019/', 'sweetwater-420-festival-2019/','rolling-loud-festival-2019/', 'governors-ball-music-festival-2019/']
+EVENTURLS = [ 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
 
 EVENTURLS.each do |festival|
   url = "https://www.musicfestivalwizard.com/#{festival}/"
