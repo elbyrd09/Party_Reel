@@ -1,8 +1,15 @@
-<h2>My Photographer:</h2>
-<p><%= @booking.photographer.user.first_name %></p>
-<h2>My Package:</h2>
-<p><%= @booking.package.name %></p>
-<h2>Total price:</h2>
-<p><%= humanized_money_with_symbol(@booking.package.price) %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h2>My Photographer:</h2>
+      <p><%= @booking.photographer.user.first_name %></p>
+      <h2>My Package:</h2>
+      <p><%= @booking.package.name %></p>
+      <h2>Total price:</h2>
+      <p><%= humanized_money_with_symbol(@booking.package.price) %></p>
 
-<%= link_to "Pay!", new_booking_payment_path(@booking) %>
+      <%= link_to "Pay!", new_booking_payment_path(@booking) %>
+    </div>
+  </div>
+</div>
+
