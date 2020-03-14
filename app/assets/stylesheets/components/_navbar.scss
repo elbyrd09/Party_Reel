@@ -20,7 +20,11 @@
 }
 
 .bottom-nav-icon {
-  color: #271569;
+  color: #F91841;
   font-size: 30px;
+  opacity: .8;
 }
 
+.bottom-nav-icon:hover {
+  opacity: 1;
+}
