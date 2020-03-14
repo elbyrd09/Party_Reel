@@ -139,6 +139,7 @@ sickomode.name = "SICKO Mode"
 sickomode.price_cents = 75000
 sickomode.description = "Dedicated attention for the entire event by one our our professional photographers!"
 sickomode.session = "Dedicated session"
+sickomode.local_img = "sicko.jpeg"
 sickomode.save!
 
 howdoyouwantit = Package.new
@@ -146,6 +147,7 @@ howdoyouwantit.name = "How do you want it?"
 howdoyouwantit.price_cents = 40000
 howdoyouwantit.description = "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!"
 howdoyouwantit.session = "Dedicated session"
+howdoyouwantit.local_img = "hdywi.jpeg"
 howdoyouwantit.save!
 
 timezones = Package.new
@@ -153,6 +155,7 @@ timezones.name = "Timezones"
 timezones.price_cents = 25000
 timezones.description = "Our team will capture moments throughout your event experience"
 timezones.session = "Periodic session"
+timezones.local_img = "timezones.jpeg"
 timezones.save!
 
 # Preference Array

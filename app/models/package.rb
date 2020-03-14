@@ -4,6 +4,8 @@ class Package < ApplicationRecord
   DESCRIPTIONS = ["Dedicated attention for the entire event by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Our team will capture moments throughout your event experience"]
   SESSIONS = ["Dedicated session", "Periodic session"]
   has_many :bookings
+  has_one_attached :photo
+
 
   monetize :price_cents
 
