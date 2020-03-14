@@ -10,20 +10,18 @@
 
         <h3 class="homepage-events">Events in your area</h3>
 
-<!--         <div class="container">
- -->          <div class="homepage-cards">
-            <% @events.each do |event| %>
-              <a href="events/<%= event.id %>">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
-                  <div class="event_info">
-                    <h3><%= event.name %></h3>
-                  </div>
-                </div>
-              </a>
-            <% end %>
-          </div>
-<!--         </div>
- -->
+        <div class="homepage-cards">
+          <% @events.each do |event| %>
+            <a href="events/<%= event.id %>">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= cl_image_path event.photos[0].key %>)">
+              <div class="event_info">
+                <h3><%= event.name %></h3>
+              </div>
+              </div>
+            </a>
+          <% end %>
+        </div>
+
         <div class="swipe">
           <h2 class="homepage-events">Work we do </h2>
           <div id="carousel">
