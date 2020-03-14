@@ -4,7 +4,6 @@
   top: 50%;
   transform: translateY(-50%);
   overflow: hidden;
-      margin-top: 208px;
 
 }
 #carousel div {
@@ -84,4 +83,11 @@
 
 #carousel div.nextRightSecond img {
   width: 200px;
+}
+
+.container-carousel {
+  width: auto;
+  height: auto;
+  margin: auto 0;
+  padding: 10px;
 }
