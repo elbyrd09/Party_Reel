@@ -1,4 +1,4 @@
-.card-trip {
+.event-card {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -7,31 +7,31 @@
   border-radius: 5px;
 }
 
-.card-trip:hover {
+.event-card:hover {
   transform: scale(1.1);
 
 }
 
-.card-trip > img {
+.event-card > img {
   height: 400px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.event-card h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
+.event-card p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-trip .card-trip-infos {
+.event-card .event-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -39,7 +39,7 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.event-infos .pgr-avatar-user {
 position: absolute;
     right: 27px;
     top: -146px;
