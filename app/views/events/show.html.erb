@@ -1,16 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <div class="wrapper">
-        <h2>Book your Photographer for <%= @event.name %>! </h2>
-        <p>Dates for <%= @event.name %>: </p>
-        <p>Start date: <%= @event.start_date %> </p>
-        <p>End date: <%= @event.end_date %> </p>
 
-        <a href="<%= @event.id %>/packages" class="btn btn-gradient w-100">Book!</a>
-      </div>
+<div class="wrapper p-3" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path @event.photos[0].key %>); background-size: cover;">
+  <div class="container text-center">
+    <div class="event-show-card" >
+      <h5>Book your Photographer for </h5>
+      <h4> <%= @event.name %>! </h4>
+      <p>Dates: <%= @event.start_date %> <%= @event.end_date %> </p>
+      <p class="coloured"> Photographers available: <%= @event.availablephotographers.count %></p>
+      <p> <%= @event.event_description.split(/\./).first %></p>
     </div>
+    <a href="<%= @event.id %>/packages" class="btn btn-gradient w-100">Book!</a>
   </div>
+  <%= render 'shared/bottom_nav'%>
 </div>
-
 
