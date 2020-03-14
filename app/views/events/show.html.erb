@@ -1,15 +1,8 @@
-<div class="sidenav-page-container">
-  <div class="sidenav-page-sidenav ">
-    <%= render 'shared/sidenav' %>
-  </div>
-  <div class="sidenav-page-content">
-    <div class="wrapper">
-      <h2>Book your Photographer for <%= @event.name %>! </h2>
-      <p>Dates for <%= @event.name %>: </p>
-      <p>Start date: <%= @event.start_date %> </p>
-      <p>End date: <%= @event.end_date %> </p>
 
-      <a href="<%= @event.id %>/packages" class="btn btn-gradient w-100">Book!</a>
-    </div>
-  </div>
+<div class="wrapper">
+  <h2>Book your Photographer for <%= @event.name %>! </h2>
+  <p>Dates for <%= @event.name %>: </p>
+  <p>Start date: <%= @event.start_date %> </p>
+  <p>End date: <%= @event.end_date %> </p>
+  <a href="<%= @event.id %>/packages" class="btn btn-gradient w-100">Book!</a>
 </div>
