@@ -5,6 +5,7 @@
       <% @packages.each do |package| %>
         <a href="packages/<%= package.id %>">
           <div class="package-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path package.local_img %>)">
+            <div class="package_name"> <%= package.name %></div>
             <div class="package_info">
               <h3><%= package.name %></h3>
               <p><%= humanized_money_with_symbol(package.price) %></p>
