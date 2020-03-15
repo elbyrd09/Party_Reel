@@ -7,3 +7,13 @@
   background-image: linear-gradient(to bottom right, #0fabbc, #fa163f);
   min-height: 110vh;
 }
+
+.wrapper-booking {
+  display:flex;
+  flex-direction: column;
+  padding-top: 20px;
+  min-height: 110vh;
+  background-color: #e4f9ff;
+  color: #0fabbc;
+  text-align: left;
+}
