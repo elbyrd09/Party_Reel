@@ -106,32 +106,108 @@ photographer2.profession = 'Photographer'
 photographer2.save!
 puts "Created #{photographer2}"
 
-EVENTURLS = [ 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
+# EVENTURLS = ['governors-ball-music-festival-2019/', 'mountain-jam-2019/', 'electric-zoo-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
 
-EVENTURLS.each do |festival|
-  url = "https://www.musicfestivalwizard.com/#{festival}/"
+# EVENTURLS.each do |festival|
+#   url = "https://www.musicfestivalwizard.com/#{festival}/"
 
-  html_file = open(url).read
-  html_doc = Nokogiri::HTML(html_file)
-  event = Event.new
-  headerblock = html_doc.search('.headerblock')
-  event.name = headerblock.search("h1 a").text #headerblock name 1
-  event.start_date = Date.today + rand(1..50)
-  event.end_date = event.start_date + 1
-  # event.start_date -= 50 if event.end_date < event.start_date
-  event.genre = GENRES.sample
-  event.partnership = PARTNERSHIPS.sample
-  event.type_event = TYPES.sample
-  event.location = html_doc.search('.headerblock p').last.text
-  # headerblock.search("p").first.text #headerblock name 2
-  # not in a parsable format ^
-  event.event_description = html_doc.search('.hubscene').text
-  file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
-  event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
-  # ^ works but need to install ActiveStorage first to then attach this image to the event
-  event.save!
-end
+#   html_file = open(url).read
+#   html_doc = Nokogiri::HTML(html_file)
+#   event = Event.new
+#   headerblock = html_doc.search('.headerblock')
+#   event.name = headerblock.search("h1 a").text #headerblock name 1
+#   event.start_date = Date.today + rand(1..50)
+#   event.end_date = event.start_date + 1
+#   # event.start_date -= 50 if event.end_date < event.start_date
+#   event.genre = GENRES.sample
+#   event.partnership = PARTNERSHIPS.sample
+#   event.type_event = TYPES.sample
+#   event.location = html_doc.search('.headerblock p').last.text
+#   # headerblock.search("p").first.text #headerblock name 2
+#   # not in a parsable format ^
+#   event.event_description = html_doc.search('.hubscene').text
+#   file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
+#   event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
+#   # ^ works but need to install ActiveStorage first to then attach this image to the event
+#   event.save!
+# end
 
+puts "Festivals uploading..."
+# Event instances
+
+mt_jam = Event.new
+mt_jam.name = "Mountain Jam"
+mt_jam.start_date = "May 29, 2020"
+mt_jam.end_date = "May 31, 2020"
+mt_jam.genre = "Rock"
+mt_jam.partnership = "No, Party Reel only"
+mt_jam.type_event = "Multi-day Festival"
+mt_jam.location = "New York"
+mt_jam.event_description = "Held in the picturesque Hunter Mountains, Mountain Jam is a three-day rock festival set out to bring rock fans together in upstate New York."
+mt_jam.local_img = "mountainJam.jpg"
+mt_jam.save!
+
+elec_for = Event.new
+elec_for.name = "Electric Forest"
+elec_for.start_date = "June 25, 2020"
+elec_for.end_date = "June 28, 2020"
+elec_for.genre = "EDM"
+elec_for.partnership = "No, Party Reel only"
+elec_for.type_event = "Multi-day Festival"
+elec_for.location = "Michigan"
+elec_for.event_description = "Electric Forest has grown into a full-on destination fest. At night, the Sherwood Forest becomes alive with lights, art, and the creativity of the fans."
+elec_for.local_img = "electricforest2020.jpg"
+elec_for.save!
+
+coachella = Event.new
+coachella.name = "Coachella"
+coachella.start_date = "October 9, 2020"
+coachella.end_date = "October 18, 2020"
+coachella.genre = "Mixed"
+coachella.partnership = "Yes, food truck: allocate 1 photographer"
+coachella.type_event = "Multi-day Festival"
+coachella.location = "Palm Springs"
+coachella.event_description = "The glitz and glamour of Los Angeles migrates east to the Indio desert for back to back weekends of the biggest names in music. What started as a small electronic festival in the desert has transformed into a cultural touchstone for the festival season."
+coachella.local_img = "coachella.png"
+coachella.save!
+
+edc = Event.new
+edc.name = "Electric Zoo"
+edc.start_date = "September 4, 2020"
+edc.end_date = "September 6, 2020"
+edc.genre = "EDM"
+edc.partnership = "No, Party Reel only"
+edc.type_event = "Multi-day Festival"
+edc.location = "New York City"
+edc.event_description = "As the largest and longest-running electronic festival in the city, the park transforms into an electronic playground for a three-day jammed pack festival."
+edc.local_img = "ezoo0731.jpg"
+edc.save!
+
+aftershock = Event.new
+aftershock.name = "Aftershock Festival"
+aftershock.start_date = "October 9, 2020"
+aftershock.end_date = "October 11, 2020"
+aftershock.genre = "Rock"
+aftershock.partnership = "Yes, food truck: allocate 1 photographer"
+aftershock.type_event = "Multi-day Festival"
+aftershock.location = "Sacramento"
+aftershock.event_description = "With alumni like Megadeth, Korn, Ozzy Osbourne, Nine Inch Nails, Godsmack, Alice in Chains, and System of a Down, this is the place to see genre legends in the western United States along with up-and-comers to the scene."
+aftershock.local_img = "aftershock2020.jpg"
+aftershock.save!
+
+govball = Event.new
+govball.name = "Governors Ball"
+govball.start_date = "June 5, 2020"
+govball.end_date = "June 7, 2020"
+govball.genre = "Mixed"
+govball.partnership = "Yes, food truck: allocate 1 photographer"
+govball.type_event = "Multi-day Festival"
+govball.location = "New York City"
+govball.event_description = "Taking place on the Hudson River on Randall’s Island, festival fans can settle back and enjoy the show with the unforgettable NYC skyline as the backdrop."
+govball.local_img = "govball.jpg"
+govball.save!
+
+puts "Enhance..."
 # Package Instances
 
 sickomode = Package.new
@@ -189,4 +265,4 @@ end
   reviews.save!
 end
 
-puts "Creating bookings"
+puts "Great success!!"

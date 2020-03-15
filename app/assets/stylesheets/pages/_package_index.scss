@@ -1,18 +1,24 @@
+.package-cards {
+  height: 100vh;
+}
+
 .package-card {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 25%;
   margin: 10px;
 }
 
-.package_info {
-  display: none;
+.package-info {
+  text-align: center;
+  background-color: rgba(214, 212, 208, 0.6);
+  margin: 5px;
+  border-radius: 5px;
+  h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  p {
+    font-size: 12px;
+    font-weight: 700;
+  }
 }
+
