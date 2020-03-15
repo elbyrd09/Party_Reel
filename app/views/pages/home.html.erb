@@ -41,9 +41,8 @@
   <div class="card-deck p-5">
       <% @events.each do |event| %>
         <a href="events/<%= event.id %>" class="col-4">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photos[0].key %>)">
+          <div class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
             <div class="event_info">
-              <h5><%= event.name %></h5>
             </div>
           </div>
         </a>

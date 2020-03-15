@@ -7,7 +7,6 @@ class PackagesController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:event_id])
     @booking = Booking.new
     @photographers_present = []
     # Put each available Photographer inside the @photographers_present array,
