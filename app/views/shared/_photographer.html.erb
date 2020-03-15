@@ -21,25 +21,24 @@
         <div class="tab-pane active" id="pag1" role="tabpanel">
           <div class="sv-tab-panel">
             <h3>My Clients</h3>
-              <ul>
                 <% @bookings.each do |booking| %>
-                  <li><%= render 'shared/client_booking', booking: booking %></li>
+                  <%= render 'shared/client_booking', booking: booking %>
                 <% end %>
-              </ul>
           </div>
         </div>
 
         <div class="tab-pane" id="pag2" role="tabpanel">
           <div class="sv-tab-panel">
             <h3>My Events</h3>
-            <h2>Photographers Needed For:</h2>
+            <%= render 'shared/month_calender' %>
             <div class=“container”>
               <div class=“homepage-cards”>
-                <ul>
+
                   <% @bookings.each do |booking| %>
-                    <li> <%= render 'shared/photographer_manage_events', event: booking.event %> </li>
+                    <%= render 'shared/photographer_manage_events', event: booking.event %>
                   <% end %>
-                </ul>
+
+
               </div>
             </div>
           </div>
