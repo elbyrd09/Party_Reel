@@ -1,6 +1,6 @@
-<div class="card-trip my-5">
+<div class="event-card my-5">
   <%= cl_image_tag booking.event.photos[0].key%>
-  <div class="card-trip-infos">
+  <div class="event-infos">
     <div>
       <h2><%= booking.event.name %></h2>
 
@@ -9,8 +9,8 @@
             <h5> Package Selected: <%= booking.package.name %> </h5>
 
     </div>
-    <h5 class="card-trip-pricing">Payment Status: Paid</h5>
+    <h5 class="event-infos-pricing">Payment Status: Paid</h5>
 
-    <img src="<%= asset_path("profile_img.jpg") %>" class="card-trip-user avatar-bordered" />
+    <img src="<%= asset_path("profile_img.jpg") %>" class="pgr-avatar-user avatar-bordered" />
   </div>
 </div>
