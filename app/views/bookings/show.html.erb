@@ -1,15 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <h2>My Photographer:</h2>
-      <p><%= @booking.photographer.user.first_name %></p>
-      <h2>My Package:</h2>
-      <p><%= @booking.package.name %></p>
-      <h2>Total price:</h2>
-      <p><%= humanized_money_with_symbol(@booking.package.price) %></p>
-
-      <%= link_to "Pay!", new_booking_payment_path(@booking) %>
+<div class="wrapper-booking">
+    <div class="row d-flex justify-content-between m-3">
+      <div class="col-7 d-flex align-items-center flex-column">
+        <h5 style="color: #fa163f">My Photographer</h5>
+        <small><p style="color: grey">Joe will join you for the Arianna Grande set at 12:00 today!</p></small>
+      </div>
+      <div style="padding: 25px;">
+        <h4 style="color: #fa163f"><%= @booking.photographer.user.first_name %></h4>
+        <img src="<%= asset_path("profile_img.jpg") %>" class="card-trip-user avatar-bordered" />
+      </div>
     </div>
+    <div class="row d-flex justify-content-between m-3 p-3" style="border-left-style: solid; border-top: solid;">
+      <h5 style="color: #fa163f">My Package</h5><br>
+        <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%m/%d/%Y") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </p><br>
+        <small><p style="line-height: 2px; color: grey">Dedicated attention for 1 hour</p></small>
+        <small><p style="line-height: 2px; color: grey">Minimum: 50 photographs of your group</p></small>
+    <div class="mt-4 py-4 d-flex justify-content-around" style="border-top: solid">
+        <p><strong>Total price</p></strong>
+        <h4 style="color: #fa163f"><%= humanized_money_with_symbol(@booking.package.price) %></h4>
+    </div>
+        <a href="<%= @booking.id %>/new_booking_payment" class="btn btn-primary-pay">Pay now</a>
   </div>
+        <%= render 'shared/bottom_nav'%>
 </div>
+
+
+
 
