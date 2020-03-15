@@ -27,7 +27,7 @@
         <!-- Modal body dynamic days as per event-->
         <div class="modal-body">
 
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= event.start_date.strftime("%m/%d") %></button>
+          <button type="button" id="btn1 btn-secondary" data-dismiss="modal"><%= event.start_date.strftime("%m/%d") %></button>
 
         </div>
 
@@ -39,3 +39,13 @@
       </div>
     </div>
   </div>
+
+
+
+<script>
+document.getElementById("btn1").addEventListener("click", function() {
+  document.getElementById("myBtn").disabled = true
+});
+
+</script>
+
