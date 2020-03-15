@@ -1,9 +1,7 @@
 <div class="navbar navbar-lewagon bottom-nav">
   <!-- avatar -->
     <% if user_signed_in? %>
-      <%= link_to dashboard_path, class: "bottom-nav-avatar"  do %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
-      <% end %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar bottom-nav-avatar"%>
     <% else %>
       <%= link_to "Login", new_user_session_path %>
     <% end %>
@@ -11,11 +9,13 @@
     <!-- home -->
     <a href="/" class="bottom-nav-icon"><i class="fas fa-home"></i></a>
 
-    <!-- FAQ -->
+    <!-- dashboard -->
     <a href="/" class="bottom-nav-icon">FAQ</a>
 
-    <!-- Why Partyreel? -->
+    <!-- my messages -->
+    <a href="/" class="bottom-nav-icon"><i class="fas fa-question-circle"></i></a>
+
+    <!-- logout -->
     <a href="/" class="bottom-nav-icon"><i class="fas fa-question-circle"></i></a>
 
 </div>
-
