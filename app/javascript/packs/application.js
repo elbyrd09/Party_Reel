@@ -11,3 +11,9 @@ moveToSelected();
 
 // import { toggleDateInputs } from 'plugins/time_pickr.js';
 // toggleDateInputs();
+
+import { showBottomNav } from 'packs/show_bottom_nav.js';
+showBottomNav();
+
+import { flipPackageInfo } from 'packs/flip_package_info.js';
+flipPackageInfo();

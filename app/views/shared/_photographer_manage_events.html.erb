@@ -1,9 +1,41 @@
-<div class=“event_info”>
-  <h2>Event: <%= event.name %></h2>
-  <h4>Dates: From <%= event.start_date %> To <%= event.end_date %></h4>
-  <p>Genre: <%= event.genre %></p>
-  <p>Venue: Outdoor racetrack</p>
-  <p>Walking rate: Heavy</p>
-  <p>Average consumer spending/day: $200USD</p>
-  <a class="btn btn-primary" href="#" role="button">I want to shoot this event</a>
+<div class="event-card my-5">
+  <%= cl_image_tag event.photos[0].key%>
+    <div class="event-infos">
+        <div>
+          <h4><%= event.name %></h4>
+          <h4>Dates needed: <%= event.start_date.strftime("%B %d, %Y") %> </h4>
+          <p><strong>Genre:</strong> <%= event.genre %></p>
+          <p><strong>Venue:</strong> Outdoor racetrack</p>
+          <p><strong>Walking rate:</strong> Heavy</p>
+          <p><strong>Average consumer spending/day:</strong> $200USD</p>
+        </div>
+         <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">I want to shoot this event</a>
+    </div>
 </div>
+
+<!-- The Modal -->
+  <div class="modal fade" id= "ManageEventModal<%= event.id %>" >
+    <div class="modal-dialog modal-dialog-centered " style="width: 400px">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Are you available to shoot <strong><%= event.name %></strong>?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body dynamic days as per event-->
+        <div class="modal-body">
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= event.start_date.strftime("%m/%d") %></button>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
