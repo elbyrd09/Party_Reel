@@ -4,10 +4,23 @@
   border: none;
   font-size: 20px;
   max-width: 250px;
+  margin: 10px;
 }
 
 .btn-gradient:hover {
   background-image: linear-gradient(to right, #12cad6 0%, #be6779 12%, #ae5e77 73%, #42236b 88%, #321a69 95%, #251368 100%);
+  color: white;
+  border: none;
+}
+
+.btn-primary-pay{
+  background-color: #12cad6;
+  color: white;
+  align-self: center;
+}
+
+.btn-primary-pay:hover {
+  background-color: #fa163f;
   color: white;
   border: none;
 }
