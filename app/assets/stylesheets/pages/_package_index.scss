@@ -7,6 +7,18 @@
   margin: 10px;
 }
 
-.package_info {
-  display: none;
+.package-info {
+  text-align: center;
+  background-color: rgba(214, 212, 208, 0.6);
+  margin: 5px;
+  border-radius: 5px;
+  h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  p {
+    font-size: 12px;
+    font-weight: 700;
+  }
 }
+

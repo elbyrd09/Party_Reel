@@ -10,12 +10,14 @@
     <a href="/" class="bottom-nav-icon"><i class="fas fa-home"></i></a>
 
     <!-- dashboard -->
-    <a href="/" class="bottom-nav-icon">FAQ</a>
+    <a href="/dashboard" class="bottom-nav-icon"><i class="fas fa-columns"></i></a>
 
     <!-- my messages -->
-    <a href="/" class="bottom-nav-icon"><i class="fas fa-question-circle"></i></a>
+    <a href="/" class="bottom-nav-icon"><i class="fas fa-envelope-square"></i></a>
 
     <!-- logout -->
-    <a href="/" class="bottom-nav-icon"><i class="fas fa-question-circle"></i></a>
+    <%= link_to destroy_user_session_path, method: :delete, class: "bottom-nav-icon" do%>
+      <i class="fas fa-sign-out-alt"></i>
+    <% end %>
 
 </div>

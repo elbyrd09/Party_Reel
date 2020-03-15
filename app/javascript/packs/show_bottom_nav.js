@@ -1,15 +1,9 @@
 const showBottomNav = () => {
-  document.querySelector('#starttime').addEventListener('change', (e)=>{
-    let starttime = e.target.value
-    document.querySelector('#booking_start_time').value = starttime
-    document.querySelector('#quote-start-time').innerText = starttime
+  console.log('showBottomNav')
+  document.querySelector('.bottom-nav-avatar').addEventListener('click', (e)=>{
+  document.querySelectorAll('.bottom-nav-icon').forEach (icon =>
+    icon.classList.toggle("bottom-nav-icon-show"));
   })
-  document.querySelector('#endtime').addEventListener('change', (e)=>{
-    let endtime = e.target.value
-    document.querySelector('#booking_end_time').value = endtime
-    document.querySelector('#quote-end-time').innerText = endtime
-  })
-
 }
 
-export { getBookingTime };
+export { showBottomNav };

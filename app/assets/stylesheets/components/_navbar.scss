@@ -25,9 +25,10 @@
   opacity: .8;
   text-decoration: none;
   opacity: 0;
+  transition: .5s;
 }
 
-.bottom-nav-icon:hover {
-  color: #F91841;
+.bottom-nav-icon-show {
   opacity: 1;
 }
+
