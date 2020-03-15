@@ -1,7 +1,7 @@
 <h2>Hello, <%= current_user.first_name %></h2>
   <div class="container">
     <div class="vertical-tabs">
-      <div class="nav nav-tabs" role="tablist">
+      <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="My Clients">My Clients</a>
         </li>
@@ -14,7 +14,7 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
         </li>
-      </div>
+      </ul>
 
       <div class="tab-content">
 
@@ -30,14 +30,15 @@
         <div class="tab-pane" id="pag2" role="tabpanel">
           <div class="sv-tab-panel">
             <h3>My Events</h3>
-            <h2>Photographers Needed For:</h2>
+            <%= render 'shared/month_calender' %>
             <div class=“container”>
               <div class=“homepage-cards”>
-                <ul>
+
                   <% @bookings.each do |booking| %>
-                    <li> <%= render 'shared/photographer_manage_events', event: booking.event %> </li>
+                    <%= render 'shared/photographer_manage_events', event: booking.event %>
                   <% end %>
-                </ul>
+
+
               </div>
             </div>
           </div>
