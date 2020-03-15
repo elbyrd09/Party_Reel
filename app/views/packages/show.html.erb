@@ -1,7 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <h2>These Photographers are available for <%= @package.name %>:</h2>
+
+      <p>These Photographers are available for <strong><%= @package.name %></strong></p>
       <% @photographers_present.each do |photographer| %>
         <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
             <h2><%= photographer.user.first_name%><%=photographer.user.last_name %></h2>
@@ -95,7 +93,5 @@
           slot.addEventListener('click', updateForm);
         })
       </script>
-    </div>
-  </div>
-</div>
+
 
