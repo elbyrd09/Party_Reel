@@ -1,13 +1,14 @@
 
 <div class="wrapper">
 <img src=" <%= asset_path(@event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
-  <div class="d-flex justify-content-center flex-row flex-wrap m-2">
+  <div class="event-show-card mt-4 d-flex justify-content-center flex-row flex-wrap m-2">
       <small style="background-color:#0fabbc; color:white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
 
-    <div class="d-flex flex-row flex-wrap p-3">
+    <div class="d-flex flex-row flex-wrap p-3" style="color: black;">
       <small>The photographer you select will join you for a <%= @package.session %></small><br>
       <small>You will receive your photographs during the event on your dashboard!</small>
     </div>
+
 
   <div class="d-flex justify-content-center align-items-center">
       <% @photographers_present.each do |photographer| %>
@@ -16,7 +17,7 @@
           <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
             <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
         </div>
-        <div class="row d-flex flex-column" style="border-style: round;">
+        <div class="row d-flex flex-column" style="border-style: round; color: black;">
           <p>Rating: <%= rand(4.0..5.0).round(1) %> </p>
           <small> <%= photographer.user.first_name %> has captured <%= rand(30..50) %> Party Reel clients </small>
         </div>
@@ -41,7 +42,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body"  style="color: black;">
             <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
             <p> <%= photographer.profession %></p>
             <p> Instagram: <%= photographer.user.user_ig_handle %></p>
@@ -81,17 +82,18 @@
               <!-- starttime and endtime filled with JS function -->
               <%= f.hidden_field :start_time  %>
               <%= f.hidden_field :end_time %>
+              <div class="btn-new">
               <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+              </div>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   <% end %>
+
+
   <%= render 'shared/bottom_nav'%>
-
-
-
 </div>
 
 
