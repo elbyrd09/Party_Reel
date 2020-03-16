@@ -1,20 +1,19 @@
-<div class="wrapper-booking">
+
   <div class="container">
-  <h2 class="color-dark-blue">Select your Package</h2>
+  <h4 class="color-dark-blue py-3 text-center">Select your package</h4>
     <div class="package-cards">
       <% @packages.each do |package| %>
-        <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path package.local_img %>)">
+        <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path package.local_img %>)">
           <div class="package-name"> <%= package.name %></div>
           <div class="package-info hidden">
-            <h3 class="color-dark-blue"><%= package.name %></h3>
-            <p class="color-red"><%= humanized_money_with_symbol(package.price) %></p>
+            <h3 style="background-color:#0fabbc; color:white; border-radius:inherit;"><%= package.name %></h3>
+            <p style="background-color:#0fabbc; color:white;"><%= humanized_money_with_symbol(package.price) %></p>
             <p><%= package.description %></p>
-            <a href="packages/<%= package.id %>" class="btn btn-gradient rounded-pill m-0">&nbsp; + &nbsp;</a>
+            <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
           </div>
         </div>
       <% end %>
     </div>
   </div>
   <%= render 'shared/bottom_nav'%>
-</div>
 
