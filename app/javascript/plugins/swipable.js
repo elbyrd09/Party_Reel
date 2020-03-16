@@ -1,3 +1,31 @@
+function resetCarousel() {
+  const first = document.querySelector('#first')
+  const second = document.querySelector('#second')
+  const third = document.querySelector('#third')
+  const fourth = document.querySelector('#fourth')
+  const fifth = document.querySelector('#fifth')
+  const sixth = document.querySelector('#sixth')
+  const seventh = document.querySelector('#seventh')
+
+  const nodes = [first, second, third, fourth, fifth, sixth, seventh]
+
+  nodes.forEach(node => {
+    removeClass(node)
+  })
+
+  first.classList.add('hideLeft')
+  second.classList.add('prevLeftSecond')
+  third.classList.add('prev')
+  fourth.classList.add('selected')
+  fifth.classList.add('next')
+  sixth.classList.add('nextRightSecond')
+  seventh.classList.add('hideRight')
+}
+
+function removeClass(node) {
+  node.className = '';
+}
+
 export function moveToSelected(element) {
   if (element == "next") {
     var selected = $(".selected").next();
@@ -68,3 +96,12 @@ $("#prev").click(function() {
 $("#next").click(function() {
   moveToSelected("next");
 });
+
+setInterval(() => {
+  if (document.querySelector('#seventh').classList.contains('selected')) {
+    resetCarousel()
+  } else {
+    moveToSelected("next");
+  }
+  console.log('move')
+}, 2000)
