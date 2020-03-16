@@ -91,3 +91,21 @@
   margin: auto 0;
   padding: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+  #carousel {
+    width: 300px;
+    height: 300px;
+
+   div img {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+   }
+  }
+
+  .swipe {
+    display: flex;
+    justify-content: center;
+  }
+}

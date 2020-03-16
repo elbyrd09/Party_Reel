@@ -6,37 +6,37 @@
       <div class="container-carousel">
         <div class="swipe" data-ride="carousel">
           <div id="carousel">
-            <div class="hideLeft">
+            <div class="hideLeft" id="first">
               <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
             </div>
 
-            <div class="prevLeftSecond">
+            <div class="prevLeftSecond" id="second">
               <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
             </div>
 
-            <div class="prev">
+            <div class="prev" id="third">
               <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
             </div>
 
-            <div class="selected">
+            <div class="selected" id="fourth">
               <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
             </div>
 
-            <div class="next">
+            <div class="next" id="fifth">
               <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
             </div>
 
-            <div class="nextRightSecond">
+            <div class="nextRightSecond" id="sixth">
               <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
             </div>
 
-            <div class="hideRight">
+            <div class="hideRight" id="seventh">
               <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
             </div>
             </div>
           </div>
         </div>
-  <h3 class="homepage-events">Events in your area</h3>
+  <h3 class="homepage-events">Select an event below</h3>
 
   <div class="card-deck p-5">
       <% @events.each do |event| %>
