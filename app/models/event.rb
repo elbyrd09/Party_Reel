@@ -3,11 +3,6 @@ class Event < ApplicationRecord
   GENRES = ["Hip Hop", "Rock", "Metal", "EDM", "Mixed", "Folk", "Bluegrass", "Jazz", "Reggae", "Punk", "Alternative", "K-Pop", "Country"]
   PARTNERSHIPS = ["Yes, food truck: allocate 1 photographer", "Yes, Radiate: allocate 2 photographers", "No, Party Reel only"]
 
-  has_many :availablephotographers
-  has_many :bookings
-
-  validates :name, presence: true
-
   include PgSearch::Model
 
   pg_search_scope :search_by_location_and_name_and_genre,
@@ -15,6 +10,11 @@ class Event < ApplicationRecord
       using: {
         tsearch: { prefix: true, dictionary: 'english' }
         }
+  has_many :availablephotographers
+  has_many :bookings
+
+  validates :name, presence: true
+
 
   validates :start_date, presence: true
   validates :end_date, presence: true
