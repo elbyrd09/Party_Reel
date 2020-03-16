@@ -1,5 +1,5 @@
 
-<div class="wrapper p-3" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path @event.local_img %>); background-size: cover;">
+<div class="banner p-3" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path(@event.local_img)%>); background-size: contain;">
   <div class="container text-center">
     <div class="event-show-card" >
       <h5>Book your Photographer for </h5>
@@ -12,4 +12,3 @@
   </div>
   <%= render 'shared/bottom_nav'%>
 </div>
-
