@@ -1,11 +1,12 @@
-<div class="wrapper-booking">
-  <div class="d-flex justify-content-center flex-row flex-wrap p-4 m-3">
-      <small> <%= @event.name %>: <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
+<div class="wrapper">
+<img src=" <%= asset_path(@event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
+  <div class="d-flex justify-content-center flex-row flex-wrap m-2">
+      <small style="background-color:#0fabbc; color:white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
     <div class="d-flex flex-row flex-wrap p-3">
       <small>The photographer you select will join you for a <%= @package.session %></small><br>
       <small>You will receive your photographs during the event on your dashboard!</small>
     </div>
-  </div>
+
   <div class="d-flex justify-content-center align-items-center">
       <% @photographers_present.each do |photographer| %>
       <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
@@ -13,7 +14,7 @@
           <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
             <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
         </div>
-        <div class="row d-flex flex-column">
+        <div class="row d-flex flex-column" style="border-style: round;">
           <p>Rating: <%= rand(4.0..5.0).round(1) %> </p>
           <small> <%= photographer.user.first_name %> has captured <%= rand(30..50) %> Party Reel clients </small>
         </div>
@@ -87,6 +88,11 @@
   <% end %>
   <%= render 'shared/bottom_nav'%>
 </div>
+
+
+</div>
+
+
 
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
