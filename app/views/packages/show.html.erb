@@ -1,4 +1,6 @@
-<div class="wrapper-booking">
+<div class="wrapper-booking1">
+  <div class="wrapper p-3" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path @event.local_img %>); background-size: cover;">
+</div>
   <div class="d-flex justify-content-center flex-row flex-wrap p-4 m-3">
       <small> <%= @event.name %>: <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
     <div class="d-flex flex-row flex-wrap p-3">
@@ -86,7 +88,7 @@
     </div>
   <% end %>
   <%= render 'shared/bottom_nav'%>
-</div>
+
 
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
