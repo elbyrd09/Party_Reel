@@ -8,6 +8,14 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_location_and_name_and_genre,
+      against: [ :location, :name, :genre ],
+      using: {
+        tsearch: { prefix: true, dictionary: 'english' }
+        }
+
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :end_date_after_start_date
