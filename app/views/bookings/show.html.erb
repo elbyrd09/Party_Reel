@@ -18,7 +18,7 @@
         <p><strong>Total price</p></strong>
         <h4 style="color: #fa163f"><%= humanized_money_with_symbol(@booking.package.price) %></h4>
     </div>
-        <a href="<%= @booking.id %>/new_booking_payment" class="btn btn-primary-pay">Pay now</a>
+        <a href="<%= @booking.id %>/payments/new" class="btn btn-primary-pay">Pay now</a>
   </div>
         <%= render 'shared/bottom_nav'%>
 </div>
