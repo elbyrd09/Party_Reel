@@ -24,3 +24,20 @@
   color: white;
   border: none;
 }
+
+.btn-new {
+  background-color: #0fabbc;
+  color: white;
+  border-radius: 30px;
+  font-size: 20px;
+  max-width: 250px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.btn-new:hover {
+  background-color: #e4f9ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+}

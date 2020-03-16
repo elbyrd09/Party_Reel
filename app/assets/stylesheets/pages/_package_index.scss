@@ -1,10 +1,14 @@
 .package-cards {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
 }
 
 .package-card {
-  height: 25%;
-  margin: 10px;
+  height: 35%;
+  width: 300px;
+  margin-bottom: 20px;
 }
 
 .package-info {
