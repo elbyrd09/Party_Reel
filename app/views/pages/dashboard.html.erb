@@ -4,3 +4,24 @@
   <%= render 'shared/attendee'%>
 <% end %>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+  const eventBooked = () => {
+    const eventClick = document.getElementById("button-booked");
+    console.log(eventClick)
+    eventClick.addEventListener("click", (event) => {
+      console.log(event)
+        // also, need to addAdjacentHTML to the 'Events I've booked' list after click
+        // event.curretTarget.classList.toggle("booked-img");
+        //^ to add in order to change button from 'I want to shoot this event' to 'Booked' with a green checkmark
+    })
+  }
+eventBooked();
+    //here code
+});
+
+
+</script>

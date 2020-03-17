@@ -1,55 +1,72 @@
-<h2>Hello, <%= current_user.first_name %></h2>
+<h2 style="background-color: #0fabbc; font-size: 30px; color: white; padding: 10px; max-width: fit-content;; border-radius: border-radius: 15px 50px 30px; border-radius: 1px 29px 28px 1px;">Hello, <%= current_user.first_name %></h2>
   <div class="container">
     <div class="vertical-tabs">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="My Clients">My Clients</a>
+          <a class="nav-link active" data-toggle="tab" href="#pag2" role="tab" aria-controls="Event Manager">Event Manager</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="Event Manager">Event Manager</a>
-        </li>
-        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="#pag1" role="tab" aria-controls="My Clients">My Clients</a>
+        <li class="nav-item" >
           <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="Portfolio">Portfolio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="Messages">Messages</a>
-        </li>
+
       </ul>
 
       <div class="tab-content">
 
-        <div class="tab-pane active" id="pag1" role="tabpanel">
+        <div class="tab-pane " id="pag1" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>My Clients</h3>
+      <div class="event-show-card mt-4" style="background-color: white;">
                 <% @bookings.each do |booking| %>
                   <%= render 'shared/client_booking', booking: booking %>
                 <% end %>
           </div>
         </div>
-
-        <div class="tab-pane" id="pag2" role="tabpanel">
+      </div>
+        <div class="tab-pane active" id="pag2" role="tabpanel">
           <div class="sv-tab-panel">
-            <div class="d-flex" style="justify-content: space-between;">
-              <div class="my-event">
-              <h3>My Events</h3>
-              </div>
-              <div id="sticky">
-              <h2>Booked Events</h2>
-              <li>evernt 1</li>
-              <li>evernt 1</li>
-              <li>evernt 1</li>
-              <li>evernt 1</li>
+            <!-- Nested Tabs -->
+            <div class="container">
+                <ul class="nav nav-tabs" role="tablist">
+
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#pag2-1" role="tab" aria-controls="My Clients">My Events</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#pag2-2" role="tab" aria-controls="Event Manager">Booked Event</a>
+                  </li>
+                </ul>
+
+            <div class="tab-content">
+
+              <div class="tab-pane active" id="pag2-1" role="tabpanel">
+                <div class="sv-tab-panel">
+                    <div class=“container2-1”>
+                      <div class=“homepage-cards”>
+                        <% @bookings.each do |booking| %>
+                          <%= render 'shared/photographer_manage_events', event: booking.event %>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
               </div>
 
-          </div>
-            <%= render 'shared/month_calender' %>
-            <div class=“container”>
-              <div class=“homepage-cards”>
-                  <% @bookings.each do |booking| %>
-                    <%= render 'shared/photographer_manage_events', event: booking.event %>
-                  <% end %>
+              <div class="tab-pane" id="pag2-2" role="tabpanel">
+                <div class="sv-tab-panel">
+                  <div class=“container2-2”>
+                    <div class="d-flex" style="justify-content: space-between;">
+                      <div class="my-event">
+                        <div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
 
@@ -74,11 +91,7 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="pag4" role="tabpanel">
-          <div class="sv-tab-panel">
-           <h3>Messages</h3>
-          </div>
-        </div>
+
 
       </div>
     </div>
