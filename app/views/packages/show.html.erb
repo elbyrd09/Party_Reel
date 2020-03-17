@@ -142,7 +142,9 @@
     }
 
     slot.addEventListener('click', updateForm);
-    slot.addEventListener('click', changeColor);
+    if (slot.classList.contains('available-slot')) {
+      slot.addEventListener('click', changeColor);
+    };
 
   })
 </script>
