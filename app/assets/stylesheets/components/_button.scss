@@ -26,17 +26,20 @@
 }
 
 .btn-new {
-  background-color: #0fabbc;
+  display: inline-grid;
+  background-color: rgba(15, 171, 188, .6);
+  width: 50%;
   color: white;
+  border: thin;
+  border-color: grey;
   border-radius: 30px;
   font-size: 20px;
-  max-width: 250px;
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
 }
 
 .btn-new:hover {
   background-color: #e4f9ff;
-  color: white;
+  color: black;
   border: none;
 }

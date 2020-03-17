@@ -1,19 +1,18 @@
 
 <div class="wrapper">
-
   <img src=" <%= asset_path(@event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
+    <%= render 'shared/progress_bar' %>
+    <div class="event-show-card mt-4 d-flex justify-content-center flex-row flex-wrap m-2 py-0">
+      <small style="background-color:#0fabbc; color:white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
 
-  <div class="event-show-card mt-4 d-flex justify-content-center flex-row flex-wrap m-2 py-0">
-    <small style="background-color:#0fabbc; color:white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
-
-    <div class="d-flex flex-row flex-wrap p-3" style="color: black;">
-      <small style="color: grey">The photographer you select will join you for a <%= @package.session %></small><br>
-      <small style="color: grey">You will receive your photographs during the event on your dashboard!</small>
+      <div class="d-flex flex-row flex-wrap p-3" style="color: black;">
+        <small style="color: grey">The photographer you select will join you for a <%= @package.session %></small><br>
+        <small style="color: grey">You will receive your photographs during the event on your dashboard!</small>
+      </div>
     </div>
-  </div>
 
 
-  <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
 
       <!-- Carousel with navigation -->
       <div class="col-9 photographer-carousel">

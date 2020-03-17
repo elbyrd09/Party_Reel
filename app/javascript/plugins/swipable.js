@@ -98,7 +98,8 @@ $("#next").click(function() {
 });
 
 setInterval(() => {
-  if (document.querySelector('#seventh').classList.contains('selected')) {
+  const seventh = document.querySelector('#seventh')
+  if (seventh && seventh.classList.contains('selected')) {
     resetCarousel()
   } else {
     moveToSelected("next");
