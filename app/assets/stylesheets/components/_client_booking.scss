@@ -3,16 +3,21 @@
 }
 
 .time-slots {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  grid-gap: 3px;
+  // display: flex;
+  // flex-direction: column;
+  // text-align: center;
+  // align-items: center;
 }
 
 .time-slot {
+  text-align: center;
   border-radius: 30px;
   font-size: 15px;
-  width: 250px;
+  width: 75px;
   padding: 10px;
   border: 1px solid  #0fabbc;
 }
@@ -20,13 +25,10 @@
 .unavailable-slot {
   // For now the same color as an available one, but should change once we have the
   // unavailableTimes stuff working
-  border-color: #0fabbc;
-
-  background-color: yellow;
+  border-color: red;
 }
 
 .available-slot {
-  background-color: blue;
   border-color: #0fabbc;
 }
 
