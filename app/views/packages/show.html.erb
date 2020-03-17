@@ -136,9 +136,9 @@
   const timeSlots = document.querySelectorAll(".time-slot");
   timeSlots.forEach((slot) => {
     if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
-      slot.classList.add("available-slot");
-    } else {
       slot.classList.add("unavailable-slot");
+    } else {
+      slot.classList.add("available-slot");
     }
 
     slot.addEventListener('click', updateForm);
