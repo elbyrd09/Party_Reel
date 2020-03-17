@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:home]
   def home
-    @events = Event.all.first(3)
+    @events = Event.search_by_location_and_name_and_genre(params[:location])
   end
 
   def dashboard

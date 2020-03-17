@@ -87,9 +87,9 @@
 
 .container-carousel {
   width: auto;
-  height: auto;
+  height: 28vh;
   margin: auto 0;
-  padding: 10px;
+  padding: 5px;
 }
 
 // From StackOverflow, change the color of the 'arrows' on the carousel, if photographers_present
@@ -107,6 +107,24 @@
 
 .carousel-control-prev-icon:after {
   content: '<';
+}
+
+@media only screen and (max-width: 600px) {
+  #carousel {
+    width: 300px;
+    height: 300px;
+
+   div img {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+   }
+  }
+
+  .swipe {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 600px) {

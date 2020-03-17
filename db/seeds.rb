@@ -88,14 +88,78 @@ user_login2.save!
 puts "Created #{user_login2}"
 user_login2.save!
 
-photographer = Photographer.new(user: user_login)
-photographer.phone_number = '212-555-2121'
-photographer.camera = 'Canon'
-photographer.lenses = '24-105mm'
+user_login3 = User.new(password: 'password', email: 'user4@gmail.com')
+user_login3.first_name = 'Daryl'
+user_login3.last_name = 'Mushaweh'
+user_login3.location = 'Providence'
+user_login3.email = 'user4@gmail.com'
+user_login3.user_ig_handle = 'party.there'
+user_login3.save!
+puts "Created #{user_login3}"
+user_login3.save!
+
+user_login4 = User.new(password: 'password', email: 'user5@gmail.com')
+user_login4.first_name = 'Danny'
+user_login4.last_name = 'Brown'
+user_login4.location = 'Philadelphia'
+user_login4.email = 'user5@gmail.com'
+user_login4.user_ig_handle = 'party.everywhere'
+user_login4.save!
+puts "Created #{user_login4}"
+user_login4.save!
+
+user_login5 = User.new(password: 'password', email: 'user6@gmail.com')
+user_login5.first_name = 'Kyle'
+user_login5.last_name = 'Bluth'
+user_login5.location = 'Seal Beach'
+user_login5.email = 'user6@gmail.com'
+user_login5.user_ig_handle = 'party.overthere'
+user_login5.save!
+puts "Created #{user_login5}"
+user_login5.save!
+
+user_login6 = User.new(password: 'password', email: 'user7@gmail.com')
+user_login6.first_name = 'Bryan'
+user_login6.last_name = 'Glowik'
+user_login6.location = 'Worcester'
+user_login6.email = 'user7@gmail.com'
+user_login6.user_ig_handle = 'party.somewhere'
+user_login6.save!
+puts "Created #{user_login6}"
+user_login6.save!
+
+photographer6 = Photographer.new(user: user_login6)
+photographer6.phone_number = '212-555-2121'
+photographer6.camera = 'Canon'
+photographer6.lenses = '24-105mm'
 # photographer.specialty = 'Urban'
-photographer.profession = 'Photographer'
-photographer.save!
-puts "Created #{photographer}"
+photographer6.profession = 'Photographer'
+photographer6.save!
+
+photographer5 = Photographer.new(user: user_login5)
+photographer5.phone_number = '212-555-2121'
+photographer5.camera = 'Canon'
+photographer5.lenses = '24-105mm'
+# photographer.specialty = 'Urban'
+photographer5.profession = 'Photographer'
+photographer5.save!
+
+
+photographer4 = Photographer.new(user: user_login4)
+photographer4.phone_number = '212-555-2121'
+photographer4.camera = 'Canon'
+photographer4.lenses = '24-105mm'
+# photographer.specialty = 'Urban'
+photographer4.profession = 'Photographer'
+photographer4.save!
+
+photographer3 = Photographer.new(user: user_login3)
+photographer3.phone_number = '212-555-2121'
+photographer3.camera = 'Canon'
+photographer3.lenses = '24-105mm'
+# photographer.specialty = 'Urban'
+photographer3.profession = 'Photographer'
+photographer3.save!
 
 photographer2 = Photographer.new(user: user_login2)
 photographer2.phone_number = '322-555-4214'
@@ -104,7 +168,16 @@ photographer2.lenses = '34-106mm'
 # photographer2.specialty = 'Urban'
 photographer2.profession = 'Photographer'
 photographer2.save!
-puts "Created #{photographer2}"
+
+photographer = Photographer.new(user: user_login)
+photographer.phone_number = '212-555-2121'
+photographer.camera = 'Canon'
+photographer.lenses = '24-105mm'
+# photographer.specialty = 'Urban'
+photographer.profession = 'Photographer'
+photographer.save!
+
+puts "Created photographers"
 
 # EVENTURLS = ['governors-ball-music-festival-2019/', 'mountain-jam-2019/', 'electric-zoo-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
 
