@@ -23,7 +23,16 @@
         <p style="color: grey"><strong>Total price</p></strong>
         <h4 style="color: #fa163f; padding: 12px; margin-left: 90px;"><%= humanized_money_with_symbol(@booking.package.price) %></h4>
     </div>
-        <a href="<%= @booking.id %>/payments/new" class="btn-new">Pay now</a>
+    <div class="row d-flex justify-content-between m-3 p-3" style="border-left-style: solid; border-top: solid;">
+      <h5 style="color: #fa163f">My Package</h5><br>
+        <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%m/%d/%Y") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </p><br>
+        <small><p style="line-height: 2px; color: grey">Dedicated attention for 1 hour</p></small>
+        <small><p style="line-height: 2px; color: grey">Minimum: 50 photographs of your group</p></small>
+    <div class="mt-4 py-4 d-flex justify-content-around" style="border-top: solid">
+        <p><strong>Total price</p></strong>
+        <h4 style="color: #fa163f"><%= humanized_money_with_symbol(@booking.package.price) %></h4>
+    </div>
+        <a href="<%= @booking.id %>/payments/new" class="btn btn-primary-pay">Pay now</a>
   </div>
         <%= render 'shared/bottom_nav'%>
   </div>
