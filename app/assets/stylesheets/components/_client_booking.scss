@@ -2,10 +2,33 @@
 
 }
 
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.time-slot {
+  border-radius: 30px;
+  font-size: 15px;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid  #0fabbc;
+}
+
 .unavailable-slot {
-  background-color: red;
+  // For now the same color as an available one, but should change once we have the
+  // unavailableTimes stuff working
+  border-color: #0fabbc;
 }
 
 .available-slot {
-  background-color: green;
+  background-color: blue;
+  border-color: #0fabbc;
+}
+
+.time-slot-selected {
+  background-color: #0fabbc;
+  color: white;
 }

@@ -70,20 +70,18 @@
                     </div>
                     <% if @package.name == "How do you want it?" %>
                       <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
-                        <span id="time-slot">12-13</span>
-                        <br>
-                        <span id="time-slot">13-14</span>
-                        <br>
-                        <span id="time-slot">14-15</span><br>
-                        <span id="time-slot">15-16</span><br>
-                        <span id="time-slot">16-17</span><br>
-                        <span id="time-slot">17-18</span><br>
-                        <span id="time-slot">18-19</span><br>
-                        <span id="time-slot">19-20</span><br>
-                        <span id="time-slot">20-21</span><br>
-                        <span id="time-slot">21-22</span><br>
-                        <span id="time-slot">22-23</span><br>
-                        <span id="time-slot">23-24</span><br>
+                        <span class="time-slot">12-13</span><br>
+                        <span class="time-slot">13-14</span><br>
+                        <span class="time-slot">14-15</span><br>
+                        <span class="time-slot">15-16</span><br>
+                        <span class="time-slot">16-17</span><br>
+                        <span class="time-slot">17-18</span><br>
+                        <span class="time-slot">18-19</span><br>
+                        <span class="time-slot">19-20</span><br>
+                        <span class="time-slot">20-21</span><br>
+                        <span class="time-slot">21-22</span><br>
+                        <span class="time-slot">22-23</span><br>
+                        <span class="time-slot">23-24</span><br>
                       </div>
                     <% end %>
                     <div class="modal-footer">
@@ -118,12 +116,10 @@
 
 <%= render 'shared/bottom_nav'%>
 
-
-
-
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
   console.log(unavailableTimes)
+
   const updateForm = (event) => {
     const slot = event.currentTarget.innerHTML
     const startTime = slot.split("-")[0]
@@ -132,7 +128,12 @@
     document.querySelector('#booking_end_time').value = endTime
   }
 
-  const timeSlots = document.querySelectorAll("#time-slot");
+  const changeColor = (event) => {
+    const slot = event.currentTarget;
+    slot.classList.toggle("time-slot-selected");
+  }
+
+  const timeSlots = document.querySelectorAll(".time-slot");
   timeSlots.forEach((slot) => {
     if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
       slot.classList.add("available-slot");
@@ -141,6 +142,8 @@
     }
 
     slot.addEventListener('click', updateForm);
+    slot.addEventListener('click', changeColor);
+
   })
 </script>
 
