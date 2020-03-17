@@ -5,10 +5,10 @@
     <div class="container text-center">
       <div class="event-show-card mt-4" >
         <h5 style="color: black;">Book your photographer for </h5>
-        <p style="background-color: #0fabbc; padding: 8px; width: 50%; border-radius: 30px; color: white; display: inline-grid;"> <%= @event.name %></p>
-        <p style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %> </p>
-        <p style="background-color: #0fabbc; border-radius: 30px; color: white; padding: 10px; display: inline-grid; width: 50%;"> Photographers: <%= @photographers_present.count %></p>
-        <p style="color: black;"> <%= @event.event_description.split(/\./).first %></p>
+        <p> <%= @event.name %></p>
+        <h5 style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %> </h5><br>
+        <small style="color: black;"> <%= @event.event_description %></small>
+        <p> Photographers to book: <%= @photographers_present.count %></p>
       <%= link_to "Next step: Package", event_packages_path(@event), class: "btn-new" %>
       </div>
     </div>

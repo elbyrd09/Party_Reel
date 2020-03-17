@@ -1,41 +1,42 @@
 <div class="wrapper">
-<img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
+    <img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
        <%= render 'shared/progress_bar' %>
-
-    <div class="row">
-      <div class="col-12 col-lg-6">
-      <!-- app/views/payments/new.html.erb -->
-        <div class="container">
-          <div class="event-show-card mt-4 d-flex justify-content-center flex-row flex-wrap m-2">
+          <div class="event-show-card d-flex justify-content-center flex-row flex-wrap ml-2">
              <!-- <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div> -->
-            <div class="col">
-              <h3 style="color: grey">Checkout summary</h3>
-              <div class="d-flex" style="border-bottom: solid;">
-              <img src=" <%= asset_path(@booking.package.local_img) %>" alt="event picture" style="max-width: 35%; height: auto; object-fit: cover; border-radius: 5px;">
-              <div>
-              <p style="color: grey">Package : <strong><%= @booking.package.name %></strong></p>
-              <p style="color: grey">Day: <strong><%= @booking.start_time.strftime("%B %d") %></strong>
+            <div>
+              <h5 style="color: grey">Session for <%= current_user.attendee %></h5><br><br>
+              <div class="d-flex">
+              <img src=" <%= asset_path(@booking.package.local_img) %>" alt="package picture" style="height: 100px; width: 100px; object-fit: cover; border-radius: 5px;">
+                <div class="p-3">
+                  <small style="color: grey">Package : <strong><%= @booking.package.name %></strong></small><br>
+                  <small style="color: grey">Day: <strong><%= @booking.start_time.strftime("%B %d") %></strong></small>
+                </div>
               </div>
-              </div>
-              <div class="d-flex justify-content-between">
-              <h2 style="color: grey">Total</h2>
-              <h2 style="color: grey"><strong><%= humanized_money_with_symbol @booking.amount %></strong></h2>
-              </div>
-              <button id="pay" class="btn-new" style="width: inherit">Pay</button>
-              <script src="https://js.stripe.com/v3/"></script>
-              <script>
-                const paymentButton = document.getElementById('pay');
-                paymentButton.addEventListener('click', () => {
-                  const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-                  stripe.redirectToCheckout({
-                    sessionId: '<%= @booking.checkout_session_id %>'
-                  });
-                });
-              </script>
-            </div>
-          </div>
+
+    <div class="row py-5">
+        <div class="col-6">
+          <h5 style="color: grey">Subtotal</h5>
+          <h5 style="color: grey">Tax</h5><br>
+          <h5 style="color: black">Total</h5>
         </div>
+        <div class="col-6" style="text-align: right;">
+          <h5 style="color: grey">$0.00</h5>
+          <h5 style="color: grey">$0.00</h5><br>
+          <h5 style="color: black"><strong><%= humanized_money_with_symbol @booking.amount %>.00</strong></h5>
       </div>
     </div>
+        <button id="pay" class="btn-new">Party time - Pay now!</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @booking.checkout_session_id %>'
+            });
+          });
+        </script>
+      </div>
+  </div>
 </div>
 

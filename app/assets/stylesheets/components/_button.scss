@@ -27,15 +27,16 @@
 
 .btn-new {
   display: inline-grid;
-  background-color: rgba(15, 171, 188, .6);
+  background-color: rgba(15, 171, 188, .9);
   // width: 50%;
   color: white;
-  border: thin;
-  border-color: grey;
+  border: solid;
+  border-color: gray;
   border-radius: 30px;
-  font-size: 20px;
+  font-size: 2vh;
   margin: 10px;
-  padding: 15px;
+  padding: 10px;
+  text-align: center;
 }
 
 .btn-new:hover {
