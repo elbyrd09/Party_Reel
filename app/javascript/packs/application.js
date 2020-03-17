@@ -6,6 +6,7 @@ import flatpickr from "flatpickr";
 import { moveToSelected } from 'plugins/swipable.js';
 moveToSelected();
 
+
 // import { getBookingTime } from 'packs/booking_form.js';
 // getBookingTime();
 
@@ -17,3 +18,4 @@ showBottomNav();
 
 import { flipPackageInfo } from 'packs/flip_package_info.js';
 flipPackageInfo();
+

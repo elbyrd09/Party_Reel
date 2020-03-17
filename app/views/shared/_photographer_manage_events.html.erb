@@ -1,5 +1,5 @@
-<div class="event-card my-5">
-  <%= cl_image_tag event.photos[0].key%>
+<div class="event-card my-5" style="width:800px">
+
     <div class="event-infos">
         <div>
           <h4><%= event.name %></h4>
@@ -11,7 +11,9 @@
         </div>
          <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">I want to shoot this event</a>
     </div>
+
 </div>
+
 
 <!-- The Modal -->
   <div class="modal fade" id= "ManageEventModal<%= event.id %>" >
@@ -27,7 +29,7 @@
         <!-- Modal body dynamic days as per event-->
         <div class="modal-body">
 
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= event.start_date.strftime("%m/%d") %></button>
+          <button type="button" id="btn1 btn-secondary" data-dismiss="modal"><%= event.start_date.strftime("%m/%d") %></button>
 
         </div>
 
@@ -39,3 +41,4 @@
       </div>
     </div>
   </div>
+

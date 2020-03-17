@@ -92,6 +92,23 @@
   padding: 10px;
 }
 
+// From StackOverflow, change the color of the 'arrows' on the carousel, if photographers_present
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+  font-size: 25px;
+  color: #0fabbc;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+}
+
 @media only screen and (max-width: 600px) {
   #carousel {
     width: 300px;
