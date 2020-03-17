@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     @photographers_present = []
     # Put each available Photographer inside the @photographers_present array,
     # so this will be an array of Photographer objects
-      @event.availablephotographers.where.not(fully_booked: "Full" ).each do |availablephotographer|
+    @event.availablephotographers.where.not(fully_booked: "Full" ).each do |availablephotographer|
       @photographers_present.push(availablephotographer.photographer)
     end
   end
