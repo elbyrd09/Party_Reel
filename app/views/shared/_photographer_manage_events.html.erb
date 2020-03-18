@@ -8,8 +8,10 @@
           <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
           <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
         </div>
-         <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">I want to shoot this event</a>
+         <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
+         <h2  style="border-bottom: #0fabbc solid;"></h2>
     </div>
+
 
 </div>
 
@@ -27,8 +29,12 @@
 
         <!-- Modal body dynamic days as per event-->
         <div class="modal-body">
+          <%= simple_form_for [event, @available_photographer] do |f| %>
 
-          <button type="button" id="button-booked" data-dismiss="modal"><%= event.start_date.strftime("%B %d") %></button>
+            <div class="btn-new">
+            <%= f.button :submit, event.start_date.strftime("%B %d"), input_html: {"data-dismiss": "modal "}  %>
+            </div>
+          <% end %>
 
         </div>
 

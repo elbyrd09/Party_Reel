@@ -12,6 +12,14 @@ class PagesController < ApplicationController
     # else
       #@bookings = Booking.all.where(attendee: current_user.attendee)
       #@events = Event.all
+      @available_photographer = Availablephotographer.new
+      # @event = Event.find(params[:event_id])
+
+    @eventsregistered = []
+    current_user.photographer.availablephotographers.each do |availablity|
+      @eventsregistered.push(availablity.event)
+    end
+
   end
 
   def edit_profile

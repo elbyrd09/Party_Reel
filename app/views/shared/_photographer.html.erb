@@ -55,16 +55,17 @@
               <div class="tab-pane" id="pag2-2" role="tabpanel">
                 <div class="sv-tab-panel">
                   <div class=“container2-2”>
-                    <div class="d-flex" style="justify-content: space-between;">
-                      <div class="my-event">
-                        <div>
 
-                        </div>
+
+                      <div class=“homepage-cards”>
+                         <%  @eventsregistered.each do |event| %>
+                          <%= render 'shared/pgr_booked_events', event: event %>
+                         <% end %>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
           </div>
@@ -72,27 +73,13 @@
 
         <div class="tab-pane" id="pag3" role="tabpanel">
           <div class="sv-tab-panel">
-            <h3>My Portfolio</h3>
-
-            <div class=profilo_top_card>
-              <h2>NNN</h2>
-              <div class="profile_pic">
-                <%= image_tag("profile_img.jpg") %>
-                <div class="profile_info">
-                  <h4>Bio</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis nemo minus magni perferendis dignissimos ipsum maxime illo dolorem molestiae! Minus minima beatae vel eius illo. Iure molestias, dolore fugiat!</p>
-                </div>
-              </div>
-              <div class="Portfolio">
-                <h2 class="events">Portfolio </h2>
-                  <%= render 'shared/portfolio_carousel' %>
+              <div class=“homepage-cards”>
+               <%= render 'shared/pgr_portfolio' %>
               </div>
             </div>
           </div>
+
         </div>
-
-
-
-      </div>
+     </div>
     </div>
   </div>
