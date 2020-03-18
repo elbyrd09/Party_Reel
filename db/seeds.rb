@@ -318,19 +318,21 @@ SPECIALTIES.each do |special|
   Specialty.create!(name: special)
 end
 
+Photographer.all.each do |photographer|
 
-randomevents = Event.all.sample(3)
+  randomevents = Event.all.sample(3)
 
-randomevents.each do |re|
-  availability = Availablephotographer.new(photographer: photographer, event: re, fully_booked: "Partially")
-  availability.save!
-  # default value is 'FREE' when the photographer's row is created in this table
+  randomevents.each do |re|
+    availability = Availablephotographer.new(photographer: photographer, event: re, fully_booked: "Partially")
+    availability.save!
+    # default value is 'FREE' when the photographer's row is created in this table
 
-  booking = Booking.new(photographer: photographer, attendee: attendee, event: re, package: Package.all.sample, start_time: "3:00", end_time: "5:00")
-  # if there is 1 value of SICKO Mode in the package: key then we change the value of fully_booked to 'FULL'
-  # booking.start_date = Time.new(2020, 4, 12).strftime('%b %d, %Y')
-  # booking.end_date = Time.new(2020, 4, 15).strftime('%b %d, %Y')
-  booking.save!
+    booking = Booking.new(photographer: photographer, attendee: attendee, event: re, package: Package.all.sample, start_time: "3:00", end_time: "5:00")
+    # if there is 1 value of SICKO Mode in the package: key then we change the value of fully_booked to 'FULL'
+    # booking.start_date = Time.new(2020, 4, 12).strftime('%b %d, %Y')
+    # booking.end_date = Time.new(2020, 4, 15).strftime('%b %d, %Y')
+    booking.save!
+  end
 end
 
 3.times do

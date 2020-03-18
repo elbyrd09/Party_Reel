@@ -1,14 +1,17 @@
 .package-cards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 80vh;
+  align-items: center;
+  height: 65vh;
 }
 
 .package-card {
   height: 35%;
   width: 300px;
   margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .package-info {
