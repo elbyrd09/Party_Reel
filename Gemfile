@@ -19,6 +19,8 @@ gem 'jquery-rails'
 gem 'money-rails'
 gem 'stripe'
 gem 'pg_search', '~> 2.3.0'
+gem 'omniauth-facebook'
+
 
 
 group :development do

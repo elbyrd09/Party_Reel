@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # get 'registrations/after_sign_up_path_for'
-  devise_for :users, controllers: { registrations: "custom_registrations" }
+  devise_for :users, controllers: { registrations: "custom_registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :events, only: [:index, :show] do

@@ -1,7 +1,10 @@
 <div class="navbar navbar-lewagon bottom-nav">
   <!-- avatar -->
     <% if user_signed_in? %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar bottom-nav-avatar"%>
+
+    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%= image_tag avatar_url, class: "avatar bottom-nav-avatar" %>
+
     <% else %>
       <%= link_to "Login", new_user_session_path %>
     <% end %>
