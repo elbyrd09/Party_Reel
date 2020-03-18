@@ -61,10 +61,13 @@
                       <% photographer.photographerspecialties.each do |photographer_specialty| %>
                         <p> <%= photographer_specialty.specialty.name  %></p>
                       <% end  %>
+                      <h4>What people had to say about <%= photographer.user.first_name %></h4>
                       <% photographer.bookings.each do |booking| %>
-                        <% booking.reviews.each do |review| %>
-                          <p> <%= review.content %></p>
-                        <% end %>
+                          <% booking.reviews.each do |review| %>
+                            <div class="booking-review">
+                              <p> <%= review.content %></p>
+                            </div>
+                          <% end %>
                       <% end %>
                     </div>
                     <% if @package.name == "How do you want it?" %>
@@ -129,6 +132,14 @@
   }
 
   const changeColor = (event) => {
+    // Set backgrond of all other slots to white, so it is clear only one can be selected
+    document.querySelectorAll(".time-slot").forEach( (slot) => {
+      if (slot.classList.contains('time-slot-selected')) {
+        slot.classList.remove("time-slot-selected");
+      };
+    })
+
+
     const slot = event.currentTarget;
     slot.classList.toggle("time-slot-selected");
   }
