@@ -129,6 +129,14 @@
   }
 
   const changeColor = (event) => {
+    // Set backgrond of all other slots to white, so it is clear only one can be selected
+    document.querySelectorAll(".time-slot").forEach( (slot) => {
+      if (slot.classList.contains('time-slot-selected')) {
+        slot.classList.remove("time-slot-selected");
+      };
+    })
+
+
     const slot = event.currentTarget;
     slot.classList.toggle("time-slot-selected");
   }
