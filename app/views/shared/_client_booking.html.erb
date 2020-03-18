@@ -1,13 +1,17 @@
-<div class="event-card my-5">
 
-  <div class="event-infos">
-    <div>
-      <h6><strong><%= booking.attendee.user.first_name %> <%= booking.attendee.user.last_name %></strong></h6>
-      <h5> Package Selected: <%= booking.package.name %> </h5>
-      <h2><%= booking.event.name %></h2>
-      <p><%= booking.event.start_date %></p>
-    </div>
-    <h5 class="event-infos-pricing">Payment Status: Paid in full</h5>
+<div class="event-show-card mt-4" >
+    <div class="d-flex" style="justify-content: space-between;">
+    <h2 style="color: grey"><strong><%= booking.attendee.user.first_name %> <%= booking.attendee.user.last_name %></strong></h2>
+    <h2  style="border-top: solid"></h2>
     <img src="<%= asset_path("jd.jpg") %>" class="pgr-avatar-user avatar-bordered" /> <!-- attendee profile picture -->
+    </div>
+      <h2 style="color: grey"><%= booking.event.name %></h2>
+      <p style="color: grey"><strong><%= booking.event.start_date %></strong></p>
+    <h2  style="border-top: solid"></h2>
+      <h5 style="color: grey"><strong>Package Selected:</strong></h5>
+      <h2  style="border-top: solid"></h2>
+      <h5 style="color: grey"><%= booking.package.name %></h5>
+      <h2  style="border-top: solid"></h2>
+    <h5 class="event-infos-pricing" style="color: grey"><strong>Payment Status:</strong> Paid in full</h5>
+  <h2  style="border-bottom: #0fabbc solid;"></h2>
   </div>
-</div>
