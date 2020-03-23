@@ -1,0 +1,5 @@
+meta_product_name: "Party Reel"
+meta_title: "Party Reel - Capture moments"
+meta_description: "Connecting live event attendees with professional photography & video"
+meta_image: "Faux22 copy.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
