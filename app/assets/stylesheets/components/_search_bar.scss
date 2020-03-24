@@ -34,7 +34,7 @@
   float: left;
   font: bold 15px 'Raleway', sans-serif;
   border: 0;
-  background: #e4f9ff;
+  background: $lily_white;
   -moz-border-radius: 3px 0 0 3px;
   -webkit-border-radius: 3px 0 0 3px;
   border-radius: 10px;
@@ -42,26 +42,26 @@
 
 .form-wrapper-2 input:focus {
   outline: 0;
-  background: #fff;
+  background: $white;
   -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
   box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 }
 
 .form-wrapper-2 input::-webkit-input-placeholder {
-  color: #999;
+  color: $dusty_gray;
   font-weight: normal;
   font-style: italic;
 }
 
 .form-wrapper-2 input:-moz-placeholder {
-  color: #999;
+  color: $dusty_gray;
   font-weight: normal;
   font-style: italic;
 }
 
 .form-wrapper-2 input:-ms-input-placeholder {
-  color: #999;
+  color: $dusty_gray;
   font-weight: normal;
   font-style: italic;
 }
@@ -76,9 +76,9 @@
   height: 40px;
   width: 110px;
   font: bold 15px/40px 'Raleway', sans-serif;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
-  background: #0fabbc;
+  background: $cerulean;
   -moz-border-radius: 0 3px 3px 0;
   -webkit-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
@@ -86,12 +86,12 @@
 }
 
 .form-wrapper-2 button:hover {
-  background: #fa163f;
-  color: white;
+  background: $torch_red;
+  color: $white;
 }
 
 .form-wrapper-2 button:active, .form-wrapper-2 button:focus {
-  background: #c42f2f;
+  background: $persian_red;
 }
 
 .form-wrapper-2 button:before {
@@ -99,17 +99,17 @@
   position: absolute;
   border-width: 8px 8px 8px 0;
   border-style: solid solid solid none;
-  border-color: transparent #0fabbc transparent;
+  border-color: transparent $cerulean transparent;
   top: 12px;
   left: -6px;
 }
 
 .form-wrapper-2 button:hover:before {
-  border-right-color: #fa163f;
+  border-right-color: $torch_red;
 }
 
 .form-wrapper-2 button:focus:before {
-  border-right-color: #c42f2f;
+  border-right-color: $persian_red;
 }
 
 .form-wrapper-2 button::-moz-focus-inner {
