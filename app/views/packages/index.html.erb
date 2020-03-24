@@ -7,8 +7,8 @@
         <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path package.local_img %>)">
           <div class="package-name"> <%= package.name %></div>
           <div class="package-info hidden">
-            <h3 style="background-color:#0fabbc; color:white; border-radius:inherit;"><%= package.name %></h3>
-            <p style="background-color:#0fabbc; color:white;"><%= humanized_money_with_symbol(package.price) %></p>
+            <h3 style="background-color: #0FABBC; color: white; border-radius:inherit;"><%= package.name %></h3>
+            <p style="background-color: #0FABBC; color: white;"><%= humanized_money_with_symbol(package.price) %></p>
             <p><%= package.description %></p>
             <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
           </div>
