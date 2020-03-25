@@ -20,7 +20,7 @@ class PagesController < ApplicationController
       # @event = Event.find(params[:event_id])
   if current_user.photographer
     @eventsregistered = []
-    current_user.photographer.availablephotographer.each do |availablity|
+    current_user.photographer.availablephotographers.each do |availablity|
       @eventsregistered.push(availablity.event)
     end
   end
