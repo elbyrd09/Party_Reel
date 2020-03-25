@@ -15,11 +15,28 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  background-color: transparent;
-  padding-right: 30px;
+  background-color: #0fabbc;
+  padding: 15px;
+}
+
+.button-login {
+  padding: 10px 25px;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  font-weight: 400;
+  color: #e4f9ff;
+}
+
+.button-login:hover {
+  background-color: #fff;
+  color: #12cad6;
+  transform: scale(1.03);
+  box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+  text-decoration: none;
 }
 
 .bottom-nav-icon {
+
   color: $cerulean;
   font-size: 30px;
   opacity: .8;
@@ -29,6 +46,6 @@
 }
 
 .bottom-nav-icon-show {
-  opacity: .7;
+  opacity: 1;
 }
 
