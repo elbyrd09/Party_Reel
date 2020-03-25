@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -36,9 +36,9 @@
 }
 
 .bottom-nav-icon {
-  color: #fff;
+
+  color: $white;
   font-size: 30px;
-  opacity: .8;
   text-decoration: none;
   opacity: 0;
   transition: .8s;
