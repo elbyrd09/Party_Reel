@@ -18,7 +18,7 @@ class PagesController < ApplicationController
       #@bookings = Booking.all.where(attendee: current_user.attendee)
       @available_photographer = Availablephotographer.new
       # @event = Event.find(params[:event_id])
-  if current_user.is_photographer
+  if current_user.photographer
     @eventsregistered = []
     current_user.photographer.availablephotographer.each do |availablity|
       @eventsregistered.push(availablity.event)
