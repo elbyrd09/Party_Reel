@@ -3,7 +3,7 @@
   <img src=" <%= asset_path(@event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
     <%= render 'shared/progress_bar' %>
     <div class="event-show-card mt-4 d-flex justify-content-center flex-row flex-wrap m-2 py-0">
-      <small style="background-color:#0fabbc; color:white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
+      <small style="background-color: #0FABBC; color: white; border-radius:30px; padding: 10px; margin-top: 15px;"> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></small><br>
 
       <div class="d-flex flex-row flex-wrap p-3" style="color: black;">
         <small style="color: grey">The photographer selected will join you for a <%= @package.session %></small><br>

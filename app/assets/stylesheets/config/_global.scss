@@ -1,27 +1,31 @@
 // Site wide CSS (not related to a specific component)
+body {
+  background-color: $white;
+}
+
 .container {
   max-width: 100%;
 }
 
 .wrapper {
-  background-color: white;
+  background-color: $white;
   min-height: 110vh;
 }
 
 .color-dark-blue {
-  color: #0fabbc;
+  color: $cerulean;
 }
 
 .color-light-blue {
-  color: #12cad6;
+  color: $bright_turquoise;
 }
 
 .color-very-light-blue {
-  color: #e4f9ff;
+  color: $lily_white;
 }
 
 .color-red {
-  color: #fa163f;
+  color: $torch_red;
 }
 
 
@@ -34,7 +38,7 @@
   flex-direction: column;
   padding-top: 20px;
   min-height: 110vh;
-  background-color: #e4f9ff;
-  color: #0fabbc;
+  background-color: $lily_white;
+  color: $cerulean;
   text-align: left;
 }

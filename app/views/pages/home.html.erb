@@ -1,51 +1,54 @@
 
 <div class="wrapper">
 
-  <%= render 'shared/banner' %>
+    <%= render "shared/banner" %>
 
-      <div class="container-carousel">
-        <div class="swipe" data-ride="carousel">
-          <div id="carousel">
-            <div class="hideLeft" id="first">
-              <img src= "<%= asset_path("gaby123.png")%>" alt="gaby">
-            </div>
+        <div class="container-carousel">
+          <div class="swipe" data-ride="carousel">
+            <div id="carousel">
+              <div class="hideLeft" id="first">
+                <img src= "<%= asset_path("gaby123.png")%>" alt="gaby">
+              </div>
 
-            <div class="prevLeftSecond" id="second">
-              <img src= "<%= asset_path("gaby456.png")%>">
-            </div>
+              <div class="prevLeftSecond" id="second">
+                <img src= "<%= asset_path("gaby456.png")%>">
+              </div>
 
-            <div class="prev" id="third">
-              <img src= "<%= asset_path("gaby789.png")%>">
-            </div>
+              <div class="prev" id="third">
+                <img src= "<%= asset_path("gaby789.png")%>">
+              </div>
 
-            <div class="selected" id="fourth">
-              <img src= "<%= asset_path("gaby987.png")%>">
-            </div>
+              <div class="selected" id="fourth">
+                <img src= "<%= asset_path("gaby987.png")%>">
+              </div>
 
-            <div class="next" id="fifth">
-              <img src= "<%= asset_path("gaby654.png")%>">
-            </div>
+              <div class="next" id="fifth">
+                <img src= "<%= asset_path("gaby654.png")%>">
+              </div>
 
-            <div class="nextRightSecond" id="sixth">
-              <img src= "<%= asset_path("st.jpg")%>">
-            </div>
+              <div class="nextRightSecond" id="sixth">
+                <img src= "<%= asset_path("st.jpg")%>">
+              </div>
 
             <div class="hideRight" id="seventh">
               <img src= "<%= asset_path("stock4.png")%>">
             </div>
           </div>
         </div>
-  <p class="homepage-events">Select or search for an event below</p>
-      <%= render 'shared/search_bar' %>
+  <div class="container px-5">
+    <p class="homepage-events">Select or search for an event below</p>
+    <%= render 'shared/search_bar' %>
+  </div>
   <div class="card-deck p-5">
       <% @events.each do |event| %>
-        <a href="events/<%= event.id %>" class="col-4">
+        <a href="events/<%= event.id %>" class="col-md-4 col-sm-6">
           <div class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
             <div class="event_info">
+              </div>
             </div>
-          </div>
-        </a>
-      <% end %>
+          </a>
+        <% end %>
+      </div>
     </div>
 </div>
 
