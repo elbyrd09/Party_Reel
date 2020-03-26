@@ -47,6 +47,7 @@ export function moveToSelected(element) {
   $(prev)
     .removeClass()
     .addClass("prev");
+
   $(next)
     .removeClass()
     .addClass("next");
@@ -54,6 +55,7 @@ export function moveToSelected(element) {
   $(nextSecond)
     .removeClass()
     .addClass("nextRightSecond");
+
   $(prevSecond)
     .removeClass()
     .addClass("prevLeftSecond");
@@ -62,6 +64,7 @@ export function moveToSelected(element) {
     .nextAll()
     .removeClass()
     .addClass("hideRight");
+
   $(prevSecond)
     .prevAll()
     .removeClass()
