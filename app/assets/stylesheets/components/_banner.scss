@@ -1,11 +1,12 @@
 .banner {
   display: flex;
-  // flex-direction: column;
   align-items: center;
-  height: 70vh;
+  justify-content: center;
+  height: 75vh;
   background-position: bottom;
   color: $white;
-  padding: 30px;
+  text-align: center;
+  // padding: 30px;
   object-fit: cover;
 }
 
