@@ -4,27 +4,37 @@
   margin-bottom: 20%;
   color: $white;
   border-radius: 5px;
+}
 
-  h4 {
+.event-show-card h4 {
+    color: $lucky_point;
+    padding: 3px;
+  }
+
+.event-show-card h5 {
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+  }
+
+.event-show-card .coloured {
     color: $lucky_point;
   }
 
-  h5 {
-    opacity: .8;
-  }
-
-  .coloured {
-    color: $lucky_point;
-  }
-
-  p {
+  .event-show-card p {
     background-color: $cerulean;
-    padding: 8px;
-    width: 50%;
+    padding: 15px;
+    width: 400px;
     border-radius: 30px;
     color: $white;
-    margin-top: 22px;
-    margin-left: 84px;
+    margin: auto;
     text-align: center;
   }
+
+.event-show img {
+    width: fit-content;
+    // display: flex;
+    // align-self: center;
+    height: 40vh;
+    backface-visibility: hidden;
 }

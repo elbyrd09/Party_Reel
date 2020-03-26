@@ -27,10 +27,10 @@
 
 .btn-new {
   display: inline-grid;
-  background-color: rgba(15, 171, 188, .9);
+  background-color: $lily-white;
   // width: 50%;
-  color: $white;
-  border: solid;
+  color: $gray;
+  border: thin;
   border-color: $gray;
   border-radius: 30px;
   font-size: 2vh;
@@ -40,7 +40,8 @@
 }
 
 .btn-new:hover {
-  background-color: $lily_white;
-  color: black;
+  background-color: $cerulean;
+  color: $white;
   border: none;
+  text-decoration: none;
 }
