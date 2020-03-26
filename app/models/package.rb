@@ -1,7 +1,7 @@
 class Package < ApplicationRecord
-  NAMES = ["SICKO Mode", "How do you want it?", "Timezones"]
-  PRICES = [75000, 40000, 25000]
-  DESCRIPTIONS = ["Dedicated attention for the entire event by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Our team will capture moments throughout your event experience"]
+  NAMES = ["Timezones", "How do you want it?", "SICKO Mode" ]
+  PRICES = [ 25000, 40000, 75000]
+  DESCRIPTIONS = ["Our team will capture moments throughout your event experience", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Dedicated attention for the entire day by one our our professional photographers!"]
   SESSIONS = ["Dedicated session", "Periodic session"]
   has_many :bookings
   has_one_attached :photo

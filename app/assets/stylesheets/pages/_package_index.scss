@@ -1,38 +1,86 @@
-.package-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 65vh;
-}
+  .package-cards {
+  height: 800px;
+  margin: auto;
+  display: grid;
+  // justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  align-content: stretch;
+  justify-items: center;
+  }
 
-.package-card {
-  height: 35%;
-  width: 300px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
+  .package-card {
+    height: 45%;
+    width: 500px;
+    // margin-bottom: auto;
+    // margin-left: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-size: cover;
+  }
 
-.package-info {
-  text-align: center;
-  background-color: rgba(214, 212, 208, 0.6);
-  height: 90%;
-  // margin: 5px;
-  border-radius: 5px;
-  h3 {
-    margin: 0;
-    font-size: 20px;
-    background-color: #0FABBC;
-    color: white;
-    border-radius:inherit;
-  p {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 700;
-    background-color: #0FABBC;
-    color: white;
-   }
+  .container-package {
+    margin-right: auto;
+  }
+
+  .package-info {
+    text-align: center;
+    background-color: rgba(214, 212, 208, 0.6);
+    height: 50%;
+    // margin-top: 15px;
+    border-radius: 5px;
+    }
+
+   .package-info h3 {
+      margin: 0;
+      font-size: 30px;
+      background-color: #0FABBC;
+      color: white;
+      border-radius:inherit;
+    }
+   .package-info p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      background-color: #0FABBC;
+      color: white;
+  }
+
+
+@media(max-width: 992px) {
+  .package-cards {
+    grid-template-columns: 1fr;
+    height: 1300px;
+    grid-gap: 5px;
+    justify-items: center;
+  }
+
+    .package-card {
+    height: 55%;
+    width: 300px;
+    // margin-bottom: auto;
+    // margin-left: 80px;
+    // padding-top: 50px;
+    // padding-bottom: 50px;
+    background-size: cover;
   }
 }
 
+@media(max-width: 768px) {
+  .package-cards {
+    grid-template-columns: 1fr;
+    height: 1300px;
+    grid-gap: 5px;
+    justify-items: center;
+  }
+
+    .package-card {
+    height: 55%;
+    width: 300px;
+    // margin-bottom: auto;
+    // margin-left: 80px;
+    // padding-top: 50px;
+    // padding-bottom: 50px;
+    background-size: cover;
+  }
+}
