@@ -1,20 +1,24 @@
-<div class="wrapper">
-  <div class="event-show d-flex justify-content-center">
-    <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
-  </div>
-      <%= render 'shared/progress_bar'%>
-    <div class="container text-center col-md-8 col-sm-8">
-      <div class="event-show-card mt-4" >
-        <h5 style="color: black;">Book your photographer for </h5>
-        <p> <%= @event.name %></p>
-          <div class="container py-3 w-50">
-            <h5 style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %></h5>
-            <small style="color: black;"> <%= @event.event_description %></small>
-          </div>
-        <p> <%= @photographers_present.count %> photographer(s) available for <%= @event.name %></p><br><br>
-      <%= link_to "Next step: Package", event_packages_path(@event), class: "btn-new" %>
+<div class="container col-12 col-lg-6">
+  <div class="row">
+    <div class="justify-content-center">
+      <div class="event-show d-flex justify-content-center">
+        <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
       </div>
-    </div>
 
+        <div class="container text-center justify-content-center align-items-center my-5">
+          <%= render 'shared/progress_bar'%>
+          <div class="event-show-card my-5" >
+            <h5 style="color: black;">Book your photographer for </h5>
+            <p> <%= @event.name %></p>
+              <div class="container py-5 px-5">
+                <h5 style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %></h5>
+                <small style="color: black;"> <%= @event.event_description %></small>
+              </div>
+            <p> <%= @photographers_present.count %> photographer(s) available for <%= @event.name %></p><br><br>
+          <%= link_to "Next step: Package", event_packages_path(@event), class: "btn-new" %>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
 <%#= javascript_pack_tag 'progress_bar' %>
