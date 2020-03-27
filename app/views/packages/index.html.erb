@@ -1,11 +1,11 @@
 
   <div class="container-package py-4">
-    <h4 class="color-dark-blue text-center py-5">Packages available for <strong><%= @event.name %></strong> </h4>
+    <h4 class="color-dark-blue text-center py-2">Packages available for <strong><%= @event.name %></strong> </h4>
+      <h5 class="text-center py-2">Plan a photography session with friends for your day at <%= @event.name %> -- <strong>BALL OUT!</strong> </h5>
       <%= render 'shared/progress_bar' %>
-            <h5 class="text-center py-5">Plan a photography session with friends for your day at <%= @event.name %> -- <strong>BALL OUT!</strong> </h5>
       <div class="package-cards ">
         <% @packages.each do |package| %>
-          <div class="card-category package-card col-lg-4 col-md-4 col-sm-12" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path package.local_img %>)">
+          <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path package.local_img %>)">
             <div class="package-name"> <%= package.name %></div>
             <div class="package-info hidden">
               <h3><%= package.name %></h3>
@@ -14,6 +14,9 @@
               <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
             </div>
           </div>
+            <div class="description-add">
+              <p><%= package.description %></p>
+            </div>
         <% end %>
       </div>
   </div>

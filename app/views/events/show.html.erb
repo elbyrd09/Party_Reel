@@ -7,10 +7,10 @@
 
         <div class="container text-center justify-content-center align-items-center my-5">
           <%= render 'shared/progress_bar'%>
-          <div class="event-show-card my-5" >
+          <div class="event-show-card my-2" >
             <h5 style="color: black;">Book your photographer for </h5>
             <p> <%= @event.name %></p>
-              <div class="container py-5 px-5">
+              <div class="container py-3 px-5">
                 <h5 style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %></h5>
                 <small style="color: black;"> <%= @event.event_description %></small>
               </div>
