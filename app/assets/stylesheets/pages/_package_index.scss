@@ -19,17 +19,20 @@
   grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
-  height: 130vh;
+  height: 175vh;
+  padding-bottom: 100px;
   // max-height: 800px;
   // align-content: stretch;
   justify-items: center;
   align-items: center;
+  margin-bottom: 5px;
+  font-size: x-large;
   }
 
   .package-card {
     grid-column: 2 / 3;
     // margin: auto;
-    height: 40vh;
+    height: 50vh;
     width: 500px;
     background-size: cover;
 
