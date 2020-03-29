@@ -1,19 +1,28 @@
 
-<div class="container col-12 col-md-6 col-lg-6 col-sm-12">
-  <div class="row d-flex justify-content-center">
-    <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
-        <div class="row w-100 d-flex justify-content-center">
-          <%= render 'shared/progress_bar' %><br>
+<div class="container col-12 col-lg-6">
+  <div class="row">
+    <div class="justify-content-center">
+
+      <div class="event-show d-flex justify-content-center">
+        <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
+      </div>
+
+        <div class="container text-center justify-content-center align-items-center my-5">
+          <%= render 'shared/progress_bar' %>
+
+            <div class="col-8 my-4 package-show-card">
+              <p> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
+            </div>
+
+            <div class="col-8 pack-details">
+              <p style="color: black">You have chosen the <%= @package.name %> package which is a <%= @package.session %></p><br><br>
+              <p style="color: black">Guranteed 1 hour worth of shooting and minimum of 30 photographs</p><br>
+            </div>
+
+          </div>
         </div>
-            <div class="container">
-                <div class="col-8 my-4 package-show-card">
-                <!-- <div class="event-show-card "> -->
-                  <p> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
-                </div>
-                  <div class="col-8 pack-details">
-                    <p style="color: black">You have chosen the <%= @package.name %> package which is a <%= @package.session %></p><br><br>
-                    <p style="color: black">Guranteed 1 hour worth of shooting and minimum of 30 photographs</p><br>
-                  </div>
+      </div>
+
       <!-- Carousel with navigation -->
         <div class="photographer-carousel col-12 col-lg-4 col-md-4 col-sm-12">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -32,13 +41,12 @@
                       </div>
                      </a>
                    </div>
-                 <% active ='' %>
+                 <% end %>
                  </div>
+              </div>
+           </div>
         </div>
-     </div>
-    </div>
-  </div>
-</div>
+
                   <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
               <div class="modal fade" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -55,64 +63,66 @@
                                   <p> SICKO Mode with <%= photographer.user.first_name %> <%= photographer.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
                                <% end %>
                             </h5>
+
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-
-                          <div class="modal-body"  style="color: black;">
-                            <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
-                            <p> <%= photographer.profession %></p>
-                            <p> Instagram: <%= photographer.user.user_ig_handle %></p>
-                            <p> Located in: <%= photographer.user.location %></p>
-                            <p> Camera: <%= photographer.camera %></p>
-                            <% photographer.photographerspecialties.each do |photographer_specialty| %>
-                              <p> <%= photographer_specialty.specialty.name  %></p>
-                            <% end  %>
-                            <h4>What people had to say about <%= photographer.user.first_name %></h4>
-                            <% photographer.bookings.each do |booking| %>
-                                <% booking.reviews.each do |review| %>
-                                  <div class="booking-review">
-                                    <p> <%= review.content %></p>
-                                  </div>
-                                <% end %>
-                            <% end %>
-                          </div>
-
-                          <% if @package.name == "How do you want it?" %>
-                            <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
-                              <span class="time-slot">12-13</span>
-                              <span class="time-slot">13-14</span>
-                              <span class="time-slot">14-15</span>
-                              <span class="time-slot">15-16</span>
-                              <span class="time-slot">16-17</span>
-                              <span class="time-slot">17-18</span>
-                              <span class="time-slot">18-19</span>
-                              <span class="time-slot">19-20</span>
-                              <span class="time-slot">20-21</span>
-                              <span class="time-slot">21-22</span>
-                              <span class="time-slot">22-23</span>
-                              <span class="time-slot">23-24</span>
-                              <br>
-                            </div>
-                          <% end %>
-                          <div class="modal-footer">
-                            <%= simple_form_for [@event, @booking] do |f| %>
-                              <%= f.hidden_field :photographer_id, value: photographer.id %>
-                              <%= f.hidden_field :package_id, value: @package.id %>
-                              <!-- starttime and endtime filled with JS function -->
-                              <%= f.hidden_field :start_time  %>
-                              <%= f.hidden_field :end_time %>
-                              <div class="btn-new">
-                              <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
-                              </div>
-                            <% end %>
-                          </div>
-
                         </div>
                       </div>
                     </div>
-                  <% end %>
+
+
+
+                    <div class="modal-body"  style="color: black;">
+                      <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
+                      <p> <%= photographer.profession %></p>
+                      <p> Instagram: <%= photographer.user.user_ig_handle %></p>
+                      <p> Located in: <%= photographer.user.location %></p>
+                      <p> Camera: <%= photographer.camera %></p>
+                      <% photographer.photographerspecialties.each do |photographer_specialty| %>
+                        <p> <%= photographer_specialty.specialty.name %></p>
+                      <% end  %>
+                      <h4>What people had to say about <%= photographer.user.first_name %></h4>
+                      <% photographer.bookings.each do |booking| %>
+                          <% booking.reviews.each do |review| %>
+                            <div class="booking-review">
+                              <p> <%= review.content %></p>
+                            </div>
+                          <% end %>
+                      <% end %>
+                    </div>
+
+                    <% if @package.name == "How do you want it?" %>
+                      <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
+                        <span class="time-slot">12-13:00</span>
+                        <span class="time-slot">13-14:00</span>
+                        <span class="time-slot">14-15:00</span>
+                        <span class="time-slot">15-16:00</span>
+                        <span class="time-slot">16-17:00</span>
+                        <span class="time-slot">17-18:00</span>
+                        <span class="time-slot">18-19:00</span>
+                        <span class="time-slot">19-20:00</span>
+                        <span class="time-slot">20-21:00</span>
+                        <span class="time-slot">21-22:00</span>
+                        <span class="time-slot">22-23:00</span>
+                        <span class="time-slot">23-24:00</span>
+                        <br>
+                      </div>
+                    <% end %>
+
+                    <div class="modal-footer">
+                      <%= simple_form_for [@event, @booking] do |f| %>
+                        <%= f.hidden_field :photographer_id, value: photographer.id %>
+                        <%= f.hidden_field :package_id, value: @package.id %>
+                        <!-- starttime and endtime filled with JS function -->
+                        <%= f.hidden_field :start_time  %>
+                        <%= f.hidden_field :end_time %>
+                        <div class="btn-new">
+                        <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+                        </div>
+                      <% end %>
+                    </div>
 
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -122,17 +132,6 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-     </div>
-    </div>
-   </div>
- </div>
-
-
-
-
-
-
-
 
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
@@ -174,5 +173,3 @@
 
   })
 </script>
-
-
