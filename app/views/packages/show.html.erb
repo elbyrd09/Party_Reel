@@ -1,75 +1,61 @@
 <div class="container col-12 col-lg-6">
-  <div class="row">
-    <div class="justify-content-center">
       <div class="event-show d-flex justify-content-center">
         <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
       </div>
-        <div class="container text-center justify-content-center align-items-center my-5">
+        <div class="row d-flex flex-row justify-content-center my-5">
           <%= render 'shared/progress_bar' %>
-            <div class="col-8 my-4 package-show-card">
-              <p> Selected: <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
+            <div class="col-lg-6 col-md-8 package-show-card">
+              <p> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
             </div>
-            <div class="col-8 pack-details">
-              <p style="color: black">You have chosen the <%= @package.name %> package which is a <%= @package.session %></p><br><br>
-              <p style="color: black">Guranteed 1 hour worth of shooting and minimum of 30 photographs</p><br>
+            <div class="col-lg-6 col-md-8 pack-details">
+              <p> <strong><%= @package.name %></strong><br>1 hour worth of shooting - minimum: 30 photos</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
       <!-- Carousel with navigation -->
-        <div class="photographer-carousel col-12 col-lg-4 col-md-4 col-sm-12">
+        <div class="photographer-carousel mb-5 pb-5">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <!-- Carousel content (each with individual modal) -->
+              <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
                 <% @photographers_present.each_with_index do |photographer, index| %>
                   <% active = 'active' if index == 0 %>
                   <div class="carousel-item <%= active %>">
-              <p>Please select one of our professionally rated photographers below</p>
                     <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
-                      <div class="py-3">
+                      <div class="py-3 text-center">
                         <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
                         <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
                         <p class="py-3">Rating: <%= rand(4.0..5.0).round(1) %> </p>
                         <p> <%= photographer.user.first_name %> has worked with <%= rand(30..50) %> Party Reel clients </p>
                       </div>
                      </a>
-                    <% active='' %>
                    </div>
-                  <% end %>
-                </div>
+                    <% active='' %>
 
                   <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
               <div class="modal fade" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                          <div class="modal-header">
+                      <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
                               <% case @package.name %>
                                 <% when "Timezones" %>
                                   <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
                                 <% when "How do you want it?" %>
-                                  <p><strong>How do you want it?:</strong> booking with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                                  <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
                                 <% when "SICKO Mode" %>
-                                  <p> SICKO Mode with <%= photographer.user.first_name %> <%= photographer.user.last_name %> all day <%= @event.start_date.strftime("%A, %B %d") %> at <%= @event.name %>. Your status = <strong> BALLER!</strong>!</p>
+                                  <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
                                <% end %>
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-
 
                     <div class="modal-body"  style="color: black;">
                       <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
                       <p> <%= photographer.profession %></p>
                       <p> Instagram: <%= photographer.user.user_ig_handle %></p>
-                      <p> Located in: <%= photographer.user.location %></p>
-                      <p> Camera: <%= photographer.camera %></p>
                       <% photographer.photographerspecialties.each do |photographer_specialty| %>
                         <p> <%= photographer_specialty.specialty.name %></p>
                       <% end %>
@@ -77,7 +63,7 @@
                       <% photographer.bookings.each do |booking| %>
                           <% booking.reviews.each do |review| %>
                             <div class="booking-review">
-                              <p> <%= review.content %></p>
+                              <small> <%= review.content %></small>
                             </div>
                           <% end %>
                       <% end %>
@@ -86,18 +72,18 @@
 
                     <% if @package.name == "How do you want it?" %>
                       <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
-                        <span class="time-slot">12-13:00</span>
-                        <span class="time-slot">13-14:00</span>
-                        <span class="time-slot">14-15:00</span>
-                        <span class="time-slot">15-16:00</span>
-                        <span class="time-slot">16-17:00</span>
-                        <span class="time-slot">17-18:00</span>
-                        <span class="time-slot">18-19:00</span>
-                        <span class="time-slot">19-20:00</span>
-                        <span class="time-slot">20-21:00</span>
-                        <span class="time-slot">21-22:00</span>
-                        <span class="time-slot">22-23:00</span>
-                        <span class="time-slot">23-24:00</span>
+                        <span class="time-slot">12-1PM</span>
+                        <span class="time-slot">1-2PM</span>
+                        <span class="time-slot">2-3PM</span>
+                        <span class="time-slot">3-4PM</span>
+                        <span class="time-slot">4-5PM</span>
+                        <span class="time-slot">5-6PM</span>
+                        <span class="time-slot">6-7PM</span>
+                        <span class="time-slot">7-8PM</span>
+                        <span class="time-slot">8-9PM</span>
+                        <span class="time-slot">9-10PM</span>
+                        <span class="time-slot">10-11PM</span>
+                        <span class="time-slot">11-12AM</span>
                         <br>
                       </div>
                     <% end %>
@@ -114,6 +100,12 @@
                         </div>
                       <% end %>
                     </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
 
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -123,6 +115,9 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
+
+    </div>
+  </div>
 
 
 <script>
