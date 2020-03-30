@@ -18,7 +18,7 @@ User.destroy_all
 # # # Packages
 CATEGORIES = ["SICKO Mode", "How do you want it?", "Timezones"]
 PRICES = [75000, 40000, 25000]
-DESCRIPTIONS = ["Dedicated attention for the entire event by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Periodic attention where our team will capture moments throughout your event experience"]
+DESCRIPTIONS = ["Dedicated attention for the entire day by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Periodic attention where our team will capture moments throughout your event experience"]
 SESSIONS = ["Dedicated session", "Periodic session"]
 
 puts 'Packages loading up...'
@@ -286,9 +286,9 @@ puts "Enhance..."
 sickomode = Package.new
 sickomode.name = "SICKO Mode"
 sickomode.price_cents = 75000
-sickomode.description = "Dedicated attention for the entire event by one our our professional photographers!"
+sickomode.description = "Dedicated attention for the entire day by one our our professional photographers!"
 sickomode.session = "Dedicated session"
-sickomode.local_img = "sicko.jpeg"
+sickomode.local_img = "sicko.jpg"
 sickomode.save!
 
 howdoyouwantit = Package.new
@@ -296,7 +296,7 @@ howdoyouwantit.name = "How do you want it?"
 howdoyouwantit.price_cents = 40000
 howdoyouwantit.description = "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!"
 howdoyouwantit.session = "Dedicated session"
-howdoyouwantit.local_img = "hdywi.jpeg"
+howdoyouwantit.local_img = "hdywi.jpg"
 howdoyouwantit.save!
 
 timezones = Package.new
@@ -304,7 +304,7 @@ timezones.name = "Timezones"
 timezones.price_cents = 25000
 timezones.description = "Our team will capture moments throughout your event experience"
 timezones.session = "Periodic session"
-timezones.local_img = "timezones.jpeg"
+timezones.local_img = "timezones.jpg"
 timezones.save!
 
 # Preference Array

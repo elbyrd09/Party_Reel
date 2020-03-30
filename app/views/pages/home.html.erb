@@ -1,10 +1,7 @@
-
-<div class="wrapper">
-
     <%= render "shared/banner" %>
 
-        <div class="container-carousel">
-          <div class="swipe" data-ride="carousel">
+        <div class="container-carousel h-10">
+          <div class="swipe h-24" data-ride="carousel">
             <div id="carousel">
               <div class="hideLeft" id="first">
                 <img src= "<%= asset_path("gaby123.png")%>" alt="gaby">
@@ -36,20 +33,17 @@
           </div>
         </div>
   <div class="container px-5">
-    <p class="homepage-events">Select or search for an event below</p>
+    <h4 class="homepage-events">Select or search for an event below</h4>
     <%= render 'shared/search_bar' %>
   </div>
-  <div class="card-deck p-5">
-      <% @events.each do |event| %>
-        <a href="events/<%= event.id %>" class="col-md-4 col-sm-6">
-          <div class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
-            <div class="event_info">
+    <div class="card-deck p-5 my-4">
+        <% @events.each do |event| %>
+          <a href="events/<%= event.id %>" class="col-md-4 col-sm-6">
+            <div class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
+              <div class="event_info">
+                </div>
               </div>
-            </div>
-          </a>
-        <% end %>
-      </div>
+            </a>
+          <% end %>
+        </div>
     </div>
-</div>
-
-
