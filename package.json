@@ -6,7 +6,8 @@
     "bootstrap": "^4.4.1",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "typed.js": "^2.0.11"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
