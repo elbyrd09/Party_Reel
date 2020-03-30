@@ -1,33 +1,91 @@
-.package-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 65vh;
-}
-
-.package-card {
-  height: 35%;
-  width: 300px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.package-info {
-  text-align: center;
-  background-color: rgba(214, 212, 208, 0.6);
-  height: 90%;
-  // margin: 5px;
-  border-radius: 5px;
-  h3 {
-    margin: 0;
+.package-show-card {
+    background-color: $cerulean;
+    padding: 15px;
+    width: 350px;
+    border-radius: 30px;
+    color: $white;
     font-size: 20px;
-  }
-  p {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 700;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.pack-details p {
+    width: 400px;
+    color: $black;
+    margin: auto;
+    text-align: center;
+}
+  .package-cards {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  height: 175vh;
+  padding-bottom: 100px;
+  // max-height: 800px;
+  // align-content: stretch;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: x-large;
+  }
+
+  .package-card {
+    grid-column: 2 / 3;
+    // margin: auto;
+    height: 50vh;
+    width: 500px;
+    background-size: cover;
+
+  .package-card:hover {
+    box-shadow: $cerulean;
+    transform: scale(1.1);
+    }
+  }
+
+  .container-package {
+    // margin-right: auto;
+  }
+
+  .package-info {
+    text-align: center;
+    background-color: rgba(214, 212, 208, 0.6);
+    height: 50%;
+    // margin-top: 15px;
+    border-radius: 5px;
+    }
+
+   .package-info h3 {
+      margin: 0;
+      font-size: 30px;
+      background-color: #0FABBC;
+      color: white;
+      border-radius:inherit;
+    }
+   .package-info p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      background-color: #0FABBC;
+      color: white;
+  }
+
+  .description-add {
+    display: flex;
+    align-items: center;
+  }
+
+  .description-add p {
+      grid-column: 3 / 4;
+      grid-auto-flow: column;
+      margin: 0;
+      font-size: 14px;
+      background-color: #0FABBC;
+      color: white;
+      width: 400px;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+  }
 
