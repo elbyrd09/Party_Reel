@@ -13,7 +13,7 @@
   </div>
 
   <!-- Carousel with navigation -->
-  <div class="photographer-carousel mb-5 pb-5">
+  <div class="photographer-carousel mb-5 pb-5 ">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <!-- Carousel content (each with individual modal) -->
@@ -33,7 +33,7 @@
           <% active='' %>
 
           <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
-          <div class="modal fade photographermodal" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade photographermodal vw-100" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -53,23 +53,26 @@
                 </div>
 
                 <div class="modal-body"  style="color: black;">
-                  <!-- a placeholder picture, will eventually be replaced by user.avatarpic -->
-                  <%= image_tag "testphotographer1.jpg" %>
-                  <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
+                  <div class="photographermodal-pgr-picture" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 99%), url('<%= image_path "testphotographer3.webp" %>')">
+                    <!-- a placeholder picture, will eventually be replaced by user.avatarpic -->
+                    <h3 class="photographermodal-pgr-picture-text"><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
 
-                  <p> <%= photographer.profession %></p>
-                  <p> Instagram: <%= photographer.user.user_ig_handle %></p>
-                  <% photographer.photographerspecialties.each do |photographer_specialty| %>
-                    <p> <%= photographer_specialty.specialty.name %></p>
-                  <% end %>
-                  <h4>What people had to say about <%= photographer.user.first_name %></h4>
-                  <% photographer.bookings.each do |booking| %>
-                    <% booking.reviews.each do |review| %>
-                      <div class="booking-review">
-                        <small> <%= review.content %></small>
-                      </div>
+                  </div>
+                  <div class="photographermodal-pgr-info">
+                    <p> <%= photographer.profession %></p>
+                    <p> Instagram: <%= photographer.user.user_ig_handle %></p>
+                    <% photographer.photographerspecialties.each do |photographer_specialty| %>
+                      <p> <%= photographer_specialty.specialty.name %></p>
                     <% end %>
-                  <% end %>
+                    <h4>What people had to say about <%= photographer.user.first_name %></h4>
+                    <% photographer.bookings.each do |booking| %>
+                      <% booking.reviews.each do |review| %>
+                        <div class="booking-review">
+                          <small> <%= review.content %></small>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
                 </div>
 
                 <% if @package.name == "How do you want it?" %>
