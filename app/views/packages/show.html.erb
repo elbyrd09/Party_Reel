@@ -1,124 +1,123 @@
 <div class="container col-12 col-lg-6">
-      <div class="event-show d-flex justify-content-center">
-        <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
-      </div>
-        <div class="row d-flex flex-row justify-content-center my-5">
-          <%= render 'shared/progress_bar' %>
-            <div class="col-lg-6 col-md-8 package-show-card">
-              <p> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
-            </div>
-            <div class="col-lg-6 col-md-8 pack-details">
-              <p> <strong><%= @package.name %></strong><br>1 hour worth of shooting - minimum: 30 photos</p>
-            </div>
-          </div>
-
-      <!-- Carousel with navigation -->
-        <div class="photographer-carousel mb-5 pb-5">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Carousel content (each with individual modal) -->
-              <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
-                <% @photographers_present.each_with_index do |photographer, index| %>
-                  <% active = 'active' if index == 0 %>
-                  <div class="carousel-item <%= active %>">
-                    <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
-                      <div class="py-3 text-center">
-                        <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
-                        <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
-                        <p class="py-3">Rating: <%= rand(4.0..5.0).round(1) %> </p>
-                        <p> <%= photographer.user.first_name %> has worked with <%= rand(30..50) %> Party Reel clients </p>
-                      </div>
-                     </a>
-                   </div>
-                    <% active='' %>
-
-                  <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
-              <div class="modal fade" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                              <% case @package.name %>
-                                <% when "Timezones" %>
-                                  <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
-                                <% when "How do you want it?" %>
-                                  <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
-                                <% when "SICKO Mode" %>
-                                  <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
-                               <% end %>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-
-                    <div class="modal-body"  style="color: black;">
-                      <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
-                      <p> <%= photographer.profession %></p>
-                      <p> Instagram: <%= photographer.user.user_ig_handle %></p>
-                      <% photographer.photographerspecialties.each do |photographer_specialty| %>
-                        <p> <%= photographer_specialty.specialty.name %></p>
-                      <% end %>
-                      <h4>What people had to say about <%= photographer.user.first_name %></h4>
-                      <% photographer.bookings.each do |booking| %>
-                          <% booking.reviews.each do |review| %>
-                            <div class="booking-review">
-                              <small> <%= review.content %></small>
-                            </div>
-                          <% end %>
-                      <% end %>
-                    </div>
-
-
-                    <% if @package.name == "How do you want it?" %>
-                      <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
-                        <span class="time-slot">12-1PM</span>
-                        <span class="time-slot">1-2PM</span>
-                        <span class="time-slot">2-3PM</span>
-                        <span class="time-slot">3-4PM</span>
-                        <span class="time-slot">4-5PM</span>
-                        <span class="time-slot">5-6PM</span>
-                        <span class="time-slot">6-7PM</span>
-                        <span class="time-slot">7-8PM</span>
-                        <span class="time-slot">8-9PM</span>
-                        <span class="time-slot">9-10PM</span>
-                        <span class="time-slot">10-11PM</span>
-                        <span class="time-slot">11-12AM</span>
-                        <br>
-                      </div>
-                    <% end %>
-
-                    <div class="modal-footer">
-                      <%= simple_form_for [@event, @booking] do |f| %>
-                        <%= f.hidden_field :photographer_id, value: photographer.id %>
-                        <%= f.hidden_field :package_id, value: @package.id %>
-                        <!-- starttime and endtime filled with JS function -->
-                        <%= f.hidden_field :start_time  %>
-                        <%= f.hidden_field :end_time %>
-                        <div class="btn-new">
-                        <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-
-
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-
+  <div class="event-show d-flex justify-content-center">
+    <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
+  </div>
+  <div class="row d-flex flex-row justify-content-center my-5">
+    <%= render 'shared/progress_bar' %>
+    <div class="col-lg-6 col-md-8 package-show-card">
+      <p> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
+    </div>
+    <div class="col-lg-6 col-md-8 pack-details">
+      <p> <strong><%= @package.name %></strong><br>1 hour worth of shooting - minimum: 30 photos</p>
     </div>
   </div>
 
+  <!-- Carousel with navigation -->
+  <div class="photographer-carousel mb-5 pb-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Carousel content (each with individual modal) -->
+        <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
+        <% @photographers_present.each_with_index do |photographer, index| %>
+          <% active = 'active' if index == 0 %>
+          <div class="carousel-item <%= active %>">
+            <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
+              <div class="py-3 text-center">
+                <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
+                <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
+                <p class="py-3">Rating: <%= rand(4.0..5.0).round(1) %> </p>
+                <p> <%= photographer.user.first_name %> has worked with <%= rand(30..50) %> Party Reel clients </p>
+              </div>
+            </a>
+          </div>
+          <% active='' %>
+
+          <!-- Modal created INSIDE each iteration to refer to that particular photographer -->
+          <div class="modal fade photographermodal" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                  <% case @package.name %>
+                    <% when "Timezones" %>
+                      <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                    <% when "How do you want it?" %>
+                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                    <% when "SICKO Mode" %>
+                      <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
+                    <% end %>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body"  style="color: black;">
+                  <!-- a placeholder picture, will eventually be replaced by user.avatarpic -->
+                  <%= image_tag "testphotographer1.jpg" %>
+                  <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
+
+                  <p> <%= photographer.profession %></p>
+                  <p> Instagram: <%= photographer.user.user_ig_handle %></p>
+                  <% photographer.photographerspecialties.each do |photographer_specialty| %>
+                    <p> <%= photographer_specialty.specialty.name %></p>
+                  <% end %>
+                  <h4>What people had to say about <%= photographer.user.first_name %></h4>
+                  <% photographer.bookings.each do |booking| %>
+                    <% booking.reviews.each do |review| %>
+                      <div class="booking-review">
+                        <small> <%= review.content %></small>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <% if @package.name == "How do you want it?" %>
+                  <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
+                    <span class="time-slot">12-1PM</span>
+                    <span class="time-slot">1-2PM</span>
+                    <span class="time-slot">2-3PM</span>
+                    <span class="time-slot">3-4PM</span>
+                    <span class="time-slot">4-5PM</span>
+                    <span class="time-slot">5-6PM</span>
+                    <span class="time-slot">6-7PM</span>
+                    <span class="time-slot">7-8PM</span>
+                    <span class="time-slot">8-9PM</span>
+                    <span class="time-slot">9-10PM</span>
+                    <span class="time-slot">10-11PM</span>
+                    <span class="time-slot">11-12AM</span>
+                    <br>
+                  </div>
+                <% end %>
+
+                <div class="modal-footer">
+                  <%= simple_form_for [@event, @booking] do |f| %>
+                    <%= f.hidden_field :photographer_id, value: photographer.id %>
+                    <%= f.hidden_field :package_id, value: @package.id %>
+                    <!-- starttime and endtime filled with JS function -->
+                    <%= f.hidden_field :start_time  %>
+                    <%= f.hidden_field :end_time %>
+                    <div class="btn-new">
+                      <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
