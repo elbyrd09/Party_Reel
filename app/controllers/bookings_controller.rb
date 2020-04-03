@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
 
     @booking.amount_cents = @package.price_cents
     @booking.state = 'pending'
+
     if @booking.save
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],

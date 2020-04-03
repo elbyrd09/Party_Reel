@@ -1,25 +1,30 @@
-<div class="wrapper">
-  <img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture" style="width: 100%; height: 25vh; object-fit: cover;">
-    <%= render 'shared/progress_bar' %>
+<div class="container col-12 col-lg-6 col-md-6">
+      <div class="event-show d-flex justify-content-center">
+        <img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture">
+      </div>
     <div class="event-show-card m-4 d-flex justify-content-center flex-column">
-        <h5 class="w-100 text-center" style="color: white; background-color: #0FABBC; border-radius: 30px;font-size: 20px;padding: 10px;">My Photographer</h5>
-      <div class="d-flex justify-content-between p-2">
-            <small class="p-3" style="color: grey"><strong><%= @booking.photographer.user.first_name %></strong> will join you for the Arianna Grande set at 12:00 today!</small>
+    <%= render 'shared/progress_bar' %>
+        <p>My Photographer</p>
+      <div class="d-flex justify-content-around">
+            <small class="p-3 d-flex align-items-center" style="color: grey"><%= @booking.photographer.user.first_name %> will join you for the Arianna Grande set at 12:00 today!</small>
             <img src="<%= asset_path("profile_img.jpg") %>" class="float-right card-trip-user avatar-bordered" style="shape-outside: circle()," />
       </div>
     </div>
 
-  <div class="row d-flex justify-content-center m-3 p-1">
-      <h5 class="w-100 text-center" style="color: white; background-color: #0FABBC; border-radius: 30px;font-size: 20px;padding: 10px;">My Package</h5><br>
-        <p style="color: grey; text-align: center;"><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </p><br>
-        <small><p style="color: grey"><strong>Dedicated attention for 1 hour</strong></p></small>
-        <small><p style="color: grey">Minimum: 50 photographs of your group</p></small>
-    <div class="mt-4 p-3 d-flex justify-content-around" style="border-top: thin";>
-          <h4 style="color: grey"> Total price    <span style="color: #0FABBC;"><%= humanized_money_with_symbol(@booking.package.price) %></span></h4>
+  <div class="event-show-card d-flex flex-column h-100">
+          <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </body>
+        <div class="d-flex justify-content-center text-center py-3">
+          <div class="d-flex flex-column text-center">
+            <small style="color: grey;">Dedicated attention for 1 hour</small>
+            <small style="color: grey;">Minimum: 50 photographs of your group</small></div><br>
+          </div>
+          <div class="d-flex flex-column text-center">
+            <h4 style="color: grey"> Total price    <span style="color: #0FABBC;"><%= humanized_money_with_symbol(@booking.package.price) %></span></h4>
+            <a href="<%= @booking.id %>/payments/new" class="btn-new">Pay now</a>
+          </div>
+        </div>
     </div>
-        <a href="<%= @booking.id %>/payments/new" class="btn-new">Pay now</a>
   </div>
-</div>
 
 
 
