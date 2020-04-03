@@ -1,15 +1,15 @@
-<div class="event-card my-5">
-  <%= cl_image_tag booking.event.local_img %>
+<div class="event-card">
+  <img src=" <%= asset_path(booking.event.local_img) %>" alt="festival image">
   <div class="event-infos">
     <div>
       <h2><%= booking.event.name %></h2>
 
-            <p>Genre: Mixed bag</p>
-            <p>Dates Party Reel Onsite: 4/11-4/13</p>
-            <h5> Package Selected: <%= booking.package.name %> </h5>
+            <p>Genre: <%= booking.event.genre %></p>
+            <p><%= booking.event.start_date.strftime("%B %d") %> - <%= booking.event.end_date.strftime("%B %d") %> </p>
+            <p> Package: <%= booking.package.name %> </p>
 
     </div>
-    <h5 class="event-infos-pricing">Payment Status: Paid</h5>
+    <h5 class="event-infos-pricing" style="color: rgb(71,172,188)">Payment Status: Paid</h5>
 
     <img src="<%= asset_path("profile_img.jpg") %>" class="pgr-avatar-user avatar-bordered" />
   </div>
