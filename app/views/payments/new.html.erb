@@ -1,21 +1,22 @@
-  <div class="wrapper">
-    <div class="event-show">
+<div class="container col-12 col-lg-6 col-md-6">
+  <div class="event-show d-flex justify-content-center mb-3">
       <img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture">
-    </div>
-         <%= render 'shared/progress_bar' %>
-            <div class="event-show-card d-flex justify-content-center flex-row flex-wrap ml-2">
-               <!-- <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div> -->
-              <div>
-                <h5 style="color: grey">Package review and payment for <%= current_user.first_name %></h5><br><br>
-                <div class="d-flex">
-                <img src=" <%= asset_path(@booking.package.local_img) %>" alt="package picture" style="height: 100px; width: 100px; object-fit: cover; border-radius: 5px;">
-                  <div class="p-3">
-                    <small style="color: grey">Package : <strong><%= @booking.package.name %></strong></small><br>
-                    <small style="color: grey">Day: <strong><%= @booking.start_time.strftime("%B %d") %></strong></small>
-                  </div>
-                </div>
-
-      <div class="row py-5">
+  </div>
+     <div class="event-show-card d-flex justify-content-center flex-row flex-wrap py-3">
+      <%= render 'shared/progress_bar' %>
+        <div>
+          <h5 style="color: grey">Package review and payment for <%= current_user.first_name %></h5><br><br>
+          <div class="d-flex justify-content-between">
+          <img src=" <%= asset_path(@booking.package.local_img) %>" alt="package picture" style="height: 100px; width: 100px; object-fit: cover; border-radius: 5px;">
+            <div class="p-3 text-right">
+              <h5 style="color: grey"><%= @booking.package.name %></h5>
+              <small style="color: grey"> Minimum of 50 photos</small><br>
+              <small style="color: grey"><%= @booking.start_time.strftime("%B %d") %></small>
+            </div>
+          </div>
+          <hr class="solid">
+          <br>
+      <div class="row py-3">
           <div class="col-6">
             <h5 style="color: grey">Subtotal</h5>
             <h5 style="color: grey">Tax</h5><br>
@@ -27,7 +28,7 @@
             <h5 style="color: black"><strong><%= humanized_money_with_symbol @booking.amount %>.00</strong></h5>
         </div>
       </div>
-          <button id="pay" class="btn-new">Party time - Pay now!</button>
+          <button id="pay" class="btn-new w-100">Party time - Pay now!</button>
           <script src="https://js.stripe.com/v3/"></script>
           <script>
             const paymentButton = document.getElementById('pay');
