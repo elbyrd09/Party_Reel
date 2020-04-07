@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
+  background: $white;
 }
 
 .custom-nav {
@@ -31,6 +31,20 @@
 
 .nav-link {
    color: $white !important;
+  background-color: transparent;
+}
+
+// .navbar-top {
+//   color: $white;
+//   font-size: 60px;
+//   letter-spacing: 3px;
+//   position: fixed;
+//   top: 0;
+// }
+
+.navbar-top:hover{
+  text-decoration: none;
+  color: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -77,4 +91,3 @@
 .bottom-nav-icon-show {
   opacity: 1;
 }
-
