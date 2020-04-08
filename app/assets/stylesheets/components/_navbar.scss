@@ -26,11 +26,12 @@
 
 .nav-custom-disable {
   pointer-events: none;
-  background-color: $white;
+  background: green;
+  color: green;
 }
 
 .nav-link {
-   color: $white !important;
+  color: $white !important;
   background-color: transparent;
 }
 
