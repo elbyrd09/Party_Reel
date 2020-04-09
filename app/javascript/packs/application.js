@@ -11,7 +11,7 @@ import { navOnScroll } from 'packs/pg_top_nav.js';
 
 progress();
 
-moveToSelected();
+// moveToSelected();
 
 
 // import { getBookingTime } from 'packs/booking_form.js';

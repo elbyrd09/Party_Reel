@@ -7,7 +7,6 @@ const navOnScroll = () => {
 
   if(navbar) {
     window.addEventListener('scroll', () => {
-      console.log(window.scrollY + ',' + window.innerHeight)
       if (window.scrollY >= userScroll) {
         navbar.classList.add('nav-custom-disable');
       } else {
