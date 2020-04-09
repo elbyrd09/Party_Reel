@@ -4,9 +4,13 @@
   justify-content: center;
   height: 75vh;
   background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $white;
-  text-align: center;
+  text-align: left;
+  border-color: transparent;
+  border-style: none;
+  width: 100%;
   // padding: 30px;
-  object-fit: cover;
 }
 

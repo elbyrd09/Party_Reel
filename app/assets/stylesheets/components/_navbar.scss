@@ -28,6 +28,8 @@
   pointer-events: none;
   background: transparent;
   color: transparent;
+  visibility: hidden;
+  transition: .00000001s;
 }
 
 .nav-link {
@@ -62,6 +64,7 @@
   bottom: 0;
   background-color: #0fabbc;
   padding: 15px;
+  z-index: 1;
 }
 
 .button-login {
