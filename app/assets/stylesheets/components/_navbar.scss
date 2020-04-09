@@ -25,9 +25,9 @@
 }
 
 .nav-custom-disable {
-  pointer-events: none;
-  background: green;
-  color: green;
+  pointer-events: none !important;
+  background: green !important;
+  color: green !important;
 }
 
 .nav-link {

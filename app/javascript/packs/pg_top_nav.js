@@ -1,5 +1,6 @@
 const navOnScroll = () => {
   const navbar = document.querySelector('.navbar-inverse');
+  // console.log("yo")
 
   if(navbar) {
     window.addEventListener('scroll', () => {

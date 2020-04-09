@@ -24,4 +24,6 @@ showBottomNav();
 
 flipPackageInfo();
 
-navOnScroll();
+document.addEventListener('DOMContentLoaded', () => {
+  navOnScroll();
+})
