@@ -1,6 +1,6 @@
 const navOnScroll = () => {
   const navbar = document.querySelector('.custom-nav');
-  const userScroll = window.innerHeight * .69
+  const userScroll = window.innerHeight * .64
   // multiplies innerHeight of viewport by 69% which is the mark that the user scrolls to
   // on the homepage after the banner image has been passed, which, we then add the 'nav-custom-disbale'
   // class to the navbar which hides and disables it's options, ie. About Us, FAQ, Join the party

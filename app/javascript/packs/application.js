@@ -8,6 +8,7 @@ import { flipPackageInfo } from 'packs/flip_package_info.js';
 import { navOnScroll } from 'packs/pg_top_nav.js';
 
 
+navOnScroll();
 
 progress();
 
@@ -26,5 +27,4 @@ flipPackageInfo();
 
 
 // document.addEventListener('turbolinks:load', () => {
-navOnScroll();
 // })
