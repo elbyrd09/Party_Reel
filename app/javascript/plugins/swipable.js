@@ -107,5 +107,4 @@ setInterval(() => {
   } else {
     moveToSelected("next");
   }
-  console.log('move')
 }, 2000)

@@ -24,6 +24,7 @@ showBottomNav();
 
 flipPackageInfo();
 
-document.addEventListener('DOMContentLoaded', () => {
-  navOnScroll();
-})
+
+// document.addEventListener('turbolinks:load', () => {
+navOnScroll();
+// })

@@ -1,9 +1,9 @@
 const navOnScroll = () => {
-  const navbar = document.querySelector('.navbar-inverse');
-  // console.log("yo")
+  const navbar = document.querySelector('.custom-nav');
 
   if(navbar) {
     window.addEventListener('scroll', () => {
+      console.log(window.scrollY + ',' + window.innerHeight)
       if (window.scrollY >= window.innerHeight) {
         navbar.classList.add('nav-custom-disable');
       } else {
