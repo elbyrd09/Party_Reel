@@ -14,3 +14,10 @@
   text-align: center;
   color: $black;
 }
+
+.home-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $cerulean;
+}
