@@ -22,7 +22,10 @@
 }
 
 .custom-nav ul li:hover {
-  background: rgba(0,0,1,.2);
+  background-color: rgba(0,0,0,.2);
+  font-weight: bolder;
+  color: $white !important;
+  text-decoration: none;
 }
 
 .nav-custom-disable {
@@ -34,7 +37,7 @@
 }
 
 .nav-link {
-  color: $white !important;
+  color: $cerulean;
   background-color: transparent;
 }
 
