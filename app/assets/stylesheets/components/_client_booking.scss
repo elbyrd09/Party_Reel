@@ -1,3 +1,28 @@
+
+.photographermodal {
+  .modal-body {
+    padding: 0;
+  }
+
+  .photographermodal-pgr-picture {
+    background-size: cover;
+    height: 80vh;
+    position: relative;
+
+    .photographermodal-pgr-picture-text {
+      // to be placed at the bottom left side of the picture
+      position: absolute;
+      bottom: 0px;
+      left: 16px;
+      margin: 0;
+    }
+  }
+
+  .photographermodal-pgr-info {
+    margin: 16px;
+  }
+}
+
 .attendee_info {
 
 }
