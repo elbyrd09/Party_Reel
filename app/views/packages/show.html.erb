@@ -17,8 +17,9 @@
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <!-- Carousel content (each with individual modal) -->
+                <!-- only filter photographers present by the time slot  -->
               <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
-                <% @photographers_present.each_with_index do |photographer, index| %>
+                <% @available_photographers.each_with_index do |photographer, index| %>
                   <% active = 'active' if index == 0 %>
                   <div class="carousel-item <%= active %>">
                     <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
@@ -36,21 +37,21 @@
               <div class="modal fade" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                      <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                              <% case @package.name %>
-                                <% when "Timezones" %>
-                                  <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
-                                <% when "How do you want it?" %>
-                                  <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
-                                <% when "SICKO Mode" %>
-                                  <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
-                               <% end %>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        <% case @package.name %>
+                          <% when "Timezones" %>
+                            <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                          <% when "How do you want it?" %>
+                            <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                          <% when "SICKO Mode" %>
+                            <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
+                         <% end %>
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
 
                     <div class="modal-body"  style="color: black;">
                       <h3><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
@@ -68,9 +69,6 @@
                           <% end %>
                       <% end %>
                     </div>
-
-
-
 
                     <div class="modal-footer">
                       <%= simple_form_for [@event, @booking] do |f| %>
@@ -103,4 +101,10 @@
     </div>
   </div>
 
+<script>
+  var startTime = sessionStorage.getItem("startTime");
+  var endTime = sessionStorage.getItem("endTime");
+  document.querySelector('#booking_start_time').value = startTime;
+  document.querySelector('#booking_end_time').value = endTime;
+</script>
 
