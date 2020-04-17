@@ -19,7 +19,9 @@ User.destroy_all
 CATEGORIES = ["SICKO Mode", "How do you want it?", "Timezones"]
 PRICES = [75000, 40000, 25000]
 DESCRIPTIONS = ["Dedicated attention for the entire day by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Periodic attention where our team will capture moments throughout your event experience"]
-SESSIONS = ["Dedicated session", "Periodic session"]
+BULLETS1 = ["Minimum of 15 photographs", "Minimum of 30 photographs", "Minimum of 50 photographs"]
+BULLETS2 = ["Periodic shooting throughout the day", "Dedicated attention for 1 hour", "Full day attention with a dedicated photographer"]
+BULLETS3 = ["Delivery of photographs near end of event", "Photographs delivered shortly after 1 hour shoot", "Photographs delivered throughout your event"]
 
 puts 'Packages loading up...'
 # # # Preferences
@@ -179,32 +181,6 @@ photographer.save!
 
 puts "Created photographers"
 
-# EVENTURLS = ['governors-ball-music-festival-2019/', 'mountain-jam-2019/', 'electric-zoo-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
-
-# EVENTURLS.each do |festival|
-#   url = "https://www.musicfestivalwizard.com/#{festival}/"
-
-#   html_file = open(url).read
-#   html_doc = Nokogiri::HTML(html_file)
-#   event = Event.new
-#   headerblock = html_doc.search('.headerblock')
-#   event.name = headerblock.search("h1 a").text #headerblock name 1
-#   event.start_date = Date.today + rand(1..50)
-#   event.end_date = event.start_date + 1
-#   # event.start_date -= 50 if event.end_date < event.start_date
-#   event.genre = GENRES.sample
-#   event.partnership = PARTNERSHIPS.sample
-#   event.type_event = TYPES.sample
-#   event.location = html_doc.search('.headerblock p').last.text
-#   # headerblock.search("p").first.text #headerblock name 2
-#   # not in a parsable format ^
-#   event.event_description = html_doc.search('.hubscene').text
-#   file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
-#   event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
-#   # ^ works but need to install ActiveStorage first to then attach this image to the event
-#   event.save!
-# end
-
 puts "Festivals uploading..."
 # Event instances
 
@@ -253,7 +229,7 @@ edc.partnership = "No, Party Reel only"
 edc.type_event = "Multi-day Festival"
 edc.location = "New York City"
 edc.event_description = "As the largest and longest-running electronic festival in the city, the park transforms into an electronic playground for a three-day jammed pack festival."
-edc.local_img = "ezoo0731.jpg"
+edc.local_img = "e-zoo-2.jpeg"
 edc.save!
 
 aftershock = Event.new
@@ -283,30 +259,40 @@ govball.save!
 puts "Enhance..."
 # Package Instances
 
-sickomode = Package.new
-sickomode.name = "SICKO Mode"
-sickomode.price_cents = 75000
-sickomode.description = "Dedicated attention for the entire day by one our our professional photographers!"
-sickomode.session = "Dedicated session"
-sickomode.local_img = "sicko.jpg"
-sickomode.save!
+timezones = Package.new
+timezones.name = "Timezones"
+timezones.price_cents = 25000
+timezones.description = "Our team will capture moments throughout your event experience"
+timezones.bullets1 = "Minimum of 15 photographs"
+timezones.bullets2 = "Periodic shooting throughout the day"
+timezones.bullets3 = "Delivery of photographs near end of event"
+timezones.session = "Periodic session"
+timezones.local_img = "timezones.jpg"
+timezones.save!
+
 
 howdoyouwantit = Package.new
 howdoyouwantit.name = "How do you want it?"
 howdoyouwantit.price_cents = 40000
 howdoyouwantit.description = "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!"
+howdoyouwantit.bullets1 = "Minimum of 30 photographs"
+howdoyouwantit.bullets2 = "Dedicated attention for 1 hour"
+howdoyouwantit.bullets3 = "Photographs delivered shortly after 1 hour shoot"
 howdoyouwantit.session = "Dedicated session"
 howdoyouwantit.local_img = "hdywi.jpg"
 howdoyouwantit.save!
 
-timezones = Package.new
-timezones.name = "Timezones"
-timezones.price_cents = 25000
-timezones.description = "Our team will capture moments throughout your event experience"
-timezones.session = "Periodic session"
-timezones.local_img = "timezones.jpg"
-timezones.save!
 
+sickomode = Package.new
+sickomode.name = "SICKO Mode"
+sickomode.price_cents = 75000
+sickomode.description = "Dedicated attention for the entire day by one our our professional photographers!"
+sickomode.bullets1 = "Minimum of 50 photographs"
+sickomode.bullets2 = "Full day attention with a dedicated photographer"
+sickomode.bullets3 = "Photographs delivered throughout your event"
+sickomode.session = "Dedicated session"
+sickomode.local_img = "sicko.jpg"
+sickomode.save!
 # Preference Array
 PREFERENCES.each do |pref|
   Shotpreference.create!(name: pref)
@@ -341,3 +327,29 @@ end
 end
 
 puts "Great success!!"
+
+# EVENTURLS = ['governors-ball-music-festival-2019/', 'mountain-jam-2019/', 'electric-zoo-2019/', 'electric-forest-2019/', 'coachella-music-festival-2019/', 'aftershock-festival-2019/']
+
+# EVENTURLS.each do |festival|
+#   url = "https://www.musicfestivalwizard.com/#{festival}/"
+
+#   html_file = open(url).read
+#   html_doc = Nokogiri::HTML(html_file)
+#   event = Event.new
+#   headerblock = html_doc.search('.headerblock')
+#   event.name = headerblock.search("h1 a").text #headerblock name 1
+#   event.start_date = Date.today + rand(1..50)
+#   event.end_date = event.start_date + 1
+#   # event.start_date -= 50 if event.end_date < event.start_date
+#   event.genre = GENRES.sample
+#   event.partnership = PARTNERSHIPS.sample
+#   event.type_event = TYPES.sample
+#   event.location = html_doc.search('.headerblock p').last.text
+#   # headerblock.search("p").first.text #headerblock name 2
+#   # not in a parsable format ^
+#   event.event_description = html_doc.search('.hubscene').text
+#   file = URI.open html_doc.search('.parallax').first.attributes["data-bg"].value[4..-2]
+#   event.photos.attach(io: file, content_type: 'image/png', filename: "hahaha.png")
+#   # ^ works but need to install ActiveStorage first to then attach this image to the event
+#   event.save!
+# end

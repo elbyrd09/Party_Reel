@@ -32,7 +32,7 @@
   }
 
   .package-card {
-    grid-column: 2 / 3;
+    grid-column: 1 / span 4;
     // margin: auto;
     height: 50vh;
     width: 500px;
@@ -44,8 +44,13 @@
     }
   }
 
-  .container-package {
-    // margin-right: auto;
+  .package-num{
+    grid-column: 2 / span 1;
+    position: relative;
+    top: 40px;
+    right: 35px;
+    color: white;
+    text-rendering: optimizeLegibility;
   }
 
   .package-info {

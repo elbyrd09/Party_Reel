@@ -21,11 +21,12 @@
   transition: .01s;
 }
 
-.custom-nav ul li:hover {
+.custom-nav a:hover {
   background-color: rgba(0,0,0,.2);
   font-weight: bolder;
   color: $white !important;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .nav-custom-disable {
@@ -37,22 +38,10 @@
 }
 
 .nav-link {
-  color: $cerulean;
+  color: $lily_white;
   background-color: transparent;
 }
 
-// .navbar-top {
-//   color: $white;
-//   font-size: 60px;
-//   letter-spacing: 3px;
-//   position: fixed;
-//   top: 0;
-// }
-
-.navbar-top:hover{
-  text-decoration: none;
-  color: $white;
-}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -73,17 +62,19 @@
 
 .button-login {
   padding: 10px 25px;
-  border: 1px solid #fff;
+  border: 1px solid $white;
   border-radius: 100px;
   font-weight: 400;
-  color: #e4f9ff;
+  background-color: #bc47ac;
+  color: #fff;
 }
 
 .button-login:hover {
-  background-color: #fff;
-  color: #12cad6;
+  background-color: $cerulean;
+  color: #fff;
   transform: scale(1.03);
   box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+  border: 1px solid $white;
   text-decoration: none;
 }
 
