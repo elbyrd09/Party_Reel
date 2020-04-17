@@ -8,6 +8,23 @@
           <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path package.local_img %>)">
             <div class="package-name"> <%= package.name %></div>
             <div class="package-info hidden">
+              <% if package.name == "How do you want it?" %>
+                <div class="time-slots" data-unavailable="<%= @unavailable_times.to_json %>">
+                  <span class="time-slot">12-1PM</span>
+                  <span class="time-slot">1-2PM</span>
+                  <span class="time-slot">2-3PM</span>
+                  <span class="time-slot">3-4PM</span>
+                  <span class="time-slot">4-5PM</span>
+                  <span class="time-slot">5-6PM</span>
+                  <span class="time-slot">6-7PM</span>
+                  <span class="time-slot">7-8PM</span>
+                  <span class="time-slot">8-9PM</span>
+                  <span class="time-slot">9-10PM</span>
+                  <span class="time-slot">10-11PM</span>
+                  <span class="time-slot">11-12AM</span>
+                  <br>
+                </div>
+              <% end %>
               <h3><%= package.name %></h3>
               <p><%= package.description %></p><br>
               <h5><%= humanized_money_with_symbol(package.price) %></h5>
@@ -20,5 +37,47 @@
         <% end %>
       </div>
   </div>
+
+<script>
+  const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
+  var startTime = ""
+  var endTime = ""
+  const updateBookingTime = (event) => {
+    const slot = event.currentTarget.innerHTML
+    startTime = slot.split("-")[0]
+    endTime = slot.split("-")[1]
+    sessionStorage.setItem("startTime", startTime)
+    sessionStorage.setItem("endTime", endTime)
+
+  $.ajax({
+        url : "packages",
+        type : "get",
+        data : { data_value: startTime }
+    });
+
+  }
+  const changeColor = (event) => {
+    // Set backgrond of all other slots to white, so it is clear only one can be selected
+    document.querySelectorAll(".time-slot").forEach( (slot) => {
+      if (slot.classList.contains('time-slot-selected')) {
+        slot.classList.remove("time-slot-selected");
+      };
+    })
+    const slot = event.currentTarget;
+    slot.classList.toggle("time-slot-selected");
+  }
+  const timeSlots = document.querySelectorAll(".time-slot");
+  timeSlots.forEach((slot) => {
+    if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
+      slot.classList.add("unavailable-slot");
+    } else {
+      slot.classList.add("available-slot");
+    }
+    slot.addEventListener('click', updateBookingTime);
+    if (slot.classList.contains('available-slot')) {
+      slot.addEventListener('click', changeColor);
+    };
+  })
+</script>
 
 

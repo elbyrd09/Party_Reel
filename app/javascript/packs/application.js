@@ -7,7 +7,6 @@ import { showBottomNav } from 'packs/show_bottom_nav.js';
 import { flipPackageInfo } from 'packs/flip_package_info.js';
 import { navOnScroll } from 'packs/pg_top_nav.js';
 
-
 navOnScroll();
 
 progress();
