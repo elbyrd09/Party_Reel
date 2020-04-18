@@ -8,10 +8,12 @@
 .custom-nav {
   width: 100%;
   padding: 40px;
-  position: fixed;
+  position: absolute;
   top: 0px;
+  right: 0px;
   transition: 1s;
   text-align: right;
+  z-index: 1;
 }
 
 .custom-nav ul li {
