@@ -3,6 +3,8 @@
   background: $white;
 }
 
+// custom top nav
+
 .custom-nav {
   width: 100%;
   padding: 40px;
@@ -28,6 +30,8 @@
   text-decoration: none;
 }
 
+// js class for scroll
+
 .nav-custom-disable {
   pointer-events: none;
   background: transparent;
@@ -36,18 +40,13 @@
   transition: .01s;
 }
 
+// update will have this be $lily-white
+
 .nav-link {
   color: $cerulean;
   background-color: transparent;
 }
 
-// .navbar-top {
-//   color: $white;
-//   font-size: 60px;
-//   letter-spacing: 3px;
-//   position: fixed;
-//   top: 0;
-// }
 
 .navbar-top:hover{
   text-decoration: none;
@@ -61,6 +60,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.party-notes {
+  list-style-type: none;
+  color: white;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+    display:block;
+}
+
+// bottom nav
 
 .bottom-nav {
   width: 100%;
