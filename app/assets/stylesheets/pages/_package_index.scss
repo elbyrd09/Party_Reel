@@ -1,14 +1,19 @@
 // package show page
 .package-show-card {
-    background-color: $cerulean;
-    padding: 15px;
-    width: 350px;
-    border-radius: 30px;
-    color: $white;
-    font-size: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: right;
+    justify-content: flex-end;
+    right: 0;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border-radius: .5rem;
 }
 
 .pack-details p {

@@ -3,10 +3,7 @@ const flipPackageInfo = () => {
   document.querySelectorAll('.package-card').forEach (card =>
     card.addEventListener('click', (e)=>{
       card.childNodes[1].classList.toggle('hidden');
-      // card.childNodes[2].classList.toggle('hidden');
       card.childNodes[3].classList.toggle('hidden');
-      // card.childNodes[4].classList.toggle('hidden');
-      // card.childNodes[5].classList.toggle('hidden');
     }
   ))
 };

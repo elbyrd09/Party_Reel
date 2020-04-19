@@ -2,29 +2,37 @@
   <div class="event-show d-flex justify-content-center">
     <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
   </div>
-  <div class="row d-flex flex-row justify-content-center my-5">
-    <%= render 'shared/progress_bar' %>
-    <div class="col-lg-6 col-md-8 package-show-card">
-      <p> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
+  <div class="row d-flex flex-column justify-content-center my-5 col-lg-10 col-md-10 col-sm-4 col-4">
+  <%= render 'shared/progress_bar' %>
+  <div class="row flex-row justify-content-around">
+    <h5> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></h5><br>
+      <div class="col-lg-10 col-md-10 col-sm-4 col-6 package-show-card">
+        <p>Package selected</p>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle w-150" type="button" data-toggle="dropdown"> <%= @package.name %>
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="padding: 10px; width: 100%;">
+              <small><%= @package.bullet1 %></small><br>
+              <small><%= @package.bullet2 %></small><br>
+              <small><%= @package.bullet3 %></small>
+            </ul>
+          </div>
+        </div>
     </div>
-    <div class="col-lg-6 col-md-8 pack-details">
-      <p> <strong><%= @package.name %></strong><br>1 hour worth of shooting - minimum: 30 photos</p>
-    </div>
-  </div>
+</div>
 
   <!-- Carousel with navigation -->
   <div class="photographer-carousel mb-5 pb-5 ">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <!-- Carousel content (each with individual modal) -->
-        <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
+        <p class="text-center">Please select one of our professional photographers for <span style="color: #0FABBC; font-size: x-large;"><%= @event.name %></span> </p>
         <% @photographers_present.each_with_index do |photographer, index| %>
           <% active = 'active' if index == 0 %>
           <div class="carousel-item <%= active %>">
             <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
               <div class="py-3 text-center">
                 <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
-                <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
                 <p class="py-3">Rating: <%= rand(4.0..5.0).round(1) %> </p>
                 <p> <%= photographer.user.first_name %> has worked with <%= rand(30..50) %> Party Reel clients </p>
               </div>
