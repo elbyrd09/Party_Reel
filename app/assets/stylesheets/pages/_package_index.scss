@@ -30,7 +30,7 @@
   grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  height: 375vh;
+  height: 475vh;
   max-height: 1000px;
   justify-items: center;
   align-items: end;
@@ -44,18 +44,17 @@
     grid-column: 1 / 5;
     align-self: stretch;
     text-align: center;
-    color: black;
-    z-index: 1;
-    line-height: 65px;
+    line-height: 50px;
     margin: 0 auto;
-    height: 40vh;
+    height: 50vh;
     letter-spacing: 2px;
-    padding: 30px;
+    padding: 45px;
 
     li {
-    font-size: medium;
+    font-size: 13px;
     color: white;
     list-style-type: none;
+    text-align-last: end;
    }
   }
 
@@ -65,7 +64,7 @@
     cursor: pointer;
     grid-column: 1 / 5;
     margin: 0 auto;
-    height: 42vh;
+    height: 44vh;
     width: 550px;
     background-size: cover;
 }
