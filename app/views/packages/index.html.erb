@@ -1,22 +1,26 @@
 
-  <div class="container-package py-4">
-    <h4 class="color-dark-blue text-center py-2">Packages available for <strong><%= @event.name %></strong> </h4>
-      <h5 class="text-center py-2">Plan a photography session with friends for your day at <%= @event.name %> -- <strong>BALL OUT!</strong> </h5>
-      <%= render 'shared/progress_bar' %>
-      <div class="package-cards ">
-        <% @packages.each do |package| %>
-          <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path package.local_img %>)">
-            <div class="package-name"> <%= package.name %></div>
-            <div class="package-info hidden">
-              <h3><%= package.name %></h3>
-              <p><%= package.description %></p><br>
-              <h5><%= humanized_money_with_symbol(package.price) %></h5>
-              <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
+<div class="container-package py-4">
+  <h4 class="color-dark-blue text-center py-2">Packages available for <strong><%= @event.name %></strong> </h4>
+    <%= render 'shared/progress_bar' %>
+    <h5 class="text-center py-2">Plan a photography session with friends for your day at <%= @event.name %> -- <strong>BALL OUT!</strong> </h5>
+    <div class="package-cards">
+      <% @packages.each do |package| %>
+      <div class="card-category package-card" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(<%= asset_path package.local_img %>)">
+        <div class="package-name">
+            <ul>
+              <li><%= package.bullet1 %></li>
+              <li><%= package.bullet2 %></li>
+              <li><%= package.bullet3 %></li>
+              <li style="text-align: center;"><%= image_tag "trans2Icon.png", alt: "alttext", width: 100, height: 50 %></li>
+            </ul>
+        </div>
+              <div class="package-info hidden">
+                <h4><span style="color: #0FABBC"><%= package.name %></span> package selected</h4>
+                <p><%= package.description %></p><br>
+                <h5><span style="color: red; font-size: large;"><%= humanized_money_with_symbol(package.price) %></span> for a <%= package.bullet1.downcase %><br> Choose your favorite photographs from the day!</h5>
+                <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
             </div>
           </div>
-            <div class="description-add">
-              <p><%= package.description %></p>
-            </div>
         <% end %>
       </div>
   </div>

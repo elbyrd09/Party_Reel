@@ -1,5 +1,5 @@
 const flipPackageInfo = () => {
-  console.log('flipPackageInfo')
+  // console.log('flipPackageInfo')
   document.querySelectorAll('.package-card').forEach (card =>
     card.addEventListener('click', (e)=>{
       card.childNodes[1].classList.toggle('hidden');

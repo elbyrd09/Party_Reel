@@ -1,13 +1,19 @@
+// package show page
 .package-show-card {
-    background-color: $cerulean;
-    padding: 15px;
-    width: 350px;
-    border-radius: 30px;
-    color: $white;
-    font-size: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: right;
+    justify-content: flex-end;
+    right: 0;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border-radius: .5rem;
 }
 
 .pack-details p {
@@ -16,44 +22,64 @@
     margin: auto;
     text-align: center;
 }
+
+// package index
+
   .package-cards {
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  height: 175vh;
-  padding-bottom: 100px;
-  // max-height: 800px;
-  // align-content: stretch;
+  grid-gap: 20px;
+  height: 475vh;
+  max-height: 1000px;
   justify-items: center;
-  align-items: center;
-  margin-bottom: 5px;
+  align-items: end;
+  margin-bottom: 115px;
   font-size: x-large;
+
   }
+
+  .package-name {
+    // display: grid;
+    grid-column: 1 / 5;
+    align-self: stretch;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 auto;
+    height: 50vh;
+    letter-spacing: 2px;
+    padding: 45px;
+
+    li {
+    font-size: 13px;
+    color: white;
+    list-style-type: none;
+    text-align-last: end;
+   }
+  }
+
+
 
   .package-card {
-    grid-column: 2 / 3;
-    // margin: auto;
-    height: 50vh;
-    width: 500px;
+    cursor: pointer;
+    grid-column: 1 / 5;
+    margin: 0 auto;
+    height: 44vh;
+    width: 550px;
     background-size: cover;
+}
 
-  .package-card:hover {
-    box-shadow: $cerulean;
-    transform: scale(1.1);
-    }
-  }
 
-  .container-package {
-    // margin-right: auto;
-  }
+  // hidden package info for package index
 
   .package-info {
     text-align: center;
-    background-color: rgba(214, 212, 208, 0.6);
-    height: 50%;
-    // margin-top: 15px;
+    align-content: end;
+    background-color: rgb(214, 212, 208);
+    opacity: 2px;
+    height: 80%;
     border-radius: 5px;
+    z-index: 1;
     }
 
    .package-info h3 {
@@ -61,31 +87,22 @@
       font-size: 30px;
       background-color: #0FABBC;
       color: white;
-      border-radius:inherit;
+      border-radius: inherit;
+
     }
+
+    .package-info h5 {
+      margin: 0;
+      font-size: 15px;
+      color: $gray;
+      border-radius: inherit;
+    }
+
    .package-info p {
       margin: 0;
       font-size: 14px;
       font-weight: 700;
       background-color: #0FABBC;
       color: white;
-  }
 
-  .description-add {
-    display: flex;
-    align-items: center;
   }
-
-  .description-add p {
-      grid-column: 3 / 4;
-      grid-auto-flow: column;
-      margin: 0;
-      font-size: 14px;
-      background-color: #0FABBC;
-      color: white;
-      width: 400px;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-  }
-
