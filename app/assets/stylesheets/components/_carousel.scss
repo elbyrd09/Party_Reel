@@ -4,8 +4,8 @@
   top: 50%;
   transform: translateY(-50%);
   overflow: hidden;
-
 }
+
 #carousel div {
   position: absolute;
   transition: transform 1s, left 1s, opacity 1s, z-index 0s;
@@ -91,6 +91,19 @@
   margin: auto 0;
   padding: 5px;
 }
+
+
+.carousel-new {
+  color: $lily-white;
+  font-size: large;
+  font-weight: bold;
+  position: absolute;
+  text-align: left;
+  align-self: flex-end !important;
+  padding: 5px;
+  transition: 5s;
+}
+
 
 // From StackOverflow, change the color of the 'arrows' on the carousel, if photographers_present
 .carousel-control-prev-icon,

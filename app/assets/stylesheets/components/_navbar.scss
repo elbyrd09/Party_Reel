@@ -3,13 +3,17 @@
   background: $white;
 }
 
+// custom top nav
+
 .custom-nav {
   width: 100%;
   padding: 40px;
-  position: fixed;
+  position: absolute;
   top: 0px;
+  right: 0px;
   transition: 1s;
   text-align: right;
+  z-index: 1;
 }
 
 .custom-nav ul li {
@@ -29,6 +33,8 @@
   border-radius: 10px;
 }
 
+// js class for scroll
+
 .nav-custom-disable {
   pointer-events: none;
   background: transparent;
@@ -36,6 +42,8 @@
   visibility: hidden;
   transition: .01s;
 }
+
+// update will have this be $lily-white
 
 .nav-link {
   color: $lily_white;
@@ -50,6 +58,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.party-notes {
+  list-style-type: none;
+  color: white;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+    display:block;
+}
+
+// bottom nav
 
 .bottom-nav {
   width: 100%;
