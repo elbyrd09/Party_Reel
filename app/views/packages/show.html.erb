@@ -1,4 +1,4 @@
-<div class="container col-12 col-lg-6">
+pr<div class="container col-12 col-lg-6">
   <div class="event-show d-flex justify-content-center">
     <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
   </div>
@@ -44,41 +44,23 @@
           <div class="modal fade photographermodal vw-100" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                  <% case @package.name %>
-                    <% when "Timezones" %>
-                      <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
-                    <% when "How do you want it?" %>
-                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
-                    <% when "SICKO Mode" %>
-                      <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
-                    <% end %>
-                  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+
 
                 <div class="modal-body"  style="color: black;">
                   <div class="photographermodal-pgr-picture" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 99%), url('<%= image_path "testphotographer3.webp" %>')">
                     <!-- a placeholder picture, will eventually be replaced by user.avatarpic -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                     <h3 class="photographermodal-pgr-picture-text"><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
 
-                  </div>
+                </div>
                   <div class="photographermodal-pgr-info">
-                    <p> <%= photographer.profession %></p>
                     <p> Instagram: <%= photographer.user.user_ig_handle %></p>
                     <% photographer.photographerspecialties.each do |photographer_specialty| %>
                       <p> <%= photographer_specialty.specialty.name %></p>
                     <% end %>
-                    <h4>What people had to say about <%= photographer.user.first_name %></h4>
-                    <% photographer.bookings.each do |booking| %>
-                      <% booking.reviews.each do |review| %>
-                        <div class="booking-review">
-                          <small> <%= review.content %></small>
-                        </div>                      <% end %>
-                    <% end %>
+
                   </div>
                 </div>
 
@@ -99,15 +81,23 @@
                     <br>
                   </div>
                 <% end %>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-between">
+                  <% case @package.name %>
+                    <% when "Timezones" %>
+                      <p><%= photographer.user.first_name %> can shoot during the event<br>on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                    <% when "How do you want it?" %>
+                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                    <% when "SICKO Mode" %>
+                      <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
+                    <% end %>
                   <%= simple_form_for [@event, @booking] do |f| %>
                     <%= f.hidden_field :photographer_id, value: photographer.id %>
                     <%= f.hidden_field :package_id, value: @package.id %>
                     <!-- starttime and endtime filled with JS function -->
                     <%= f.hidden_field :start_time  %>
                     <%= f.hidden_field :end_time %>
-                    <div class="btn-new">
-                      <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+                    <div>
+                      <%= f.button :submit, "Book", class: "btn-new p-4" %>
                     </div>
                   <% end %>
                 </div>
