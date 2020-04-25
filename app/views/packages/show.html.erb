@@ -1,24 +1,16 @@
-pr<div class="container col-12 col-lg-6">
+<div class="container col-12 col-lg-6">
   <div class="event-show d-flex justify-content-center">
     <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
   </div>
-  <div class="row d-flex flex-column justify-content-center my-5 col-lg-10 col-md-10 col-sm-4 col-4">
-  <%= render 'shared/progress_bar' %>
-  <div class="row flex-row justify-content-around">
-    <h5> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></h5><br>
-      <div class="col-lg-10 col-md-10 col-sm-4 col-6 package-show-card">
-        <p>Package selected</p>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle w-150" type="button" data-toggle="dropdown"> <%= @package.name %>
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu" style="padding: 10px; width: 100%;">
-              <small><%= @package.bullet1 %></small><br>
-              <small><%= @package.bullet2 %></small><br>
-              <small><%= @package.bullet3 %></small>
-            </ul>
-          </div>
-        </div>
+  <div class="container d-flex flex-column justify-content-center my-5 col-lg-10 col-md-10 col-sm-10 col-10">
+      <%= render 'shared/progress_bar' %>
+    <div class="row d-flex align-items-start ml-1">
+      <div class="package-show-card d-flex flex-column">
+          <p class="d-flex justify-content-center">Package selected</p>
+          <a tabindex="0" class="btn btn-lg btn-success" style="background-color: #47ACBC; color: white;" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" title="<%= @event.name %> ~ <%= @event.start_date.strftime("%B %d") %>" data-content="<%= @package.bullet1 %> \n <%= @package.bullet2 %> \n <%= @package.bullet3 %>"><%= @package.name %> &nbsp<span style="font-size: 13px;">►</span></a>
+      </div>
     </div>
+ </div>
 </div>
 
   <!-- Carousel with navigation -->
@@ -122,7 +114,7 @@ pr<div class="container col-12 col-lg-6">
 
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
-  console.log(unavailableTimes)
+  // console.log(unavailableTimes)
   const updateForm = (event) => {
     const slot = event.currentTarget.innerHTML
     const startTime = slot.split("-")[0]
@@ -152,4 +144,10 @@ pr<div class="container col-12 col-lg-6">
       slot.addEventListener('click', changeColor);
     };
   })
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+  row:
+})
+
 </script>
