@@ -23,8 +23,15 @@
   }
 }
 
-.attendee_info {
-
+.modal-body .avatar-bordered {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  z-index: 1;
+  width: 92px;
+  height: 100px;
+  border-color: transparent;
+  box-shadow: 5px 5px 18px $cerulean;
 }
 
 .time-slots {
