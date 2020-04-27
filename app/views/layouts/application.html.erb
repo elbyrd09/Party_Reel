@@ -35,14 +35,16 @@
   </head>
   <body>
     <!-- # No navbar on top of page during the booking proces, but on the bottom of the screen -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') %>
       <%= render 'shared/bottom_nav' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-
 
   </body>
 </html>

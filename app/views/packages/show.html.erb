@@ -7,7 +7,7 @@
     <div class="row d-flex align-items-start ml-1">
       <div class="package-show-card d-flex flex-column">
           <p class="d-flex justify-content-center">Package selected</p>
-          <a tabindex="0" class="btn btn-lg btn-success" style="background-color: #47ACBC; color: white;" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" title="<%= @event.name %> ~ <%= @event.start_date.strftime("%B %d") %>" data-content="<%= @package.bullet1 %> \n <%= @package.bullet2 %> \n <%= @package.bullet3 %>"><%= @package.name %> &nbsp<span style="font-size: 13px;">►</span></a>
+          <a tabindex="0" class="btn btn-lg btn-danger" style="background-color: #47ACBC; color: white;" role="button" data-toggle="popover" data-trigger="focus" title="<%= @event.name %> ~ <%= @event.start_date.strftime("%B %d") %>" data-content="<%= @package.bullet1 %> \n <%= @package.bullet2 %> \n <%= @package.bullet3 %>"><%= @package.name %> &nbsp<span style="font-size: 13px;">►</span></a>
       </div>
     </div>
  </div>
@@ -113,6 +113,7 @@
 </div>
 
 <script>
+
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
   // console.log(unavailableTimes)
   const updateForm = (event) => {
@@ -145,9 +146,10 @@
     };
   })
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-  row:
-})
+    $.('.popover-dismiss').popover({
+    trigger: 'focus'
+   });
+
+
 
 </script>
