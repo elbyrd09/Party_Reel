@@ -42,7 +42,7 @@
                     <% when "Timezones" %>
                       <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
                     <% when "How do you want it?" %>
-                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                      <p id='booking_time'> You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from </p>
                     <% when "SICKO Mode" %>
                       <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
                     <% end %>
@@ -107,6 +107,7 @@
 <script>
   var startTime = sessionStorage.getItem("startTime");
   var endTime = sessionStorage.getItem("endTime");
+  document.querySelector('#booking_time').innerHTML += startTime + ' until ' + endTime + '!';
   document.querySelector('#booking_start_time').value = startTime;
   document.querySelector('#booking_end_time').value = endTime;
 </script>

@@ -5,18 +5,16 @@ class PackagesController < ApplicationController
 
    def index
     @packages = Package.all
-    @event_time_slots = (1..12).to_a
+    event_time_slots = (1..12).to_a
     @unavailable_times = []
-    @event_time_slots.each do |event_time_slot|
-      @time_slot_available = []
+    event_time_slots.each do |event_time_slot|
+      time_slot_available = false
       @photographers_present.each do |photographer|
         if !photographer.unavailable_times.include?(event_time_slot)
-          @time_slot_available << true
-        else
-           @time_slot_available << false
+          time_slot_available = true
         end
       end
-     @unavailable_times << event_time_slot if !@time_slot_available.include?(true)
+      @unavailable_times << event_time_slot if !time_slot_available
     end
     # storing time slot chosen for photographer filter in show method
     session[:start_time] = params[:data_value]
