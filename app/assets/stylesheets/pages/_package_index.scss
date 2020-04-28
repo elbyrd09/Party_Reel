@@ -29,6 +29,13 @@
   border-top-color: transparent;
 }
 
+// .popover-index{
+//   font-size: 15px;
+//   text-decoration: none !important;
+//   border-color: transparent !important;
+//   padding: 10px;
+// }
+
 
 .pack-details p {
     width: 400px;
@@ -68,7 +75,7 @@
     font-size: 13px;
     color: white;
     list-style-type: none;
-    text-align-last: end;
+    text-align-last: center;
    }
   }
 
@@ -78,7 +85,7 @@
     cursor: pointer;
     grid-column: 1 / 5;
     margin: 0 auto;
-    height: 44vh;
+    height: 39vh;
     width: 550px;
     background-size: cover;
 }

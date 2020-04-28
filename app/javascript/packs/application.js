@@ -11,6 +11,7 @@ import { navOnScroll } from 'packs/pg_top_nav.js';
 
 $(document).ready(function(){
   $('[data-toggle=popover]').popover();
+  $('[data-toggle=popover-index]').popover();
 });
 
 navOnScroll();
