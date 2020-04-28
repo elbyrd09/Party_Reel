@@ -9,6 +9,10 @@ import { flipPackageInfo } from 'packs/flip_package_info.js';
 import { navOnScroll } from 'packs/pg_top_nav.js';
 
 
+$(document).ready(function(){
+  $('[data-toggle=popover]').popover();
+});
+
 navOnScroll();
 
 progress();
