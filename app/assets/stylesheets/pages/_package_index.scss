@@ -85,10 +85,13 @@
     cursor: pointer;
     grid-column: 1 / 5;
     margin: 0 auto;
-    height: 39vh;
+
+    height: 35vh;
     width: 550px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: none;
 }
+
 
 
   // hidden package info for package index
