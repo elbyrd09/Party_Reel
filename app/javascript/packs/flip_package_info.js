@@ -1,5 +1,5 @@
 const flipPackageInfo = () => {
-  console.log('flipPackageInfo')
+  // console.log('flipPackageInfo')
   document.querySelectorAll('.package-card').forEach (card =>
     card.querySelectorAll('.package-toggle').forEach (title =>
       title.addEventListener('click', (e)=>{

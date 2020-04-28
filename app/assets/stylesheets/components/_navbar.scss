@@ -3,13 +3,17 @@
   background: $white;
 }
 
+// custom top nav
+
 .custom-nav {
   width: 100%;
   padding: 40px;
-  position: fixed;
+  position: absolute;
   top: 0px;
+  right: 0px;
   transition: 1s;
   text-align: right;
+  z-index: 1;
 }
 
 .custom-nav ul li {
@@ -21,12 +25,15 @@
   transition: .01s;
 }
 
-.custom-nav ul li:hover {
+.custom-nav a:hover {
   background-color: rgba(0,0,0,.2);
   font-weight: bolder;
   color: $white !important;
   text-decoration: none;
+  border-radius: 10px;
 }
+
+// js class for scroll
 
 .nav-custom-disable {
   pointer-events: none;
@@ -36,23 +43,13 @@
   transition: .01s;
 }
 
+// update will have this be $lily-white
+
 .nav-link {
-  color: $cerulean;
+  color: $lily_white;
   background-color: transparent;
 }
 
-// .navbar-top {
-//   color: $white;
-//   font-size: 60px;
-//   letter-spacing: 3px;
-//   position: fixed;
-//   top: 0;
-// }
-
-.navbar-top:hover{
-  text-decoration: none;
-  color: $white;
-}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -62,28 +59,43 @@
   width: 40px;
 }
 
+.party-notes {
+  list-style-type: none;
+  color: white;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+    display:block;
+}
+
+// bottom nav
+
 .bottom-nav {
   width: 100%;
   position: fixed;
   bottom: 0;
   background-color: #0fabbc;
   padding: 15px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .button-login {
   padding: 10px 25px;
-  border: 1px solid #fff;
+  border: 1px solid $white;
   border-radius: 100px;
   font-weight: 400;
-  color: #e4f9ff;
+  background-color: #bc47ac;
+  color: #fff;
 }
 
 .button-login:hover {
-  background-color: #fff;
-  color: #12cad6;
+  background-color: $cerulean;
+  color: #fff;
   transform: scale(1.03);
   box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+  border: 1px solid $white;
   text-decoration: none;
 }
 

@@ -40,8 +40,28 @@
 }
 
 .btn-new:hover {
+  color: $white;
   background-color: $cerulean;
   border: solid;
-  color: $white;
+  border-color: $white;
   text-decoration: none;
+}
+
+button.close {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 10%;
+  border-radius: 0 0 0 30%;
+  color: $white;
+  padding: 10px;
+  border-bottom: solid;
+  border-left: solid;
+  opacity: .7;
+  font-family: auto;
+}
+
+button.close:hover {
+  color: $cerulean;
+  padding: 7px;
 }

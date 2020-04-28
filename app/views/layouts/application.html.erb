@@ -6,6 +6,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -35,12 +39,15 @@
   </head>
   <body>
     <!-- # No navbar on top of page during the booking proces, but on the bottom of the screen -->
+
     <% if !(params[:controller] == "devise/registrations" && params[:action] == 'new') && !(params[:controller] == "devise/sessions" && params[:action] == 'new') %>
       <%= render 'shared/bottom_nav' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
   </body>
 </html>
