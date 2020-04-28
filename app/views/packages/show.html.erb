@@ -18,9 +18,8 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <!-- Carousel content (each with individual modal) -->
-        <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
-        <% @available_photographers.each_with_index do |photographer, index| %>
-
+        <p class="text-center">Please select one of our professional photographers for <span style="color: #0FABBC; font-size: x-large;"><%= @event.name %></span> </p>
+        <% @photographers_present.each_with_index do |photographer, index| %>
           <% active = 'active' if index == 0 %>
           <div class="carousel-item <%= active %>">
             <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
@@ -37,21 +36,6 @@
           <div class="modal fade photographermodal vw-100" id="photographerModal<%= photographer.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                  <% case @package.name %>
-                    <% when "Timezones" %>
-                      <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
-                    <% when "How do you want it?" %>
-                      <p id='booking_time'> You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from </p>
-                    <% when "SICKO Mode" %>
-                      <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
-                    <% end %>
-                  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
 
 
                 <div class="modal-body"  style="color: black;">
@@ -74,7 +58,6 @@
                   </div>
                 </div>
 
-                <div class="modal-footer">
                 <% if @package.name == "How do you want it?" %>
                   <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
                     <span class="time-slot">12-1PM</span>
@@ -101,7 +84,6 @@
                     <% when "SICKO Mode" %>
                       <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
                     <% end %>
-                  
                   <%= simple_form_for [@event, @booking] do |f| %>
                     <%= f.hidden_field :photographer_id, value: photographer.id %>
                     <%= f.hidden_field :package_id, value: @package.id %>
@@ -131,11 +113,6 @@
 </div>
 
 <script>
-  var startTime = sessionStorage.getItem("startTime");
-  var endTime = sessionStorage.getItem("endTime");
-  document.querySelector('#booking_time').innerHTML += startTime + ' until ' + endTime + '!';
-  document.querySelector('#booking_start_time').value = startTime;
-  document.querySelector('#booking_end_time').value = endTime;
 
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
   // console.log(unavailableTimes)
