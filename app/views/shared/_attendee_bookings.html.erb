@@ -10,7 +10,10 @@
 
     </div>
     <h5 class="event-infos-pricing" style="color: rgb(71,172,188)">Payment Status: Paid</h5>
-
-    <img src="<%= asset_path("profile_img.jpg") %>" class="pgr-avatar-user avatar-bordered" />
+    <% if booking.photographer.user.avatar.attached? %>
+      <%= cl_image_tag booking.photographer.user.avatar.key, class: "pgr-avatar-user avatar-bordered" %>
+    <% else %>
+      <%= image_tag "https://via.placeholder.com/30X30/0000FF/808080", class: "pgr-avatar-user avatar-bordered" %>
+    <% end %>
   </div>
 </div>

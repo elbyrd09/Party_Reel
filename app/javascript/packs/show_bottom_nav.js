@@ -1,5 +1,5 @@
 const showBottomNav = () => {
-  let bottom_nav = document.querySelector('.bottom-nav-avatar');
+  let bottom_nav = document.querySelector('.bottom-nav');
   if (bottom_nav) {
     bottom_nav.addEventListener('click', (e)=>{
       document.querySelectorAll('.bottom-nav-icon').forEach (icon =>

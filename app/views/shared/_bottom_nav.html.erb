@@ -1,10 +1,17 @@
 <div class="navbar navbar-lewagon bottom-nav">
   <!-- avatar -->
     <% if user_signed_in? %>
-
-    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-    <%= image_tag avatar_url, class: "avatar bottom-nav-avatar" %>
-
+    <!-- If user is signed in with Facebook, use Facebook profile picture, else use avatar picture  -->
+      <% if current_user.facebook_picture_url %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30/0000FF/808080" %>
+        <%= image_tag avatar_url, class: "avatar bottom-nav-avatar" %>
+      <% else %>
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar bottom-nav-avatar" %>
+        <% else %>
+          <%= image_tag "https://via.placeholder.com/30X30/0000FF/808080", class: "avatar bottom-nav-avatar" %>
+        <% end %>
+      <% end %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "button-login" %>
     <% end %>
