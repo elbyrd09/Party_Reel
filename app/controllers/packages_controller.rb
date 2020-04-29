@@ -21,10 +21,12 @@ class PackagesController < ApplicationController
   end
 
   def show
+    @start_time = session[:start_time].to_i
+    @end_time = @start_time + 1 # this will need to be adjust should we make bookings before 1 pm or after 12 am
     @available_photographers = []
     @photographers_present.each do |photographer|
       # filter available photographers based on time slot chosen
-      if !photographer.unavailable_times.include?(session[:start_time].to_i)
+      if !photographer.unavailable_times.include?(@start_time)
         @available_photographers << photographer
         end
     end

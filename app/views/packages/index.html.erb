@@ -41,13 +41,15 @@
 <script>
   const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
   var startTime = ""
-  var endTime = ""
+  // no longer necessary
+  // var endTime = ""
   const updateBookingTime = (event) => {
     const slot = event.currentTarget.innerHTML
     startTime = slot.split("-")[0]
-    endTime = slot.split("-")[1]
-    sessionStorage.setItem("startTime", startTime)
-    sessionStorage.setItem("endTime", endTime)
+    // endTime = slot.split("-")[1]
+    // // this is done through session storage
+    // // sessionStorage.setItem("startTime", startTime)
+    // // sessionStorage.setItem("endTime", endTime)
 
   $.ajax({
         url : "packages",
