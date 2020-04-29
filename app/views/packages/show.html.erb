@@ -2,15 +2,16 @@
   <div class="event-show d-flex justify-content-center">
     <img src=" <%= asset_path(@event.local_img) %>" alt="event picture">
   </div>
-  <div class="row d-flex flex-row justify-content-center my-5">
-    <%= render 'shared/progress_bar' %>
-    <div class="col-lg-6 col-md-8 package-show-card">
-      <p> <%= @event.name %> ~ <strong><%= @event.start_date.strftime("%B %d") %></strong></p>
+  <div class="container d-flex flex-column justify-content-center my-5 col-lg-10 col-md-10 col-sm-10 col-10">
+      <%= render 'shared/progress_bar' %>
+    <div class="row d-flex align-items-start ml-1">
+      <div class="package-show-card d-flex flex-column py-5">
+          <p class="d-flex justify-content-center">Package selected</p>
+          <a tabindex="0" class="btn btn-lg btn-info w-100" style="background-color: #47ACBC; color: white;" role="button" data-toggle="popover" data-trigger="focus" title="<%= @event.name %> ~ <%= @event.start_date.strftime("%B %d") %>" data-content="<%= @package.bullet1 %> <%= @package.bullet2 %> <%= @package.bullet3 %>"><%= @package.name %> &nbsp<span style="font-size: 12px;">►</span></a>
+      </div>
     </div>
-    <div class="col-lg-6 col-md-8 pack-details">
-      <p> <strong><%= @package.name %></strong><br>1 hour worth of shooting - minimum: 30 photos</p>
-    </div>
-  </div>
+ </div>
+</div>
 
   <!-- Carousel with navigation -->
   <div class="photographer-carousel mb-5 pb-5 ">
@@ -19,12 +20,12 @@
         <!-- Carousel content (each with individual modal) -->
         <p class="text-center">Please select one of our professional photographers to see available time slots for <%= @event.name %></p>
         <% @available_photographers.each_with_index do |photographer, index| %>
+
           <% active = 'active' if index == 0 %>
           <div class="carousel-item <%= active %>">
             <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
               <div class="py-3 text-center">
                 <h4><%= photographer.user.first_name%> <%=photographer.user.last_name %></h4>
-                <img src="<%= asset_path("favourite-31@3x.png") %>" class="pgr-avatar-user avatar-bordered mario-star" />
                 <p class="py-3">Rating: <%= rand(4.0..5.0).round(1) %> </p>
                 <p> <%= photographer.user.first_name %> has worked with <%= rand(30..50) %> Party Reel clients </p>
               </div>
@@ -53,38 +54,70 @@
                   </button>
                 </div>
 
+
                 <div class="modal-body"  style="color: black;">
+                  <img src="<%= asset_path("profile_img.jpg") %>" class="float-right card-trip-user avatar-bordered" style="shape-outside: circle()," />
+
                   <div class="photographermodal-pgr-picture" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 99%), url('<%= image_path "testphotographer3.webp" %>')">
                     <!-- a placeholder picture, will eventually be replaced by user.avatarpic -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                     <h3 class="photographermodal-pgr-picture-text"><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
 
-                  </div>
+                </div>
                   <div class="photographermodal-pgr-info">
-                    <p> <%= photographer.profession %></p>
                     <p> Instagram: <%= photographer.user.user_ig_handle %></p>
                     <% photographer.photographerspecialties.each do |photographer_specialty| %>
                       <p> <%= photographer_specialty.specialty.name %></p>
                     <% end %>
-                    <h4>What people had to say about <%= photographer.user.first_name %></h4>
-                    <% photographer.bookings.each do |booking| %>
-                      <% booking.reviews.each do |review| %>
-                        <div class="booking-review">
-                          <small> <%= review.content %></small>
-                        </div>
-                      <% end %>
-                    <% end %>
+
                   </div>
                 </div>
 
                 <div class="modal-footer">
+                <% if @package.name == "How do you want it?" %>
+                  <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
+                    <span class="time-slot">12-1PM</span>
+                    <span class="time-slot">1-2PM</span>
+                    <span class="time-slot">2-3PM</span>
+                    <span class="time-slot">3-4PM</span>
+                    <span class="time-slot">4-5PM</span>
+                    <span class="time-slot">5-6PM</span>
+                    <span class="time-slot">6-7PM</span>
+                    <span class="time-slot">7-8PM</span>
+                    <span class="time-slot">8-9PM</span>
+                    <span class="time-slot">9-10PM</span>
+                    <span class="time-slot">10-11PM</span>
+                    <span class="time-slot">11-12AM</span>
+                    <br>
+                  </div>
+                <% end %>
+                <div class="modal-footer d-flex justify-content-between">
+                  <% case @package.name %>
+                    <% when "Timezones" %>
+                      <p><%= photographer.user.first_name %> can shoot during the event<br>on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                    <% when "How do you want it?" %>
+                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                    <% when "SICKO Mode" %>
+                      <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
+                    <% end %>
+                  
                   <%= simple_form_for [@event, @booking] do |f| %>
                     <%= f.hidden_field :photographer_id, value: photographer.id %>
                     <%= f.hidden_field :package_id, value: @package.id %>
                     <!-- starttime and endtime filled with JS function -->
+<<<<<<< HEAD
                     <%= f.hidden_field :start_time, value: @start_time  %>
                     <%= f.hidden_field :end_time, value: @end_time %>
                     <div class="btn-new">
                       <%= f.button :submit, "Book #{photographer.user.first_name}!" %>
+=======
+                    <%= f.hidden_field :start_time  %>
+                    <%= f.hidden_field :end_time %>
+                    <div>
+                      <%= f.button :submit, "Book", class: "btn-new p-4" %>
+>>>>>>> 0000ae34e78a7cee1816d3fa63fb045eb3f0f791
                     </div>
                   <% end %>
                 </div>
@@ -106,9 +139,56 @@
 </div>
 
 <script>
+<<<<<<< HEAD
   // var startTime = sessionStorage.getItem("startTime");
   // var endTime = sessionStorage.getItem("endTime");
   // document.querySelector('#booking_time').innerHTML += startTime + ' until ' + endTime + '!';
   // document.querySelector('#booking_start_time').value = startTime;
   // document.querySelector('#booking_end_time').value = endTime;
+=======
+  var startTime = sessionStorage.getItem("startTime");
+  var endTime = sessionStorage.getItem("endTime");
+  document.querySelector('#booking_time').innerHTML += startTime + ' until ' + endTime + '!';
+  document.querySelector('#booking_start_time').value = startTime;
+  document.querySelector('#booking_end_time').value = endTime;
+
+  const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
+  // console.log(unavailableTimes)
+  const updateForm = (event) => {
+    const slot = event.currentTarget.innerHTML
+    const startTime = slot.split("-")[0]
+    const endTime = slot.split("-")[1]
+    document.querySelector('#booking_start_time').value = startTime
+    document.querySelector('#booking_end_time').value = endTime
+  }
+  const changeColor = (event) => {
+    // Set backgrond of all other slots to white, so it is clear only one can be selected
+    document.querySelectorAll(".time-slot").forEach( (slot) => {
+      if (slot.classList.contains('time-slot-selected')) {
+        slot.classList.remove("time-slot-selected");
+      };
+    })
+    const slot = event.currentTarget;
+    slot.classList.toggle("time-slot-selected");
+  }
+  const timeSlots = document.querySelectorAll(".time-slot");
+  timeSlots.forEach((slot) => {
+    if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
+      slot.classList.add("unavailable-slot");
+    } else {
+      slot.classList.add("available-slot");
+    }
+    slot.addEventListener('click', updateForm);
+    if (slot.classList.contains('available-slot')) {
+      slot.addEventListener('click', changeColor);
+    };
+  })
+
+    $.('.popover-dismiss').popover({
+    trigger: 'focus'
+   });
+
+
+
+>>>>>>> 0000ae34e78a7cee1816d3fa63fb045eb3f0f791
 </script>
