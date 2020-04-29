@@ -57,7 +57,9 @@ user_login.first_name = 'John'
 user_login.last_name = 'Denver'
 user_login.location = 'Denver'
 user_login.email = 'user1@gmail.com'
-user_login.user_ig_handle = 'party.reel'
+user_login.avatar.attach(io: File.open('app/assets/images/user1-avatar.jpeg'), filename: 'user1-avatar.jpg', content_type: 'image/jpg')
+user_login.user_ig_handle = 'party.r
+eel'
 user_login.save!
 puts "Created #{user_login}"
 user_login.save!
@@ -75,7 +77,9 @@ user_login.first_name = 'Joe'
 user_login.last_name = 'Dimagio'
 user_login.location = 'Brooklyn'
 user_login.email = 'user2@gmail.com'
-user_login.user_ig_handle = 'party.brooklyn'
+user_login.avatar.attach(io: File.open('app/assets/images/user2-avatar.jpeg'), filename: 'user2-avatar.jpg', content_type: 'image/jpg')
+user_login.user_ig_handle = 'party.b
+rooklyn'
 user_login.save!
 puts "Created #{user_login}"
 user_login.save!
@@ -86,6 +90,7 @@ user_login2.last_name = 'Hello'
 user_login2.location = 'Here'
 user_login2.email = 'user3@gmail.com'
 user_login2.user_ig_handle = 'party.here'
+user_login2.avatar.attach(io: File.open('app/assets/images/user3-avatar.jpeg'), filename: 'user3-avatar.jpg', content_type: 'image/jpg')
 user_login2.save!
 puts "Created #{user_login2}"
 user_login2.save!
@@ -96,6 +101,7 @@ user_login3.last_name = 'Mushaweh'
 user_login3.location = 'Providence'
 user_login3.email = 'user4@gmail.com'
 user_login3.user_ig_handle = 'party.there'
+user_login3.avatar.attach(io: File.open('app/assets/images/user4-avatar.jpeg'), filename: 'user4-avatar.jpg', content_type: 'image/jpg')
 user_login3.save!
 puts "Created #{user_login3}"
 user_login3.save!
@@ -106,6 +112,7 @@ user_login4.last_name = 'Brown'
 user_login4.location = 'Philadelphia'
 user_login4.email = 'user5@gmail.com'
 user_login4.user_ig_handle = 'party.everywhere'
+user_login4.avatar.attach(io: File.open('app/assets/images/user5-avatar.jpeg'), filename: 'user5-avatar.jpg', content_type: 'image/jpg')
 user_login4.save!
 puts "Created #{user_login4}"
 user_login4.save!
@@ -116,6 +123,7 @@ user_login5.last_name = 'Bluth'
 user_login5.location = 'Seal Beach'
 user_login5.email = 'user6@gmail.com'
 user_login5.user_ig_handle = 'party.overthere'
+user_login5.avatar.attach(io: File.open('app/assets/images/user6-avatar.jpeg'), filename: 'user6-avatar.jpg', content_type: 'image/jpg')
 user_login5.save!
 puts "Created #{user_login5}"
 user_login5.save!
@@ -126,6 +134,7 @@ user_login6.last_name = 'Glowik'
 user_login6.location = 'Worcester'
 user_login6.email = 'user7@gmail.com'
 user_login6.user_ig_handle = 'party.somewhere'
+user_login6 .avatar.attach(io: File.open('app/assets/images/user7-avatar.jpeg'), filename: 'user7-avatar.jpg', content_type: 'image/jpg')
 user_login6.save!
 puts "Created #{user_login6}"
 user_login6.save!
