@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :attendee
   has_many :attendeeshotpreferences
   has_many :shotpreferences, through: :attendeeshotpreferences
+  has_one_attached :avatar
 
   attribute :is_photographer, :boolean
 

@@ -3,7 +3,6 @@ class Photographer < ApplicationRecord
 
   belongs_to :user
 
-  has_one_attached :avatar
   has_many :photographerspecialties
   has_many :availablephotographers
   has_many :bookings
