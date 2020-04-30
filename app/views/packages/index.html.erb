@@ -11,18 +11,79 @@
               <li><%= package.bullet1 %></li>
               <li><%= package.bullet2 %></li>
               <li><%= package.bullet3 %></li>
-              <li style="text-align: center;"><%= image_tag "trans2Icon.png", alt: "alttext", width: 100, height: 50 %></li>
+              <li style="text-align: center;"><%= image_tag "trans2Icon.png", class: "package-toggle",  alt: "alttext", width: 100, height: 50 %></li>
             </ul>
         </div>
               <div class="package-info hidden">
-                <h4><span style="color: #0FABBC"><%= package.name %></span> package selected</h4>
+               <% if package.name == "How do you want it?" %>
+                  <div class="time-slots" data-unavailable="<%= @unavailable_times.to_json %>">
+                    <span class="time-slot">12-1PM</span>
+                    <span class="time-slot">1-2PM</span>
+                    <span class="time-slot">2-3PM</span>
+                    <span class="time-slot">3-4PM</span>
+                    <span class="time-slot">4-5PM</span>
+                    <span class="time-slot">5-6PM</span>
+                    <span class="time-slot">6-7PM</span>
+                    <span class="time-slot">7-8PM</span>
+                    <span class="time-slot">8-9PM</span>
+                    <span class="time-slot">9-10PM</span>
+                    <span class="time-slot">10-11PM</span>
+                    <span class="time-slot">11-12AM</span>
+                    <br>
+                  </div>
+                <% end %>
+                <h4 class="grow"><a href="packages/<%= package.id %>"><span style="color: #0FABBC"><%= package.name %></span> package selected</a></h4>
                 <p><%= package.description %></p><br>
                 <h5><span style="color: red; font-size: large;"><%= humanized_money_with_symbol(package.price) %></span> for a <%= package.bullet1.downcase %><br> Choose your favorite photographs from the day!</h5>
-                <a href="packages/<%= package.id %>" class="btn-new">&nbsp; + &nbsp;</a>
+                <i class="fa fa-undo package-toggle grow" aria-hidden="true"></i>
             </div>
           </div>
         <% end %>
       </div>
   </div>
 
+<script>
+  const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
+  var startTime = ""
+  // no longer necessary
+  // var endTime = ""
+  const updateBookingTime = (event) => {
+    const slot = event.currentTarget.innerHTML
+    startTime = slot.split("-")[0]
+    // endTime = slot.split("-")[1]
+    // // this is done through session storage
+    // // sessionStorage.setItem("startTime", startTime)
+    // // sessionStorage.setItem("endTime", endTime)
 
+  $.ajax({
+        url : "packages",
+        type : "get",
+        data : { data_value: startTime }
+    });
+
+  }
+  const changeColor = (event) => {
+    // Set backgrond of all other slots to white, so it is clear only one can be selected
+    document.querySelectorAll(".time-slot").forEach( (slot) => {
+      if (slot.classList.contains('time-slot-selected')) {
+        slot.classList.remove("time-slot-selected");
+      };
+    })
+    const slot = event.currentTarget;
+    slot.classList.toggle("time-slot-selected");
+  }
+  const timeSlots = document.querySelectorAll(".time-slot");
+  timeSlots.forEach((slot) => {
+    if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
+      slot.classList.add("unavailable-slot");
+    } else {
+      slot.classList.add("available-slot");
+      slot.classList.add("pulse");
+
+    }
+    slot.addEventListener('click', updateBookingTime);
+    if (slot.classList.contains('available-slot')) {
+      slot.addEventListener('click', changeColor);
+    };
+  })
+</script>
