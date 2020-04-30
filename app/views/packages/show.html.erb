@@ -19,7 +19,7 @@
       <div class="carousel-inner">
         <!-- Carousel content (each with individual modal) -->
         <p class="text-center">Please select one of our professional photographers for <span style="color: #0FABBC; font-size: x-large;"><%= @event.name %></span> </p>
-        <% @photographers_present.each_with_index do |photographer, index| %>
+        <% @available_photographers.each_with_index do |photographer, index| %>
           <% active = 'active' if index == 0 %>
           <div class="carousel-item <%= active %>">
             <a data-toggle="modal" data-target="#photographerModal<%= photographer.id %>" >
@@ -75,29 +75,12 @@
                   </div>
                 </div>
 
-                <% if @package.name == "How do you want it?" %>
-                  <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
-                    <span class="time-slot">12-1PM</span>
-                    <span class="time-slot">1-2PM</span>
-                    <span class="time-slot">2-3PM</span>
-                    <span class="time-slot">3-4PM</span>
-                    <span class="time-slot">4-5PM</span>
-                    <span class="time-slot">5-6PM</span>
-                    <span class="time-slot">6-7PM</span>
-                    <span class="time-slot">7-8PM</span>
-                    <span class="time-slot">8-9PM</span>
-                    <span class="time-slot">9-10PM</span>
-                    <span class="time-slot">10-11PM</span>
-                    <span class="time-slot">11-12AM</span>
-                    <br>
-                  </div>
-                <% end %>
                 <div class="modal-footer d-flex justify-content-between">
                   <% case @package.name %>
                     <% when "Timezones" %>
                       <p><%= photographer.user.first_name %> can shoot during the event<br>on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
                     <% when "How do you want it?" %>
-                      <p>Select a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> </p>
+                      <p>You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from <%=@start_time%> to <%= @end_ti %>!</p>
                     <% when "SICKO Mode" %>
                       <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
                     <% end %>
@@ -131,48 +114,5 @@
 </div>
 
 <script>
-
-  // var startTime = sessionStorage.getItem("startTime");
-  // var endTime = sessionStorage.getItem("endTime");
-  // document.querySelector('#booking_time').innerHTML += startTime + ' until ' + endTime + '!';
-  // document.querySelector('#booking_start_time').value = startTime;
-  // document.querySelector('#booking_end_time').value = endTime;
-
-
-  const unavailableTimes = JSON.parse(document.querySelector('.time-slots').dataset.unavailable)
-  // console.log(unavailableTimes)
-  const updateForm = (event) => {
-    const slot = event.currentTarget.innerHTML
-    const startTime = slot.split("-")[0]
-    const endTime = slot.split("-")[1]
-    document.querySelector('#booking_start_time').value = startTime
-    document.querySelector('#booking_end_time').value = endTime
-  }
-  const changeColor = (event) => {
-    // Set backgrond of all other slots to white, so it is clear only one can be selected
-    document.querySelectorAll(".time-slot").forEach( (slot) => {
-      if (slot.classList.contains('time-slot-selected')) {
-        slot.classList.remove("time-slot-selected");
-      };
-    })
-    const slot = event.currentTarget;
-    slot.classList.toggle("time-slot-selected");
-  }
-  const timeSlots = document.querySelectorAll(".time-slot");
-  timeSlots.forEach((slot) => {
-    if (unavailableTimes.includes(parseInt(slot.innerHTML.split("-")[0], 10))) {
-      slot.classList.add("unavailable-slot");
-    } else {
-      slot.classList.add("available-slot");
-    }
-    slot.addEventListener('click', updateForm);
-    if (slot.classList.contains('available-slot')) {
-      slot.addEventListener('click', changeColor);
-    };
-  })
-
-    $.('.popover-dismiss').popover({
-    trigger: 'focus'
-   });
 
 </script>
