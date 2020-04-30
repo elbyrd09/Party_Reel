@@ -1,4 +1,4 @@
-<%= render "shared/banner" %>
+<%= render "shared/banner", nearest_event: @nearest_event%>
 <div class="col-12 col-lg-12 col-md-12 col-sm-12">
   <%= image_tag "PR2.png", alt: "journey map", class: "home-img" %>
 </div>
@@ -11,9 +11,9 @@
       <% @events.each do |event| %>
         <a href="events/<%= event.id %>" class="col-md-4 col-sm-6">
           <div class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
-          <div class="event_info">
-        </div>
-      </div>
-    </a>
+            <div class="event_info">
+            </div>
+          </div>
+        </a>
   <% end %>
 </div>

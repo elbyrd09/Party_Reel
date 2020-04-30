@@ -194,6 +194,9 @@ mt_jam.type_event = "Multi-day Festival"
 mt_jam.location = "New York"
 mt_jam.event_description = "Held in the picturesque Hunter Mountains, Mountain Jam is a three-day rock festival set out to bring rock fans together in upstate New York."
 mt_jam.local_img = "mountainJam.jpg"
+mt_jam.city = 'salt lake city'
+mt_jam.state = 'UT'
+mt_jam.country = 'US'
 mt_jam.save!
 
 elec_for = Event.new
@@ -206,6 +209,9 @@ elec_for.type_event = "Multi-day Festival"
 elec_for.location = "Michigan"
 elec_for.event_description = "Electric Forest has grown into a full-on destination fest. At night, the Sherwood Forest becomes alive with lights, art, and the creativity of the fans."
 elec_for.local_img = "electricforest2020.jpg"
+elec_for.city = 'rothbury'
+elec_for.state = 'MI'
+elec_for.country = 'US'
 elec_for.save!
 
 coachella = Event.new
@@ -218,6 +224,10 @@ coachella.type_event = "Multi-day Festival"
 coachella.location = "Palm Springs"
 coachella.event_description = "The glitz and glamour of Los Angeles migrates east to the Indio desert for back to back weekends of the biggest names in music. What started as a small electronic festival in the desert has transformed into a cultural touchstone for the festival season."
 coachella.local_img = "coachella.png"
+coachella.city = 'coachella'
+coachella.state = 'CA'
+coachella.country = 'US'
+
 coachella.save!
 
 edc = Event.new
@@ -230,6 +240,10 @@ edc.type_event = "Multi-day Festival"
 edc.location = "New York City"
 edc.event_description = "As the largest and longest-running electronic festival in the city, the park transforms into an electronic playground for a three-day jammed pack festival."
 edc.local_img = "e-zoo-2.jpeg"
+edc.city = 'las vegas'
+edc.state = 'NV'
+edc.country = 'US'
+
 edc.save!
 
 aftershock = Event.new
@@ -240,8 +254,12 @@ aftershock.genre = "Rock"
 aftershock.partnership = "Yes, food truck: allocate 1 photographer"
 aftershock.type_event = "Multi-day Festival"
 aftershock.location = "Sacramento"
-aftershock.event_description = "With alumni like Megadeth, Korn, Ozzy Osbourne, Nine Inch Nails, Godsmack, Alice in Chains, and System of a Down, this is the place to see genre legends in the western United States along with up-and-comers to the scene."
+aftershock.event_description = "With alumni like Megadeth, Korn, Ozzy Osbourne, Nine Inch Nails, Godsmack, Alice in Chains, and System of a Down, this is the place to see genre legends in the western US up-and-comers to the scene."
 aftershock.local_img = "aftershock2020.jpg"
+aftershock.city = 'sacremento'
+aftershock.state = 'CA'
+aftershock.country = 'US'
+
 aftershock.save!
 
 govball = Event.new
@@ -254,6 +272,10 @@ govball.type_event = "Multi-day Festival"
 govball.location = "New York City"
 govball.event_description = "Taking place on the Hudson River on Randall’s Island, festival fans can settle back and enjoy the show with the unforgettable NYC skyline as the backdrop."
 govball.local_img = "govball.jpg"
+govball.city = "Randall’s island"
+govball.state = 'NY'
+govball.country = 'US'
+
 govball.save!
 
 puts "Enhance..."

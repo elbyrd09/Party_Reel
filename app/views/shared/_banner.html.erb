@@ -1,7 +1,11 @@
     <div class="banner col-lg-12 col-md-12 col-sm-12" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'gaby654.png' %>)">
-       <div class="banner_title col-6 col-lg-6 col-md-8 col-sm-8">
+       <div class="banner_title col-6 col-lg-6 col-md-8 col-sm-6">
            <h1 class="my-2">Party Reel</h1>
            <h5>Book a personal photographer for a live event</h5><br><br>
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-4">
+        <div class="card-category" style="background-image: url(<%= asset_path(@nearest_event.local_img) %>)">
+        </div>
       </div>
       <div class="carousel-new">
         <%= render "shared/carousel" %>
