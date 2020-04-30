@@ -27,6 +27,7 @@
                   <input type="text" name="attendee[influencer]" value="<%= current_user.attendee.influencer %>">
                 <%# end %>
               <% end %>
+              <%= f.input :avatar, as: :file %>
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
               <% end %>

@@ -23,6 +23,7 @@ class PhotographersController < ApplicationController
   end
 
   def update
+
     @photographer.update(photographer_params)
       if @photographer.save
       redirect_to dashboard_path
@@ -43,6 +44,6 @@ class PhotographersController < ApplicationController
    end
 
   def photographer_params
-    params.require(:photographer).permit(:camera, :lenses, :profession, :phone_number)
+    params.require(:photographer).permit(:camera, :lenses, :profession, :phone_number, portfoliophotos: [])
   end
 end

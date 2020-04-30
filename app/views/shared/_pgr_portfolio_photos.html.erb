@@ -1,12 +1,6 @@
 <div class="homepage-cards my-5">
-  <div class="card-category my-5">
-    <img src="<%= asset_path("login_img.jpg") %>" width="100%">
-  </div>
-    <div class="card-category my-5">
-    <img src="<%= asset_path("banner.jpg") %>" width="100%">
-  </div>
-    <div class="card-category  my-5">
-    <img src="<%= asset_path("st.jpg") %>" width="100%">
-  </div>
+  <% current_user.photographer.portfoliophotos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-category my-5" %>
+  <% end %>
 </div>
 

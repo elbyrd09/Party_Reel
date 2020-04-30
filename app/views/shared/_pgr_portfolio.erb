@@ -1,7 +1,7 @@
 <div class="event-show-card mt-4" >
   <div class="event-infos">
     <div class="pgr_img">
-     <%= image_tag("profile_img.jpg") %>
+     <%= image_tag("profile_img.jpg") %> <!-- should this be the avatar picture? -->
     </div>
     <h2  style="border-bottom: #0fabbc solid;"></h2>
     <div class="profile_info">
@@ -12,8 +12,11 @@
     <div class="pgr_carousel">
       <%= render 'shared/pgr_portfolio_photos' %>
     </div>
+    <%= simple_form_for(current_user.photographer) do |f| %>
+      <%= f.input :portfoliophotos, as: :file, input_html: { multiple: true } %>
+      <div class="form-actions">
+        <%= f.button :submit, "Add Photos for your portfolio", class: "btn-new"  %>
+      </div>
+    <% end %>
   </div>
 </div>
-
-
-

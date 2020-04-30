@@ -7,6 +7,7 @@ class Photographer < ApplicationRecord
   has_many :availablephotographers
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_many_attached :portfoliophotos
 
   validates :phone_number, format: { with: /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/ }, presence: true
   # no validations for camera and lenses
