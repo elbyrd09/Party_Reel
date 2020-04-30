@@ -37,6 +37,7 @@ class User < ApplicationRecord
       #placed a binding.pry here to determine if the user was being saved correctly
       #user.valid? is the command I used to see if the email was being passed from
       #my facebook profile
+      raise
       user.save
     end
 
