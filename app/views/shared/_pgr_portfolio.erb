@@ -14,9 +14,7 @@
     </div>
     <%= simple_form_for(current_user.photographer) do |f| %>
       <%= f.input :portfoliophotos, as: :file, input_html: { multiple: true } %>
-      <div class="form-actions">
-        <%= f.button :submit, "Add Photos for your portfolio", class: "btn-new"  %>
-      </div>
+      <%= f.button :submit, "Add Photos for your portfolio", class: "btn-new"  %>
     <% end %>
   </div>
 </div>
