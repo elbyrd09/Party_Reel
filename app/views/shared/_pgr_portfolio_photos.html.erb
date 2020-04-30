@@ -1,6 +1,6 @@
 <div class="homepage-cards my-5">
   <% current_user.photographer.portfoliophotos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-category my-5" %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 </div>
 

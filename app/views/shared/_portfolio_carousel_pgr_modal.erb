@@ -1,0 +1,21 @@
+<div class="">
+  <div id="carouselExampleIndicators<%= photographer.id %>" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% photographer.portfoliophotos.each_with_index do |photo, index| %>
+        <% active = 'active' if index == 0 %>
+        <div class="carousel-item <%= active %>">
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        </div>
+        <% active='' %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators<%= photographer.id %>" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators<%= photographer.id %>" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

@@ -14,16 +14,16 @@
             <span aria-hidden="true">&times;</span>
           </button>
           <h3 class="photographermodal-pgr-picture-text"><%= photographer.user.first_name %> <%= photographer.user.last_name %></h3>
-
         </div>
         <div class="photographermodal-pgr-info">
           <p> Instagram: <%= photographer.user.user_ig_handle %></p>
           <% photographer.photographerspecialties.each do |photographer_specialty| %>
             <p> <%= photographer_specialty.specialty.name %></p>
           <% end %>
-
         </div>
       </div>
+
+      <%= render 'shared/portfolio_carousel_pgr_modal', photographer: photographer %>
 
       <% if @package.name == "How do you want it?" %>
         <div class="time-slots" data-unavailable="<%= photographer.unavailable_times.to_json %>">
@@ -42,6 +42,7 @@
           <br>
         </div>
       <% end %>
+
       <div class="modal-footer d-flex justify-content-between">
         <% case @package.name %>
           <% when "Timezones" %>
