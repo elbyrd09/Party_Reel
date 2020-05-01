@@ -9,20 +9,27 @@ class PagesController < ApplicationController
       # gets user ip address
       user_ip_address = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
       # uses geocoder to convert ip address to coordinates
-      user_location = Geocoder.search(user_ip_address)[0].data['loc']
-      event_distance_hash = {}
-      distances = []
-      # hash of distance => event
-      # array of distances
-      @events.each do |event|
-        distance = event.distance_from(user_location)
-        event_distance_hash[distance] = event
-        distances << distance
+      raise
+      if !user_ip_address.nil?
+        user_location = Geocoder.search(user_ip_address)[0].data['loc']
+        event_distance_hash = {}
+        distances = []
+        # hash of distance => event
+        # array of distances
+        @events.each do |event|
+          distance = event.distance_from(user_location)
+          event_distance_hash[distance] = event
+          distances << distance
+        end
+        # takes smallest distance from array
+        @smallest_distance = distances.min
+        # retrieves the nearest event from hash
+        @nearest_event = event_distance_hash[@smallest_distance]
+      else
+        # in the (un)likely case we can't retrieve the users IP
+        @nearest_event = @events[rand(1..@events.length)]
+        @smallest_distance = nil
       end
-      # takes smallest distance from array
-      @smallest_distance = distances.min
-      # retrieves the nearest event from hash
-      @nearest_event = event_distance_hash[@smallest_distance]
     end
   end
 

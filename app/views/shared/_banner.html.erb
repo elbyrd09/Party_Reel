@@ -5,8 +5,13 @@
       </div>
       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
         <div class="card-fluid">
+          <!-- logic incase the IP address is blocked for some reason -->
+          <% if @smallest_distance.nil? %>
+          <% call_to_action = 'Book Now!'%>
+          <% else call_to_action = "Book Now! Only #{@smallest_distance.to_i} kilometres away!" %>
+          <% end %>
           <img class="card-img-top nearest-event-image" src="<%= asset_path(@nearest_event.local_img) %>" alt="">
-          <a href="events/<%= @nearest_event.id %>"><button type="button" class="btn btn-danger btn-lg btn-block">Book Now! Only <%= @smallest_distance.to_i %> kilometres away!</button></a>
+          <a href="events/<%= @nearest_event.id %>"><button type="button" class="btn btn-danger btn-lg btn-block"><%= call_to_action %></button></a>
         </div>
       </div>
       <div class="carousel-new">

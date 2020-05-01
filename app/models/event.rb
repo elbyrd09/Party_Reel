@@ -28,6 +28,10 @@ class Event < ApplicationRecord
   validates :end_date, presence: true
   validate :end_date_after_start_date
 
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :country, presence: true
+
   validates :event_description, presence: true
   validates :location, presence: true
   validates :type_event, inclusion: { in: TYPES }, presence: true
