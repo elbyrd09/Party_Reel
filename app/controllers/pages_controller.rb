@@ -19,12 +19,10 @@ class PagesController < ApplicationController
         event_distance_hash[distance] = event
         distances << distance
       end
-      byebug
       # takes smallest distance from array
-      smallest_distance = distances.min
+      @smallest_distance = distances.min
       # retrieves the nearest event from hash
-      @nearest_event = event_distance_hash[smallest_distance]
-      raise
+      @nearest_event = event_distance_hash[@smallest_distance]
     end
   end
 
