@@ -11,16 +11,16 @@ class PagesController < ApplicationController
       # uses geocoder to convert ip address to coordinates
       if !user_ip_address.nil?
         user_location = Geocoder.search(user_ip_address)[0].data['loc']
-        event_distance_hash = {}
+        distance_event_hash = {}
         @smallest_distance = 100000
         # hash of distance => event
         @events.each do |event|
           distance = event.distance_from(user_location)
-          event_distance_hash[distance] = event
+          distance_event_hash[distance] = event
           @smallest_distance = distance if distance < @smallest_distance
         end
         # retrieves the nearest event from hash
-        @nearest_event = event_distance_hash[@smallest_distance]
+        @nearest_event = distance_event_hash[@smallest_distance]
       else
         # in the (un)likely case we can't retrieve the users IP
         @nearest_event = @events[rand(1..@events.length)]
