@@ -54,7 +54,6 @@
   }
 
   .package-name {
-    // display: grid;
     grid-column: 1 / 5;
     align-self: stretch;
     text-align: center;
@@ -68,7 +67,10 @@
     font-size: 13px;
     color: white;
     list-style-type: none;
-    text-align-last: end;
+   }
+   .grow a{
+    color: white !important;
+    text-decoration: none;
    }
   }
 

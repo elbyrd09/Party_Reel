@@ -40,8 +40,7 @@
                   <h5 class="modal-title" id="exampleModalLabel">
                   <% case @package.name %>
                     <% when "Timezones" %>
-                      <p><%= photographer.user.first_name %> <%= photographer.user.last_nam
-                      e %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
+                      <p><%= photographer.user.first_name %> <%= photographer.user.last_name %> can shoot <strong>Timezones</strong> on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
                     <% when "How do you want it?" %>
                       <p id='booking_time'> You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from <%= @start_time %> to <%= @end_time %> </p>
                     <% when "SICKO Mode" %>
