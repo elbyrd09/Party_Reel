@@ -23,6 +23,11 @@ class PhotographersController < ApplicationController
   end
 
   def update
+    # it is not possible for a photographer to upload an amount of portfoliophotos that would bring the total amount to higher than 10
+    if check_portfoliophotos_amount
+      redirect_to dashboard_path, alert: "You can not have more than 10 photos in your portfolio"
+      return
+    end
     @photographer.update(photographer_params)
       if @photographer.save
       redirect_to dashboard_path
@@ -44,9 +49,13 @@ class PhotographersController < ApplicationController
 
   private
 
-   def set_photographer
-      @photographer = Photographer.find(current_user.photographer.id)
-   end
+  def check_portfoliophotos_amount
+    (params["photographer"]["portfoliophotos"].count + @photographer.portfoliophotos.count) > 10
+  end
+
+  def set_photographer
+    @photographer = Photographer.find(current_user.photographer.id)
+  end
 
   def photographer_params
     params.require(:photographer).permit(:camera, :lenses, :profession, :phone_number, portfoliophotos: [])
