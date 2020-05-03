@@ -1,6 +1,9 @@
 <div class="homepage-cards my-5">
   <% current_user.photographer.portfoliophotos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to 'Remove Photo', delete_pfphoto_attachment_photographer_path(photo.id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
   <% end %>
 </div>
 

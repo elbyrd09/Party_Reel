@@ -23,7 +23,6 @@ class PhotographersController < ApplicationController
   end
 
   def update
-
     @photographer.update(photographer_params)
       if @photographer.save
       redirect_to dashboard_path
@@ -35,6 +34,12 @@ class PhotographersController < ApplicationController
   def destroy
     @photographer.destroy
     redirect_to root_path
+  end
+
+  def delete_pfphoto_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_to dashboard_path
   end
 
   private

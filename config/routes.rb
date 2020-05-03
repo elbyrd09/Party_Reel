@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :packages, only: [:index, :show]
     resources :bookings, only: [:create]
   end
-  resources :photographers, except: [:index, :show]
+  resources :photographers, except: [:index, :show] do
+    member do
+      delete :delete_pfphoto_attachment
+    end
+  end
   resources :attendees, except: [:index, :show]
   resources :bookings, only: [:show, :destroy] do
     resources :reviews, only: [:create]
