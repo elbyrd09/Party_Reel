@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   geocoded_by :address
-  before_save :geocode
+  before_save :geocode, if: ->(obj){ !obj.address.nil? }
 
   def address
     [city, state, country].compact.join(', ')
