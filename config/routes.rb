@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "custom_registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
+  resources :availablephotographers, only: [:destroy]
   resources :events, only: [:index, :show] do
     resources :availablephotographers, only: [:create]
     resources :packages, only: [:index, :show]

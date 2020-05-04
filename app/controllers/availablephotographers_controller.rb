@@ -13,4 +13,10 @@ class AvailablephotographersController < ApplicationController
       redirect_to dashboard_path
     end
   end
+
+  def destroy
+    available_photographer = Availablephotographer.find(params[:id])
+    available_photographer.destroy
+    redirect_to dashboard_path
+  end
 end

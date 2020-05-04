@@ -3,7 +3,7 @@
     <h5 style="color: grey"><%= event.name %></h5>
     <div class="d-flex" style="justify-content: space-between;">
     <h5 style="color: grey"><%= event.start_date.strftime("%B %d, %Y") %> </h5>
-     <a class="btn btn-primary">Cancel</a>
+    <%= button_to "Cancel", availablephotographer_path(current_user.photographer.availablephotographers.where(event_id: event.id)[0].id), method: :delete, class: "btn btn-primary"  %>
      </div>
       <h2  style="border-bottom: #0fabbc solid;"></h2>
   </div>
