@@ -18,7 +18,7 @@ User.destroy_all
 # # # Packages
 CATEGORIES = ["SICKO Mode", "How do you want it?", "Timezones"]
 PRICES = [75000, 40000, 25000]
-DESCRIPTIONS = ["Dedicated attention for the entire day by one our our professional photographers!", "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!", "Periodic attention where our team will capture moments throughout your event experience"]
+DESCRIPTIONS = ["Dedicated attention for the entire day by one our our professional photographers!", "Please select a 1 hour time slot for a dedicated and personalized session (red = unavailable)", "Periodic attention where our team will capture moments throughout your event experience"]
 BULLETS1 = ["Minimum of 15 photographs", "Minimum of 30 photographs", "Minimum of 50 photographs"]
 BULLETS2 = ["Periodic shooting throughout the day", "Dedicated attention for 1 hour", "Full day attention with a dedicated photographer"]
 BULLETS3 = ["Delivery of photographs near end of event", "Photographs delivered shortly after 1 hour shoot", "Photographs delivered throughout your event"]
@@ -274,7 +274,7 @@ timezones.save!
 howdoyouwantit = Package.new
 howdoyouwantit.name = "How do you want it?"
 howdoyouwantit.price_cents = 40000
-howdoyouwantit.description = "Book a time slot for 1-2 hours for a dedicated session of high caliber photography!"
+howdoyouwantit.description = "Please select a 1 hour time slot for a dedicated and personalized session (red = unavailable)"
 howdoyouwantit.bullet1 = "Minimum of 30 photographs"
 howdoyouwantit.bullet2 = "Dedicated attention for 1 hour"
 howdoyouwantit.bullet3 = "Photographs delivered shortly after 1 hour shoot"

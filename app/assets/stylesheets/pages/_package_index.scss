@@ -80,7 +80,7 @@
     cursor: pointer;
     grid-column: 1 / 5;
     margin: 0 auto;
-    height: 35vh;
+    height: 45vh;
     width: 550px;
     background-size: contain;
     background-repeat: none;
@@ -112,7 +112,8 @@
     .package-info h5 {
       margin: 0;
       font-size: 15px;
-      color: $gray;
+      color: white;
+      background-color: #0FABBC;
       border-radius: inherit;
     }
 
