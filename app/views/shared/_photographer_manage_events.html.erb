@@ -1,4 +1,4 @@
-<% if event.start_date > Date.today && event.availablephotographers.where(photographer_id: current_user.photographer.id)[0].nil? %>
+<% if event.availablephotographers.where(photographer_id: current_user.photographer.id)[0].nil? %>
   <div class="event-show-card mt-4" >
 
       <div class="event-infos">
