@@ -1,4 +1,3 @@
-<% if event.availablephotographers.where(photographer_id: current_user.photographer.id)[0].nil? %>
   <div class="event-show-card mt-4" >
 
       <div class="event-infos">
@@ -9,11 +8,14 @@
             <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
             <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
           </div>
+          <% if current_user.photographer.availablephotographers.where(event_id: event.id)[0].nil? %>
             <a class="btn btn-danger" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
+          <% else %>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#ManageAvailabilityModal<%= event.id %>" href="#" role="button">You're shooting this event!</a>
+          <% end %>
            <h2  style="border-bottom: #0fabbc solid;"></h2>
       </div>
   </div>
-<% end %>
 
 
 <!-- The Modal -->
@@ -47,7 +49,33 @@
     </div>
   </div>
 
+<% if !current_user.photographer.availablephotographers.where(event_id: event.id)[0].nil? %>
 
+<div class="modal fade" id= "ManageAvailabilityModal<%= event.id %>" >
+    <div class="modal-dialog modal-dialog-centered " style="max-width: 100%">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color: grey">Are you sure you want to cancel your availability for <strong><%= event.name %></strong>?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body dynamic days as per event-->
+        <div class="modal-body">
+          <%= button_to "Cancel Availability", availablephotographer_path(current_user.photographer.availablephotographers.where(event_id: event.id)[0].id), method: :delete, class: "btn btn-primary"  %>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<% end %>
 
 
 
