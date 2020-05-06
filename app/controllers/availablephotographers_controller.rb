@@ -4,14 +4,13 @@ class AvailablephotographersController < ApplicationController
   # is no availablephotographer_params method
   def create
     @availablephotographer = Availablephotographer.new
-    @availablephotographer.event = Event.find(params[:event_id])
-    @availablephotographer.photographer = current_user.photographer
-    @availablephotographer.fully_booked = "Free"
-    if @availablephotographer.save
-      redirect_to dashboard_path
-    else
-      redirect_to dashboard_path
+    if Availablephotographer.where({event_id: params[:event_id], photographer_id: current_user.photographer})[0].nil? # condition to test if the photographer has already made themself available for this event
+      @availablephotographer.event = Event.find(params[:event_id])
+      @availablephotographer.photographer = current_user.photographer
+      @availablephotographer.fully_booked = "Free"
+      @availablephotographer.save
     end
+    redirect_to dashboard_path if @availablephotographer.save
   end
 
   def destroy
