@@ -75,3 +75,14 @@
      </div>
     </div>
   </div>
+
+<script>
+window.onload=function(){
+  var eventInfo = document.querySelectorAll('#event-info').forEach (info =>
+    info.addEventListener("click",  (e)=>{
+    info.childNodes[1].classList.toggle('hidden')
+    info.classList.toggle('hide-background')
+    }
+  ))
+}
+</script>
