@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :availablephotographers, only: [:destroy]
+  resources :bookings, only: [:destroy]
   resources :events, only: [:index, :show] do
     resources :availablephotographers, only: [:create]
     resources :packages, only: [:index, :show]

@@ -13,5 +13,6 @@
       <h5 style="color: grey"><%= booking.package.name %></h5>
       <h2  style="border-top: solid"></h2>
     <h5 class="event-infos-pricing" style="color: grey"><strong>Payment Status:</strong> Paid in full</h5>
+  <%= button_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-primary"  %>
   <h2  style="border-bottom: #0fabbc solid;"></h2>
-  </div>
+</div>
