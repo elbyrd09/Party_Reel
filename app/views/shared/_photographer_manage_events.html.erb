@@ -1,19 +1,19 @@
-<div class="event-show-card mt-4" >
+<% if event.start_date > Date.today && event.availablephotographers.where(photographer_id: current_user.photographer.id)[0].nil? %>
+  <div class="event-show-card mt-4" >
 
-    <div class="event-infos">
-        <div>
-          <h5 style="color: grey"><%= event.name %></h5>
-          <h5 style="color: grey">Dates needed: <%= event.start_date.strftime("%B %d, %Y") %> </h5>
-          <p style="color: grey"><strong>Venue:</strong> Outdoor racetrack</p>
-          <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
-          <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
-        </div>
-         <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
-         <h2  style="border-bottom: #0fabbc solid;"></h2>
-    </div>
-
-
-</div>
+      <div class="event-infos">
+          <div>
+            <h5 style="color: grey"><%= event.name %></h5>
+            <h5 style="color: grey">Dates needed: <%= event.start_date.strftime("%B %d, %Y") %> </h5>
+            <p style="color: grey"><strong>Venue:</strong> Outdoor racetrack</p>
+            <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
+            <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
+          </div>
+            <a class="btn btn-danger" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
+           <h2  style="border-bottom: #0fabbc solid;"></h2>
+      </div>
+  </div>
+<% end %>
 
 
 <!-- The Modal -->
@@ -46,6 +46,8 @@
       </div>
     </div>
   </div>
+
+
 
 
 
