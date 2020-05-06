@@ -42,6 +42,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    # stripe refund logic here!
     @booking.destroy
     redirect_to dashboard_path
   end
@@ -54,6 +56,6 @@ class BookingsController < ApplicationController
 
   def booking_params
     # photographer and package to be passed as hidden fields
-    params.require(:booking).permit(:start_time, :end_time, :photographer_id, :package_id )
+    params.require(:booking).permit(:start_time, :end_time, :photographer_id, :package_id, :attendee_id)
   end
 end
