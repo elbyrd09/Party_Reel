@@ -1,8 +1,21 @@
     <div class="banner col-lg-12 col-md-12 col-sm-12" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'gaby654.png' %>)">
-       <div class="banner_title col-6 col-lg-6 col-md-8 col-sm-8">
-           <h1 class="my-2">Party Reel</h1>
-           <h5>Book a personal photographer for a live event</h5><br><br>
+       <div class="banner_title col-6 col-lg-6 col-md-6 col-sm-6">
+          <h1 class="my-2">Party Reel</h1>
+          <h5>Book a personal photographer for a live event</h5><br><br>
       </div>
+      <% if !@nearest_event.nil? %>
+      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+        <div class="card-fluid">
+          <!-- logic incase the IP address is blocked for some reason -->
+          <% if @smallest_distance.nil? %>
+          <% call_to_action = 'Book Now!'%>
+          <% else call_to_action = "Book Now! Only #{@smallest_distance.to_i} kilometres away!" %>
+          <% end %>
+          <img class="card-img-top nearest-event-image" src="<%= asset_path(@nearest_event.local_img) %>" alt="">
+          <a href="events/<%= @nearest_event.id %>"><button type="button" class="btn btn-danger btn-lg btn-block"><%= call_to_action %></button></a>
+        </div>
+      </div>
+      <% end %>
       <div class="carousel-new">
         <%= render "shared/carousel" %>
       </div>
