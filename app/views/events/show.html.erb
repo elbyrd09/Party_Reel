@@ -12,8 +12,8 @@
                 <h5 style="color: black;">Date of Festival: <%= @event.start_date.strftime("%B %d") %></h5>
                 <small style="color: black;"> <%= @event.event_description %></small>
               </div>
-            <p> <%= @photographers_present.count %> photographer(s) available for <%= @event.name %></p><br><br>
-          <%= link_to "Next step: Package", event_packages_path(@event), class: "btn-new" %>
+            <p> <%= @photographers_present.count %> photographer(s) available for <%= @event.name %></p><br>
+          <%= link_to "Next step: Package", event_packages_path(@event), class: "btn-new my-4" %>
           </div>
   </div>
 </div>
