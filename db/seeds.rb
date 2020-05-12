@@ -123,7 +123,7 @@ user_login5.save!
 user_login6 = User.new(password: 'password', email: 'user7@gmail.com')
 user_login6.first_name = 'Bryan'
 user_login6.last_name = 'Glowik'
-user_login6.location = 'Worcester'
+user_login6.location = 'Amsterdam'
 user_login6.email = 'user7@gmail.com'
 user_login6.user_ig_handle = 'party.somewhere'
 user_login6.save!
@@ -277,6 +277,54 @@ govball.state = 'NY'
 govball.country = 'US'
 
 govball.save!
+
+forta = Event.new
+forta.name = "FortaRock"
+forta.start_date = "May 29, 2020"
+forta.end_date = "May 31, 2020"
+forta.genre = "Metal"
+forta.partnership = "Yes, food truck: allocate 1 photographer"
+forta.type_event = "Multi-day Festival"
+forta.location = "Netherlands"
+forta.event_description = "Some well-knowns and not so well-knowns hit the stage to ensure your neck is in pain for the next week as you rock out to their heaviest music. The only thing louder than the music is the passion surrounding the event."
+forta.local_img = "forta.jpg"
+forta.city = "Nijmegen"
+forta.state = 'Gelderland'
+forta.country = 'The Netherlands'
+
+forta.save!
+
+canyon = Event.new
+canyon.name = "Bass Canyon"
+canyon.start_date = "August 28, 2020"
+canyon.end_date = "August 30, 2020"
+canyon.genre = "EDM"
+canyon.partnership = "Yes, food truck: allocate 1 photographer"
+canyon.type_event = "Multi-day Festival"
+canyon.location = "George"
+canyon.event_description = "Bass Canyon promises 3 days and nights of non-stop bass music with no stage conflicts, and of course, lots of Excision sets."
+canyon.local_img = "canyon.jpg"
+canyon.city = "George"
+canyon.state = 'WA'
+canyon.country = 'US'
+
+canyon.save!
+
+warehouse = Event.new
+warehouse.name = "Djakarta Warehouse Project"
+warehouse.start_date = "December 11, 2020"
+warehouse.end_date = "December 13, 2020"
+warehouse.genre = "EDM"
+warehouse.partnership = "Yes, food truck: allocate 1 photographer"
+warehouse.type_event = "Multi-day Festival"
+warehouse.location = "Jakarta"
+warehouse.event_description = "Starting life as a night club event, the party grew so big that organizers had to move to the Jakarta International Expo to hold the crowd. A wide range of sub-genres that fall under the electronic umbrella are featured during the three-day weekend"
+warehouse.local_img = "warehouse.jpg"
+warehouse.city = "Jakarta"
+warehouse.state = 'West Java'
+warehouse.country = 'Indonesia'
+
+warehouse.save!
 
 puts "Enhance..."
 # Package Instances
