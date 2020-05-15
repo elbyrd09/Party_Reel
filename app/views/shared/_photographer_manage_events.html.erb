@@ -1,19 +1,22 @@
-<div class="event-show-card mt-4" >
+  <div class="event-show-card mt-4" >
 
-    <div class="event-infos">
-        <div>
-          <h5 style="color: grey"><%= event.name %></h5>
-          <h5 style="color: grey">Dates needed: <%= event.start_date.strftime("%B %d, %Y") %> </h5>
-          <p style="color: grey"><strong>Venue:</strong> Outdoor racetrack</p>
-          <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
-          <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
-        </div>
-         <a class="btn btn-primary" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
-         <h2  style="border-bottom: #0fabbc solid;"></h2>
-    </div>
+      <div id="event-info" class="card-category" style="background-image: url(<%= asset_path(event.local_img) %>)">
+          <div class="event-infos hidden">
+            <h5 style="color: grey"><%= event.name %></h5>
+            <h5 style="color: grey">Dates needed: <%= event.start_date.strftime("%B %d, %Y") %> </h5>
+            <p style="color: grey"><strong>Venue:</strong> Outdoor racetrack</p>
+            <p style="color: grey"><strong>Walking rate:</strong> Heavy</p>
+            <p style="color: grey"><strong>Average consumer spending/day:</strong> $200USD</p>
+          </div>
 
-
-</div>
+           <h2  style="border-bottom: #0fabbc solid;"></h2>
+      </div>
+      <% if current_user.photographer.availablephotographers.where(event_id: event.id)[0].nil? %>
+        <a class="btn btn-danger" data-toggle="modal" data-target="#ManageEventModal<%= event.id %>" href="#" role="button">Shoot this event</a>
+      <% else %>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#ManageAvailabilityModal<%= event.id %>" href="#" role="button">You're shooting this event!</a>
+      <% end %>
+  </div>
 
 
 <!-- The Modal -->
@@ -46,6 +49,34 @@
       </div>
     </div>
   </div>
+
+<% if !current_user.photographer.availablephotographers.where(event_id: event.id)[0].nil? %>
+
+<div class="modal fade" id= "ManageAvailabilityModal<%= event.id %>" >
+    <div class="modal-dialog modal-dialog-centered " style="max-width: 100%">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color: grey">Are you sure you want to cancel your availability for <strong><%= event.name %></strong>?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body dynamic days as per event-->
+        <div class="modal-body">
+          <%= button_to "Cancel Availability", availablephotographer_path(current_user.photographer.availablephotographers.where(event_id: event.id)[0].id), method: :delete, class: "btn btn-primary"  %>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<% end %>
 
 
 

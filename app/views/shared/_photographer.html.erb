@@ -33,9 +33,6 @@
                   <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#pag2-1" role="tab" aria-controls="My Clients">My Events</a>
                   </li>
-                  <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#pag2-2" role="tab" aria-controls="Event Manager">Booked Event</a>
-                  </li>
                 </ul>
 
             <div class="tab-content">
@@ -43,28 +40,23 @@
               <div class="tab-pane active" id="pag2-1" role="tabpanel">
                 <div class="sv-tab-panel">
                     <div class=“container2-1”>
-                      <div class=“homepage-cards”>
-                        <% @bookings.each do |booking| %>
-                          <%= render 'shared/photographer_manage_events', event: booking.event %>
-                        <% end %>
+                     <div class="row md-margin-btm">
+                        <% @events.each do |event| %>
+                        <div class="d-flex col-6 col-lg-6 col-md-6 col-sm-6 justify-content-around margin-tp">
+                          <div class=“homepage-cards”>
+
+                              <%= render 'shared/photographer_manage_events', event: event %>
+
+                          </div>
+
+                        </div>
+                       <% end %>
                       </div>
+
                     </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="pag2-2" role="tabpanel">
-                <div class="sv-tab-panel">
-                  <div class=“container2-2”>
-
-
-                      <div class=“homepage-cards”>
-                         <%  @eventsregistered.each do |event| %>
-                          <%= render 'shared/pgr_booked_events', event: event %>
-                         <% end %>
-                      </div>
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
@@ -83,3 +75,14 @@
      </div>
     </div>
   </div>
+
+<script>
+window.onload=function(){
+  var eventInfo = document.querySelectorAll('#event-info').forEach (info =>
+    info.addEventListener("click",  (e)=>{
+    info.childNodes[1].classList.toggle('hidden')
+    info.classList.toggle('hide-background')
+    }
+  ))
+}
+</script>

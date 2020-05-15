@@ -32,7 +32,7 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     # if current_user.is_photographer
-    #@events = Event.all
+    @events = Event.all.reject {|event| event.start_date < Date.today}
     @bookings = Booking.where(photographer_id: current_user.photographer)
     # add the current_user to find the unique bookings for a photographer's dashboard
     # else
