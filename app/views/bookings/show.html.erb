@@ -12,7 +12,13 @@
     </div>
 
   <div class="event-show-card d-flex flex-column h-100">
-          <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </body>
+    <% if @booking.package.name == "How do you want it?" %>
+          <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </p>
+    <% elsif @booking.package.name == "SICKO Mode" %>
+          <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>Dedicated photographer (All Day)</p>
+    <% else %>
+          <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>Periodic photographer (Partial Day) </p>
+    <% end %>
         <div class="d-flex justify-content-center text-center py-3">
           <div class="d-flex flex-column text-center">
             <small style="color: grey;">Dedicated attention for 1 hour</small>

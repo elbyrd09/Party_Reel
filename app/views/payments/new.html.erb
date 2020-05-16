@@ -2,7 +2,7 @@
   <div class="event-show d-flex justify-content-center mb-3">
       <img src=" <%= asset_path(@booking.event.local_img) %>" alt="event picture">
   </div>
-     <div class="event-show-card d-flex justify-content-center flex-row flex-wrap py-3">
+     <div class="event-show-card d-flex justify-content-center flex-column py-3">
       <%= render 'shared/progress_bar' %>
         <div>
           <h5 style="color: grey">Package review and payment for <%= current_user.first_name %></h5><br><br>

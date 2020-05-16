@@ -61,7 +61,7 @@
                     <% when "Timezones" %>
                       <p><%= photographer.user.first_name %> can shoot during the event<br>on <strong> <%= @event.start_date.strftime("%B %d") %> </strong> with your group!</p>
                     <% when "How do you want it?" %>
-                      <p>You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from <%=@start_time%> to <%= @end_ti %>!</p>
+                      <p>You selected a 1 hour shoot with <%= photographer.user.first_name %> <%= photographer.user.last_name %> from <%=@start_time%> to <%= @end_time %>!</p>
                     <% when "SICKO Mode" %>
                       <p> <%= photographer.user.first_name %> <%= photographer.user.last_name %> will join you all day at <%= @event.name %>, <%= @event.start_date.strftime("%A, %B %d") %>. Your status = <strong> BALLER!</strong>!</p>
                     <% end %>

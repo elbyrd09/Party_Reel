@@ -278,22 +278,6 @@ govball.country = 'US'
 
 govball.save!
 
-forta = Event.new
-forta.name = "FortaRock"
-forta.start_date = "May 29, 2020"
-forta.end_date = "May 31, 2020"
-forta.genre = "Metal"
-forta.partnership = "Yes, food truck: allocate 1 photographer"
-forta.type_event = "Multi-day Festival"
-forta.location = "Netherlands"
-forta.event_description = "Some well-knowns and not so well-knowns hit the stage to ensure your neck is in pain for the next week as you rock out to their heaviest music. The only thing louder than the music is the passion surrounding the event."
-forta.local_img = "forta.jpg"
-forta.city = "Nijmegen"
-forta.state = 'Gelderland'
-forta.country = 'The Netherlands'
-
-forta.save!
-
 canyon = Event.new
 canyon.name = "Bass Canyon"
 canyon.start_date = "August 28, 2020"
