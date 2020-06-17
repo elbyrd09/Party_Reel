@@ -1,3 +1,24 @@
+
+// primary floating card on homepage (CTA for attendees to book a festival that is close to their IP address)
+
+.btn-primary-float{
+  background-color: $cerulean;
+  color: $white;
+  align-self: center;
+}
+
+.btn-primary-float:hover {
+  background-color: $bright_turquoise;
+  color: white;
+  text-decoration: none;
+}
+
+body >  div.banner.col-lg-12.col-md-12.col-sm-12 > div:nth-child(2) > div > div > a{
+  text-decoration: none;
+}
+
+// Gradient button for the login screen - may abandon to be consistent with sitewide styling
+
 .btn-gradient {
   background-image: linear-gradient(to right, $torch_red 0%, $contessa 12%, $tapestry 23%, $meteorite 78%, $meteorite_dark 88%, $persian_indigo 100%);
   color: $white;
@@ -13,17 +34,21 @@
   border: none;
 }
 
-.btn-primary-pay{
-  background-color: $bright_turquoise;
-  color: $white;
-  align-self: center;
-}
 
-.btn-primary-pay:hover {
-  background-color: $torch_red;
-  color: $white;
-  border: none;
-}
+// .btn-primary-pay{
+//   background-color: $bright_turquoise;
+//   color: $white;
+//   align-self: center;
+// }
+
+// .btn-primary-pay:hover {
+//   background-color: $torch_red;
+//   color: $white;
+//   border: none;
+// }
+
+// payment button for each view in the booking journey
+
 
 .btn-new {
   display: inline-grid;

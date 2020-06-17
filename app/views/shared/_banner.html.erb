@@ -9,10 +9,12 @@
           <!-- logic incase the IP address is blocked for some reason -->
           <% if @smallest_distance.nil? %>
           <% call_to_action = 'Book Now!'%>
-          <% else call_to_action = "Book Now! Only #{@smallest_distance.to_i} kilometres away!" %>
+          <% else call_to_action = "Book Now - only #{@smallest_distance.to_i} kilometers away!" %>
           <% end %>
           <img class="card-img-top nearest-event-image" src="<%= asset_path(@nearest_event.local_img) %>" alt="">
-          <a href="events/<%= @nearest_event.id %>"><button type="button" class="btn btn-danger btn-lg btn-block"><%= call_to_action %></button></a>
+          <div class="d-flex flex-column py-3">
+            <a href="events/<%= @nearest_event.id %>"><button type="button" class="btn btn-primary-float btn-lg btn-block"><%= call_to_action %></button></a>
+          </div>
         </div>
       </div>
       <% end %>
