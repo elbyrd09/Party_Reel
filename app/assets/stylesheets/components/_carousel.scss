@@ -95,13 +95,21 @@
 
 .carousel-new {
   color: $lily-white;
-  font-size: large;
+  font-size: 1.5rem;
   font-weight: bold;
   position: absolute;
   text-align: left;
   align-self: flex-end !important;
   padding: 5px;
   transition: 5s;
+  top: 40%;
+  width: 50%;
+}
+
+ @media only screen and (max-width: 900px)  {
+  .carousel-new{
+  display: none;
+  }
 }
 
 

@@ -73,7 +73,12 @@
     margin: 10px;
 }
 
-.pgr_img img {
-  max-width: 100%;
-  border-radius: 5px;
+  .pgr_img img {
+    max-width: 100%;
+    border-radius: 5px;
 }
+  .card-img-top{
+    width: 60%;
+    height: auto;
+    box-shadow: 0 0 50px rgba(0,0,0,.75);
+  }
