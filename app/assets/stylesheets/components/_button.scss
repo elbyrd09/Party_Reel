@@ -45,18 +45,6 @@ body > div.banner.d-flex.flex-column > div.card-fluid > div > a {
 }
 
 
-// .btn-primary-pay{
-//   background-color: $bright_turquoise;
-//   color: $white;
-//   align-self: center;
-// }
-
-// .btn-primary-pay:hover {
-//   background-color: $torch_red;
-//   color: $white;
-//   border: none;
-// }
-
 // payment button for each view in the booking journey
 
 
@@ -79,6 +67,26 @@ body > div.banner.d-flex.flex-column > div.card-fluid > div > a {
   background-color: $cerulean;
   border: solid;
   border-color: $white;
+  text-decoration: none;
+}
+
+// login button for application
+
+.button-login {
+  padding: 10px 25px;
+  border: 1px solid $white;
+  border-radius: 100px;
+  font-weight: 400;
+  background-color: $lily-white;
+  color: rgba(10,10,10, .5);
+}
+
+.button-login:hover {
+  background-color: $cerulean;
+  color: #fff;
+  transform: scale(1.03);
+  box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+  border: 1px solid $white;
   text-decoration: none;
 }
 
