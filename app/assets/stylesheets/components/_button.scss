@@ -15,8 +15,16 @@
   text-decoration: none;
 }
 
+
 body > div.banner.d-flex.flex-column > div.card-fluid > div > a {
   text-decoration: none;
+}
+
+ @media only screen and (max-width: 576px)  {
+  .btn-primary-float{
+      width: 100%;
+      margin: 0 auto;
+  }
 }
 
 // Gradient button for the login screen - may abandon to be consistent with sitewide styling
