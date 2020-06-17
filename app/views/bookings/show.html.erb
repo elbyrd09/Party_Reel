@@ -5,7 +5,7 @@
     <div class="event-show-card m-4 d-flex justify-content-center flex-column">
     <%= render 'shared/progress_bar' %>
         <p>My Photographer</p>
-      <div class="d-flex justify-content-around">
+      <div class="d-flex justify-content-center mt-3">
         <% if @booking.package.name == "How do you want it?" %>
             <small class="p-3 d-flex align-items-center" style="color: grey"><%= @booking.photographer.user.first_name %> will join you for the John Doe set from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M")%> </small>
           <% elsif @booking.package.name == "SICKO Mode" %>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-  <div class="event-show-card d-flex flex-column h-100">
+  <div class="event-show-card d-flex flex-column h-100 py-3">
     <% if @booking.package.name == "How do you want it?" %>
           <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </p>
     <% elsif @booking.package.name == "SICKO Mode" %>

@@ -10,8 +10,8 @@
           <img src=" <%= asset_path(@booking.package.local_img) %>" alt="package picture" style="height: 100px; width: 100px; object-fit: cover; border-radius: 5px;">
             <div class="p-3 text-right">
               <h5 style="color: grey"><%= @booking.package.name %></h5>
-                <% if  @booking.package.name == "How do you want it"%>
-                  <small style="color: grey"><%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M") %> </small>
+                <% if  @booking.package.name == "How do you want it?"%>
+                  <small style="color: grey">Shoot time is from <%= @booking.start_time.strftime("%k:%M") %>PM - <%= @booking.end_time.strftime("%k:%M") %>PM</small>
                 <% elsif @booking.package.name == "SICKO Mode" %>
                   <small style="color: grey"><%= "Dedicated session - seems to be a BALLER here!" %> </small>
                 <% else %>
