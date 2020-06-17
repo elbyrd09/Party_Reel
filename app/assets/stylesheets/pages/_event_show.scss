@@ -32,12 +32,10 @@
   }
 
 .event-show img {
-    width: fit-content;
-    // display: flex;
-    // align-self: center;
-    height: 60vh;
+    width: 100%;
+    height: auto;
     backface-visibility: hidden;
-    box-shadow: 0 0 25px rgba(0,0,0,.15);
+    box-shadow: 0 0 25px rgba(0,0,0,.55);
 }
 
 
