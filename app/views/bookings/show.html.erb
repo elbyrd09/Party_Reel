@@ -6,7 +6,13 @@
     <%= render 'shared/progress_bar' %>
         <p>My Photographer</p>
       <div class="d-flex justify-content-around">
-            <small class="p-3 d-flex align-items-center" style="color: grey"><%= @booking.photographer.user.first_name %> will join you for the Arianna Grande set at 12:00 today!</small>
+        <% if @booking.package.name == "How do you want it?" %>
+            <small class="p-3 d-flex align-items-center" style="color: grey"><%= @booking.photographer.user.first_name %> will join you for the John Doe set from <%= @booking.start_time.strftime("%k:%M") %> - <%= @booking.end_time.strftime("%k:%M")%> </small>
+          <% elsif @booking.package.name == "SICKO Mode" %>
+            <small class="p-3 d-flex align-items-center" style="color: grey"><%= "You've booked the photographer for the entire day - most dope!" %> </small>
+          <% else %>
+            <small class="p-3 d-flex align-items-center" style="color: grey"><%= "We'll capture 15 awesome photographs at different times today!"%> </small>
+        <% end %>
             <img src="<%= asset_path("profile_img.jpg") %>" class="float-right card-trip-user avatar-bordered" style="shape-outside: circle()," />
       </div>
     </div>
@@ -19,10 +25,18 @@
     <% else %>
           <p><%= @booking.package.name %> on <%= @booking.event.start_date.strftime("%b %d") %> <br>Periodic photographer (Partial Day) </p>
     <% end %>
-        <div class="d-flex justify-content-center text-center py-3">
-          <div class="d-flex flex-column text-center">
-            <small style="color: grey;">Dedicated attention for 1 hour</small>
-            <small style="color: grey;">Minimum: 50 photographs of your group</small></div><br>
+        <div class="d-flex flex-column justify-content-center text-center py-3">
+          <div class="text-center">
+            <% if @booking.package.name == "How do you want it?" %>
+              <small style="color: grey;">Dedicated attention for entire 1 hour set</small><br>
+              <small style="color: grey;">Minimum: 30 photographs of your group</small><br>
+            <% elsif @booking.package.name == "SICKO Mode"  %>
+              <small style="color: grey;">Entire festival day photography</small><br>
+              <small style="color: grey;">Minimum: 50 photographs of your group</small><br>
+            <% else %>
+              <small style="color: grey;">We'll find you throughout the day. Have fun!</small><br>
+              <small style="color: grey;">Periodic shooting: guranteed 15 photographs</small><br>
+            <% end %>
           </div>
           <div class="d-flex flex-column text-center">
             <h4 style="color: grey"> Total price    <span style="color: #0FABBC;"><%= humanized_money_with_symbol(@booking.package.price) %></span></h4>
