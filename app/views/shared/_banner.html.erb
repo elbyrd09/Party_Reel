@@ -8,7 +8,7 @@
           <!-- logic incase the IP address is blocked for some reason -->
           <% if @smallest_distance.nil? %>
           <% call_to_action = 'Book Now!'%>
-          <% else call_to_action = "Book Now - only #{@smallest_distance.to_i} kilometers away!" %>
+          <% else call_to_action = "Book a photographer for this festival!" %>
           <% end %>
           <img class="card-img-top nearest-event-image" src="<%= asset_path(@nearest_event.local_img) %>" alt="">
           <div class="d-flex flex-column py-3">
