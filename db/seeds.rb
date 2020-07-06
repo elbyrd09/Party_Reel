@@ -310,6 +310,73 @@ warehouse.country = 'Indonesia'
 
 warehouse.save!
 
+#-- Remove these after testing events
+
+warehouse = Event.new
+warehouse.name = "Djakarta Warehouse 1"
+warehouse.start_date = "July 5, 2020"
+warehouse.end_date = "December 13, 2020"
+warehouse.genre = "EDM"
+warehouse.partnership = "Yes, food truck: allocate 1 photographer"
+warehouse.type_event = "Multi-day Festival"
+warehouse.location = "Downingtown"
+warehouse.event_description = "Starting life as a night club event, the party grew so big that organizers had to move to the Jakarta International Expo to hold the crowd. A wide range of sub-genres that fall under the electronic umbrella are featured during the three-day weekend"
+warehouse.local_img = "Jakarta-44.jpg"
+warehouse.city = "Downingtown"
+warehouse.state = 'Pennsylvania'
+warehouse.country = 'United States'
+
+warehouse.save!
+
+warehouse = Event.new
+warehouse.name = "Djakarta Warehouse 12"
+warehouse.start_date = "July 5, 2020"
+warehouse.end_date = "December 13, 2020"
+warehouse.genre = "EDM"
+warehouse.partnership = "Yes, food truck: allocate 1 photographer"
+warehouse.type_event = "Multi-day Festival"
+warehouse.location = "Downingtown"
+warehouse.event_description = "Starting life as a night club event, the party grew so big that organizers had to move to the Jakarta International Expo to hold the crowd. A wide range of sub-genres that fall under the electronic umbrella are featured during the three-day weekend"
+warehouse.local_img = "Jakarta-44.jpg"
+warehouse.city = "Downingtown"
+warehouse.state = 'Pennsylvania'
+warehouse.country = 'United States'
+
+warehouse.save!
+
+warehouse = Event.new
+warehouse.name = "Djakarta Warehouse 13"
+warehouse.start_date = "July 5, 2020"
+warehouse.end_date = "December 13, 2020"
+warehouse.genre = "EDM"
+warehouse.partnership = "Yes, food truck: allocate 1 photographer"
+warehouse.type_event = "Multi-day Festival"
+warehouse.location = "Downingtown"
+warehouse.event_description = "Starting life as a night club event, the party grew so big that organizers had to move to the Jakarta International Expo to hold the crowd. A wide range of sub-genres that fall under the electronic umbrella are featured during the three-day weekend"
+warehouse.local_img = "Jakarta-44.jpg"
+warehouse.city = "Downingtown"
+warehouse.state = 'WPennsylvania'
+warehouse.country = 'United States'
+
+warehouse.save!
+
+warehouse = Event.new
+warehouse.name = "Djakarta Warehouse 14"
+warehouse.start_date = "July 5, 2020"
+warehouse.end_date = "December 13, 2020"
+warehouse.genre = "EDM"
+warehouse.partnership = "Yes, food truck: allocate 1 photographer"
+warehouse.type_event = "Multi-day Festival"
+warehouse.location = "Downingtown"
+warehouse.event_description = "Starting life as a night club event, the party grew so big that organizers had to move to the Jakarta International Expo to hold the crowd. A wide range of sub-genres that fall under the electronic umbrella are featured during the three-day weekend"
+warehouse.local_img = "Jakarta-44.jpg"
+warehouse.city = "Downingtown"
+warehouse.state = 'Pennsylvania'
+warehouse.country = 'United States'
+
+warehouse.save!
+
+
 puts "Enhance..."
 # Package Instances
 

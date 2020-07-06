@@ -1,10 +1,10 @@
 <%= render "shared/banner", nearest_event: @nearest_event, smallest_distance: @smallest_distance %>
-  <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-    <%= image_tag "PR2.png", alt: "journey map", class: "home-img" %>
-  </div>
-
+      <div class="container">
+        <h3 class="w-85 text-center m-5" style="color: #0FABBC">Music festivals are vehicles for forming community and ingredients that may ultimately shape the identity of an individual.</h3><br>
+        <h3 class="w-85 text-center mb-5" style="color: #0FABBC">We capture significant moments so you don't have to</h3>
+      </div>
+  <hr>
     <div class="container p-3">
-      <h4 class="homepage-events">Select or search for an event below</h4>
       <%= render 'shared/search_bar' %>
     </div>
       <div class="card-deck p-5 mb-5">

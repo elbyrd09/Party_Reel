@@ -6,26 +6,7 @@ class PagesController < ApplicationController
       @events = Event.search_by_location_and_name_and_genre(params[:location])
     else
       @events = Event.all
-      # gets user ip address
-      user_ip_address = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
-      # uses geocoder to convert ip address to coordinates
-      if !user_ip_address.nil?
-        user_location = Geocoder.search(user_ip_address)[0].data['loc']
-        distance_event_hash = {}
-        @smallest_distance = 100000
-        # hash of distance => event
-        @events.each do |event|
-          distance = event.distance_from(user_location)
-          distance_event_hash[distance] = event
-          @smallest_distance = distance if distance < @smallest_distance
-        end
-        # retrieves the nearest event from hash
-        @nearest_event = distance_event_hash[@smallest_distance]
-      else
-        # in the (un)likely case we can't retrieve the users IP
-        @nearest_event = @events[rand(1..@events.length)]
-        @smallest_distance = nil
-      end
+      @nearest_event = Event.priority
     end
   end
 

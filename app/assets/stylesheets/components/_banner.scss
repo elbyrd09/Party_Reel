@@ -2,13 +2,15 @@
   display: flex;
   align-items: start;
   justify-content: start;
-  height: 90vh;
-  background-position: bottom;
+  height: 100vh;
+  max-width: auto;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: $white;
   text-align: left;
   padding: 40px;
+  overflow-x: hidden;
 }
 
 
