@@ -1,13 +1,12 @@
 .banner {
   display: flex;
-  align-items: start;
-  justify-content: start;
-  height: 100vh;
+  justify-content: space-between;
+  height: 10vh;
   max-width: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: $white;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background-color: linear-gradient(to right, $ev, $el, $kath, $greg);
   text-align: left;
   padding: 40px;
   overflow-x: hidden;
